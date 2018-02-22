@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="shelflife-authorized-app" default="all" basedir=".">
+    <property environment="env"/>
+    <property name="dasho.home" value="${env.DASHO_HOME}" />
+
+    <target name="all" depends="compile, instrument, run" />
+
+    <target name="-pre-check">
+        <fail message="Setup is incomplete. See README for instructions.">
+            <condition>
+                <not>
+                    <and>
+                        <available file="${dasho.home}/DashOPro.jar" />
+                        <available file="${dasho.home}/lib/dasho-annotations.jar" />
+                        <available file="${dasho.home}/lib/pa-java15.jar" />
+                        <available file="../sample.slkey" />
+                        <available file="Metalworks.jar" />
+                    </and>
+                </not>
+            </condition>
+        </fail>
+    </target>
+
+    <target name="compile" depends="-pre-check">
+        <mkdir dir="classes" />
+        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7">
+            <classpath>
+                <fileset dir="${dasho.home}/lib">
+                    <include name="dasho-annotations.jar" />
+                    <include name="pa-java15.jar" />
+                </fileset>
+            </classpath>
+            <include name="**/*.java" />
+        </javac>
+    </target>
+
+    <target name="instrument" depends="-pre-check">
+        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+            <jvmarg value="-Djava.awt.headless=true"/>
+            <arg value="--verbose" />
+            <arg file="project.dox" />
+        </java>
+    </target>
+
+    <target name="run">
+        <java fork="true" jar="ProtectedMetalworks.jar" failonerror="true" />
+    </target>
+
+    <target name="reset">
+        <java fork="true" classpath="ProtectedMetalworks.jar" classname="MetalworksAuthorization" failonerror="true">
+            <arg value="reset" />
+        </java>
+    </target>
+
+    <target name="clean">
+        <delete quiet="true" includeemptydirs="true">
+            <fileset dir="classes" />
+            <fileset dir=".">
+                <include name="ProtectedMetalworks.jar" />
+                <include name="project-se.map" />
+            </fileset>
+        </delete>
+    </target>
+
+</project>

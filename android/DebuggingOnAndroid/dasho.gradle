@@ -1,0 +1,4 @@
+dashOConfig {
+    dashOHome = "${DASHO_HOME}"
+    doxFilename = 'project.dox'
+}

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="8.2.0">
+    <propertylist>
+        <property name="projectname" value="project"/>
+    </propertylist>
+    <global>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <inputpath>
+        <pathelement location="helloworld.jar"/>
+    </inputpath>
+    <entrypoints>
+        <classes name="dasho.samples.Main" rename="true">
+            <method name="main" signature="java.lang.String[]"/>
+        </classes>
+    </entrypoints>
+    <report path="${projectname}-report.txt"/>
+    <output autocopy="false">
+        <jar path="obfuscated/helloworld.jar" manifest="helloworld.jar"/>
+    </output>
+    <removal classes="unused" members="unused"/>
+    <methodCallRemoval/>
+    <renaming option="on" renameAnnotations="off">
+        <mapping>
+            <mapreport path="${projectname}-mapreport.txt"/>
+            <mapoutput overwrite="true" path="${projectname}.map"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <stringencrypt option="off">
+        <seOutput path="${projectname}-se.map"/>
+    </stringencrypt>
+    <injection>
+        <instrumentation supportOffline="false" fullData="false">
+            <expiry key="../sample.slkey"/>
+        </instrumentation>
+        <checks>
+            <shelfLifeCheck expirationDate="02/28/2018" warningPeriod="120">
+                <locations>
+                    <classes name="dasho.samples.Main">
+                        <method name="main" signature="java.lang.String[]"/>
+                    </classes>
+                </locations>
+            </shelfLifeCheck>
+        </checks>
+    </injection>
+</dasho>

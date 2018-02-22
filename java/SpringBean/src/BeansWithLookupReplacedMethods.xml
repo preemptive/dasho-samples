@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean class="com.example.spring.beans.TimeBean" id="timeBean"
+		scope="prototype" />
+	<bean class="com.example.spring.beans.MyLookupReplacedBean" id="myLRBean">
+		<constructor-arg value="5" />
+		<lookup-method bean="timeBean" name="newTimeBean" />
+		<replaced-method name="printTimeBean" replacer="replacer">
+			<arg-type>com.example.spring.beans.TimeBean</arg-type>
+		</replaced-method>
+	</bean>
+	<bean class="com.example.spring.beans.Replacer" id="replacer" />
+	
+	<!-- Now an abstract example -->
+	<bean abstract='true' id="AbstractParent">
+		<constructor-arg value="3" />
+		<lookup-method bean="timeBean" name="newTimeBean" />
+		<replaced-method name="printTimeBean" replacer="replacer">
+			<arg-type>com.example.spring.beans.TimeBean</arg-type>
+		</replaced-method>
+	</bean>
+	
+	<bean class="com.example.spring.beans.MyLookupReplacedBean" id="ChildOfAbstract" parent ="AbstractParent"/>
+	
+	<bean id="ChildOfChild" parent="ChildOfAbstract">
+		<lookup-method bean="timeBean" name="newTimeBean" />
+		<replaced-method name="printTimeBean" replacer="replacer">
+			<arg-type>java.lang.Object</arg-type>
+		</replaced-method>
+	</bean>
+	
+</beans>

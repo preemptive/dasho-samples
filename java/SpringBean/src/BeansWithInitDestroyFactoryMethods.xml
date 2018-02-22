@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-init-method="def_init" default-lazy-init="true" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean class="com.example.spring.beans.MyDefBean" id="MyDefBean" />
+	<bean class="com.example.spring.beans.MyOwnBean" destroy-method="my_destroy" id="MyOwnBean" init-method="my_init"/>
+	<bean class="com.example.spring.beans.MyFactoryBean" destroy-method="my_destroy" factory-method="my_factory" id="MyFactoryBean1" init-method="my_init"/>
+	<bean class="com.example.spring.beans.MyFactoryBean" destroy-method="my_destroy2" factory-method="my_factory2" id="MyFactoryBean2" init-method="my_init2"/>
+	<bean abstract="true" factory-method="my_factory" id="AbstractParent" init-method="my_init" />
+	<bean class="com.example.spring.beans.MyFactoryBean" init-method="my_init3" id="ChildOfAbstract" parent="AbstractParent" scope="prototype"/>
+	<bean id="ChildOfChild" init-method="my_init2" parent="ChildOfAbstract" scope="prototype"/>
+</beans>

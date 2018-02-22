@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/fibTitle"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <TextView
+            android:id="@+id/fibTextView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:text="@string/fibSeqLb"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <EditText
+            android:id="@+id/fibSeqNum"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/fibTextView1"
+            android:layout_alignBottom="@+id/fibTextView1"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/fibTextView1"
+            android:ems="10"
+            android:gravity="right|center_vertical"
+            android:inputType="number"/>
+
+    <Button
+            android:id="@+id/calcFibBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/fibSeqNum"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
+            android:background="@drawable/rounded"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/fibCalcBt"/>
+
+    <TextView
+            android:id="@+id/calcFibRes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calcFibBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+</RelativeLayout>

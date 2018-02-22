@@ -1,0 +1,3 @@
+dashOConfig {
+    dashOHome = "${DASHO_HOME}"
+}

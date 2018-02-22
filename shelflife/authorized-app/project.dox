@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="8.2.0">
+    <propertylist/>
+    <global>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <inputpath>
+        <pathelement location="Metalworks.jar"/>
+        <pathelement location="classes"/>
+    </inputpath>
+    <entrypoints>
+        <classes name="Metalworks">
+            <method name="main" signature="java.lang.String[]" modifiers="public static"/>
+        </classes>
+        <classes name="MetalworksAuthorization">
+            <method name="main" signature="java.lang.String[]" modifiers="public static"/>
+        </classes>
+    </entrypoints>
+    <output>
+        <jar path="ProtectedMetalworks.jar"/>
+    </output>
+    <removal classes="unused" members="unused">
+        <debug/>
+        <attributes/>
+    </removal>
+    <methodCallRemoval/>
+    <renaming option="on" renameAnnotations="off">
+        <mapping>
+            <mapoutput overwrite="true"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <controlflow option="on"/>
+    <stringencrypt option="on">
+        <seOutput path="${dasho.project}-se.map"/>
+    </stringencrypt>
+    <injection>
+        <instrumentation sendMessages="false" supportOffline="false" fullData="false">
+            <expiry key="../sample.slkey"/>
+        </instrumentation>
+        <checks>
+            <shelfLifeCheck action="MetalworksAuthorization.check()" tokenSource="MetalworksAuthorization.getToken()" where="End">
+                <locations>
+                    <classes name="MetalworksFrame">
+                        <method name="&lt;init&gt;" signature=""/>
+                    </classes>
+                </locations>
+            </shelfLifeCheck>
+        </checks>
+    </injection>
+</dasho>

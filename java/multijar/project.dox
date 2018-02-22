@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="8.2.0">
+    <propertylist>
+        <property name="projectname" value="multijar"/>
+    </propertylist>
+    <global>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <inputpath>
+        <pathelement location="app1.jar"/>
+        <pathelement location="app2.jar"/>
+        <pathelement location="lib/common.jar"/>
+    </inputpath>
+    <entrypoints>
+        <classes name="dasho.samples.app1.Main" rename="true">
+            <method name="main" signature="java.lang.String[]"/>
+        </classes>
+        <classes name="dasho.samples.app2.Main" rename="true">
+            <method name="main" signature="java.lang.String[]"/>
+        </classes>
+    </entrypoints>
+    <report path="${projectname}-report.txt"/>
+    <output merge="false" autocopy="false">
+        <dir path="obfuscated"/>
+    </output>
+    <removal classes="unused" members="unused">
+        <debug/>
+        <attributes/>
+    </removal>
+    <methodCallRemoval/>
+    <renaming option="on" renameAnnotations="off">
+        <mapping>
+            <mapreport path="${projectname}-mapreport.txt"/>
+            <mapoutput overwrite="true" path="${projectname}.map"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <stringencrypt option="on">
+        <seOutput path="${projectname}-se.map"/>
+    </stringencrypt>
+</dasho>

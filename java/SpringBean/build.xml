@@ -1,0 +1,61 @@
+<project name="SpringBeanSample" default="help">
+
+    <path id="spring_classpath">
+        <fileset dir="libs">
+            <include name="*.jar" />
+        </fileset>
+    </path>
+
+    <target name="compile">
+        <delete dir="classes" quiet="true" />
+        <mkdir dir="classes" />
+        <javac includeantruntime="false" srcdir="src" destdir="classes" debug="true" source="1.7" target="1.7">
+            <classpath refid="spring_classpath" />
+        </javac>
+        <copy toDir="classes">
+            <fileset dir="src">
+                <include name="**/*.xml" />
+            </fileset>
+        </copy>
+        <manifestclasspath property="manifest_cp" jarfile="MySpringApp.jar">
+            <classpath refid="spring_classpath" />
+        </manifestclasspath>
+        <jar destfile="MySpringApp.jar" basedir="classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.example.spring.app.MySpringApp" />
+                <attribute name="Class-Path" value="${manifest_cp}" />
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java fork="true" jar="MySpringApp.jar" failonerror="true" />
+    </target>
+    
+    <target name="runObfuscated">
+        <java fork="true" jar="MyObfuscatedSpringApp.jar" failonerror="true" />
+    </target>
+
+    <target name="help">
+        <echo message="Valid targets:" />
+        <echo message="clean - Cleans the environment (including deleting DashO project files)" />
+        <echo message="compile - Compiles the code and creates a jar" />
+        <echo message="help - Prints out this message" />
+        <echo message="run - Runs the unobfuscated application" />
+        <echo message="runObfuscated - Runs the obfuscated application" />
+    </target>
+
+    <target name="clean">
+        <delete dir="classes" quiet="true" />
+        <delete dir="obfuscated" quiet="true" />
+        <delete file="MySpringApp.jar" quiet="true" />
+        <delete file="MyObfuscatedSpringApp.jar" quiet="true" />
+        <delete>
+            <fileset dir="." includes="*-stdout.txt" />
+            <fileset dir="." includes="*-mapreport.txt" />
+            <fileset dir="." includes="*-report.txt" />
+            <fileset dir="." includes="*.map" />
+        </delete>
+    </target>
+
+</project>

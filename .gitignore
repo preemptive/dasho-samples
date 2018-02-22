@@ -1,2 +1,5 @@
 .DS_Store
 ._*
+classes
+*.iml
+.idea

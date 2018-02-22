@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" default-lazy-init="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean class="com.example.spring.beans.ClassBean" id="classBean1">
+		<constructor-arg type="java.lang.String" value="com.example.spring.other.PrintHello"/>
+	</bean>
+	<bean class="com.example.spring.beans.ClassBean" id="classBean2">
+		<property name="className">
+			<value>com.example.spring.other.PrintGreetings</value>
+		</property>
+	</bean>
+	<bean class="com.example.spring.beans.ListBean" id="listBean">
+		<property name="classNames">
+			<list>
+				<value>com.example.spring.other.PrintHello</value>
+				<value>com.example.spring.other.PrintGreetings</value>
+				<value>com.example.spring.other.PrintGoodBye</value>
+			</list>
+		</property>
+	</bean>
+	<bean class="com.example.spring.beans.PropertyBean" id="internalPropBean">
+		<constructor-arg type="java.lang.String" value="Internal Bean"/>
+	</bean>
+	<bean class="com.example.spring.beans.PropertyBean" id="propBean">
+		<constructor-arg ref="internalPropBean" type="com.example.spring.beans.PropertyBean"/>
+		<property name="number" value="42"/>
+		<property name="on" value="true"/>
+		<property name="string" value="PropertyBean"/>
+	</bean>
+	
+	<bean abstract="true" id="AbstractParent" >
+		<property name="num" value="42"/>
+		<property name="flt" value="3.14"/>
+		<property name="str" value="AbstractParent"/>
+	</bean>
+	
+	<bean class="com.example.spring.beans.ChildBean" id="ChildOfAbstract" parent="AbstractParent">
+		<property name="num" value="42"/>
+		<!-- flt will be inherited from AbstractParent -->
+		<property name="str" value="child"/>
+	</bean>
+	
+	<bean id="ChildOfChild" parent="ChildOfAbstract">
+		<property name="num" value="11"/>
+		<!-- flt will be inherited from AbstractParent -->
+		<!-- str will be inherited from ChildOfAbstract -->
+	</bean>
+</beans>

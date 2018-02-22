@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="shelflife-basic" default="all" basedir=".">
+    <property environment="env"/>
+    <property name="dasho.home" value="${env.DASHO_HOME}" />
+
+    <target name="-pre-check">
+        <fail message="Setup is incomplete. See README for instructions.">
+            <condition>
+                <not>
+                    <and>
+                        <available file="${dasho.home}/DashOPro.jar" />
+                        <available file="../sample.slkey" />
+                    </and>
+                </not>
+            </condition>
+        </fail>
+    </target>
+
+    <target name="all" depends="compile, instrument, run" />
+
+    <target name="compile" depends="-pre-check">
+        <mkdir dir="classes" />
+        <javac srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7" />
+        <jar jarfile="helloworld.jar">
+            <fileset dir="classes">
+                <include name="**/*" />
+            </fileset>
+            <manifest>
+                <attribute name="Main-Class" value="dasho.samples.Main" />
+            </manifest>
+        </jar>
+        <delete quiet="true">
+            <fileset dir="classes" />
+        </delete>
+    </target>
+
+    <target name="instrument" depends="-pre-check">
+        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+            <jvmarg value="-Djava.awt.headless=true"/>
+            <arg value="--verbose" />
+            <arg file="project.dox" />
+        </java>
+    </target>
+
+    <target name="run">
+        <java fork="true" jar="obfuscated/helloworld.jar" failonerror="true" />
+    </target>
+
+    <target name="clean">
+        <delete quiet="true" includeemptydirs="true">
+            <fileset dir="classes" />
+            <fileset dir="output" />
+            <fileset dir=".">
+                <include name="*-mapreport.txt" />
+                <include name="*-report.txt" />
+                <include name="*.map" />
+                <include name="helloworld.jar" />
+            </fileset>
+        </delete>
+    </target>
+
+</project>

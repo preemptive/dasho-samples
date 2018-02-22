@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.dasho.android.debug">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application android:allowBackup="false" android:icon="@drawable/ic_launcher" android:label="@string/app_name" android:theme="@style/AppTheme">
+        <activity android:label="@string/title_activity_main" android:name="com.dasho.android.debug.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:label="@string/title_activity_random_gen" android:name="com.dasho.android.debug.RandomGenActivity">
+        </activity>
+        <activity android:label="@string/title_activity_fib" android:name="com.dasho.android.debug.FibActivity">
+        </activity>
+    </application>
+
+</manifest>

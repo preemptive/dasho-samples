@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="simpleapp" default="all" basedir=".">
+    <property environment="env"/>
+    <property name="dasho.home" value="${env.DASHO_HOME}" />
+
+    <target name="all" depends="compile, dasho, run" />
+
+    <target name="-pre-check" >
+        <fail message="DASHO_HOME is not configured. See README for instructions.">
+            <condition>
+				<not>
+                    <available file="${dasho.home}/DashOPro.jar"/>
+				</not>
+			</condition>
+        </fail>
+    </target>
+
+    <target name="compile" depends="-pre-check">
+        <mkdir dir="classes" />
+        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7" />
+    </target>
+
+    <target name="dasho" depends="-pre-check">
+        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+            <jvmarg value="-Djava.awt.headless=true"/>
+            <arg value="-v" />
+            <arg file="project.dox" />
+        </java>
+    </target>
+
+    <target name="run">
+        <java fork="true" classname="dasho.samples.HelloWorld" classpath="obfuscated" failonerror="true">
+            <arg value="World" />
+        </java>
+    </target>
+
+    <target name="clean">
+        <delete quiet="true" includeemptydirs="true">
+            <fileset dir="classes" />
+            <fileset dir="obfuscated" />
+            <fileset dir=".">
+                <include name="*-mapreport.txt" />
+                <include name="*-report.txt" />
+                <include name="*.map" />
+            </fileset>
+        </delete>
+    </target>
+
+</project>

@@ -1,0 +1,6 @@
+*-mapreport.txt
+*-report.txt
+*.map
+*-se.map
+*.jar
+obfuscated

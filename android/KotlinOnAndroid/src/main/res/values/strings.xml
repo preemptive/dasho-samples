@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Kotlin On Android</string>
+    <string name="menu_about">About</string>
+    <string name="abtTitle">About</string>
+    <string name="abtMsg">DashO Kotlin App for Android, Version 1.0.</string>
+    <string name="title_activity_main">Kotlin Sample for Android</string>
+    <string name="title_activity_random_gen">Random Generator</string>
+    <string name="rndMinNum">Minimum:</string>
+    <string name="rndMaxNum">Maximum:</string>
+    <string name="rndTitle">Random Generator</string>
+    <string name="genBt">Generate</string>
+    <string name="genActBtn">Random Generator</string>
+    <string name="minMaxErr">Maximum must be greater than minimum.</string>
+    <string name="title_activity_fib">Fibonacci Calculator</string>
+    <string name="fibSeqLb">Sequence Number:</string>
+    <string name="fibSeqDef">11</string>
+    <string name="fibBtn">Fibonacci Calculator</string>
+    <string name="fibCalcBt">Calculate</string>
+    <string name="fibCalcProc">Calculating&#8230;</string>
+    <string name="badNum">Please enter positive numbers.</string>
+    <string name="fibTitle">Fibonacci Calculator</string>
+    <string name="errTitle">Error</string>
+    <string name="fibProc">Currently processing a sequence number.</string>
+    <string name="fibLarge">That sequence number fairly large, it may take a while.</string>
+    <string name="fibTooLarge">That sequence number is too large.</string>
+</resources>

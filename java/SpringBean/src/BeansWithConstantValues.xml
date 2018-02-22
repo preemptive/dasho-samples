@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+
+
+     <bean class="com.example.spring.beans.ConstantBean" id="question_answer_1">
+          <constructor-arg>
+               <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+                    <property name="staticField" value="com.example.spring.other.MyConstants.QUESTION_1"/>
+               </bean>
+          </constructor-arg>
+          <constructor-arg>
+               <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" id="com.example.spring.other.MyConstants.ANSWER_1"/>
+          </constructor-arg>
+     </bean>
+
+     <bean class="com.example.spring.beans.ConstantBean" id="question_answer_2">
+          <property name="answer">
+               <util:constant static-field="com.example.spring.other.MyConstants.ANSWER_2"/>
+          </property>
+     </bean>
+
+     <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" id="questionVal">
+          <property name="staticField">
+               <value>com.example.spring.other.MyConstants.QUESTION_3</value>
+          </property>
+     </bean>
+
+     <bean class="com.example.spring.beans.ConstantBean" id="question_answer_3">
+          <property name="question" ref="questionVal"/>
+     </bean>
+
+     <bean class="com.example.spring.beans.ConstantBean" id="question_answer_4">
+          <property name="question">
+               <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+                    <property name="targetClass">
+                         <value>com.example.spring.other.MyConstants</value>
+                    </property>
+                    <property name="targetField" value="QUESTION_4"/>
+               </bean>
+          </property>
+          <property name="answer">
+               <bean class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
+                    <property name="targetClass" value="com.example.spring.other.MyConstants"/>
+                    <property name="targetField">
+                         <value>ANSWER_4</value>
+                    </property>
+               </bean>
+          </property>
+     </bean>
+
+</beans>
