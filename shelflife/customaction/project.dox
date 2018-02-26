@@ -2,6 +2,7 @@
 <dasho version="8.2.0">
     <propertylist>
         <property name="projectname" value="project"/>
+        <property name="expireDate" value="12/31/2018" />
     </propertylist>
     <global>
         <option>FORNAMEDETECTION</option>
@@ -36,7 +37,7 @@
             <expiry key="../sample.slkey"/>
         </instrumentation>
         <checks>
-            <shelfLifeCheck action="dasho.samples.Checker.check()" expirationDate="02/28/2018" warningPeriod="120">
+            <shelfLifeCheck action="dasho.samples.Checker.check()" expirationDate="${expireDate}" warningPeriod="120">
                 <locations>
                     <classes name="dasho.samples.Main">
                         <method name="main" signature="java.lang.String[]"/>
