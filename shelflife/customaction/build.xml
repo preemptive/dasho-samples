@@ -38,9 +38,14 @@
         </delete>
     </target>
 
+    <tstamp>
+      <format property="expireDate" pattern="MM/dd/yyyy" offset="30" unit="day"/>
+    </tstamp>
+
     <target name="instrument" depends="-pre-check">
         <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
             <jvmarg value="-Djava.awt.headless=true"/>
+            <jvmarg value="-DexpireDate=${expireDate}"/>
             <arg value="--verbose" />
             <arg file="project.dox" />
         </java>
