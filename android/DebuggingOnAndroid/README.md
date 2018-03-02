@@ -50,7 +50,7 @@ The Random Number feature will fail sometimes because of the `DebugEnabledRespon
 
 Compile, obfuscate, and install the debug version of the application.  
 
->**Note:** You will need the `adb` command on your path.
+>**Note:** These instructions assume `adb` and `jdb` are available via your `PATH` environment variable.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installDebug`
