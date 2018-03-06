@@ -2,9 +2,9 @@
 
 ## Setup
 
-These samples have the same basic requirements as the [Java](../java/README.md) samples.
+These samples have the same basic tool and environment requirements as the [Java](../java/README.md) samples.
 
-Before running the Shelf Life samples you need to place your shelf life key in this directory and rename it to `sample.slkey`.
+Before running the Shelf Life samples you need to place your [shelf life key](https://www.preemptive.com/dasho/pro/userguide/en/checks_shelf.html) in this directory and rename it to `sample.slkey`.
 
 ## Samples
 

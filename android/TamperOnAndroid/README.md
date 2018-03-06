@@ -10,8 +10,11 @@ It is configured in such a way that a debug build will act as if it was tampered
 The `TamperCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
 This method returns a boolean value that will be `true` if the application has been tampered.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `TamperResponse` instances.
+
 One `TamperResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+
 Another `TamperResponse` was placed on the `findRnd()` method used when calculating the random number.
+
 Both of those responses use randomness to determine if they should or should not do anything.
 There is also a programmatic use of the boolean variable set by the `TamperCheck` that shows a message to the user that the application has been tampered.
 
@@ -26,12 +29,12 @@ This is what allows this sample to easily show tampered behavior.
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 >**Note:** When compiling, you may notice a `Warning` regarding `exit` on Android.
 >The `exit` action on Android will only close the `Activity` on the top of the activity stack.
 
-## Run UnTampered
+## Run Non-Tampered
 
 Compile, obfuscate, and install the release (non-tampered) version of the application.
 

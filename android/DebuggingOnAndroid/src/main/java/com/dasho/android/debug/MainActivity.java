@@ -29,9 +29,9 @@ public class MainActivity extends Activity implements OnClickListener {
     private boolean myOtherBoolean = false;
 
     /**
-     * Used by tamper response
+     * Used by debug enabled response
      *
-     * @return True if tampered.
+     * @return True if debugging is enabled.
      */
     public static boolean isInitialized() {
         return initializedLogic;

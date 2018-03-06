@@ -38,7 +38,7 @@ When the start date is not found in the Preferences it is set to the current dat
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Compiling and Obfuscating
 

@@ -2,11 +2,11 @@
 
 ## Overview
 
-Demonstrates using Shelf Life with a custom expiration action to bring up dialogs when the application has expired.
+Demonstrates using Shelf Life with a custom expiration action to bring up a dialog when the application has expired.
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Running
 

@@ -2,11 +2,12 @@
 
 ## Overview
 
-Demonstrates DashO using multiple class directories as inputs and outputting multiple directories using `merge="false"`.
+Demonstrates using DashO with multiple class directories as inputs.
+It will output multiple directories because of the `merge="false"` setting.
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Running
 

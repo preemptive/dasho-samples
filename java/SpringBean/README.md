@@ -5,7 +5,7 @@ It will be compiled via [Ant](http://ant.apache.org), obfuscated with DashO and 
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Building
 
@@ -31,34 +31,34 @@ If any error occured during compiling or running, please double check the downlo
 These instructions will guide you through the process of creating the project using DashO's New Project Wizard.
 
 1.  Start DashO and run the New Project Wizard.
-    *   Click `Next`
+    *   Click `Next`.
     *   Choose "An application packaged in a Jar file."
     *   Click `Next` and choose `SpringBean/MySpringApp.jar` as the application jar.
     *   Click `Next` and add the jars in the `libs` directory as support jars.
     *   Continue clicking `Next`, accepting the defaults, then click `Finish`.
-2.  Once the project is created, go to the Input->Options section
-    *   Check `Rename Reflected Classes`
-3.  Go to the Output section
-    *   Choose `Create: Single Jar`
-    *   Enter the name `MyObfuscatedSpringApp.jar`
-4.  Build the project (Make sure you do not have any errors and that `MyObfuscatedSpringApp.jar` is created.)
+2.  Once the project is created, go to the Input->Options section.
+    *   Check `Rename Reflected Classes`.
+3.  Go to the Output section.
+    *   Choose `Create: Single Jar`.
+    *   Enter the name `MyObfuscatedSpringApp.jar`.
+4.  Build the project. (Make sure you do not have any errors and that `MyObfuscatedSpringApp.jar` is created.)
 
 ## Running the application
 
-These instructions will guide you through running both applications side by side.
+These instructions will guide you through running the original and obfuscated versions of the application side by side.
 
-1.  Go back to your command prompt
-2.  Start both applications (on a background thread)
+1.  Go back to your command prompt.
+2.  Start both applications (on a background thread).
     *   Windows
-        *   Run the command: `start java -jar MySpringApp.jar` (You will see an app come up)
-        *   Run the command: `start java -jar MyObfuscatedSpringApp.jar` (You will see another app come up)
+        *   Run the command: `start java -jar MySpringApp.jar` (You will see an app come up).
+        *   Run the command: `start java -jar MyObfuscatedSpringApp.jar` (You will see another app come up).
     *   Unix
-        *   Run the command: `java -jar MySpringApp.jar &` (You will see an app come up)
-        *   Run the command: `java -jar MyObfuscatedSpringApp.jar &` (You will see another app come up)
+        *   Run the command: `java -jar MySpringApp.jar &` (You will see an app come up).
+        *   Run the command: `java -jar MyObfuscatedSpringApp.jar &` (You will see another app come up).
 3.  Click the `Life Cycle` button in both apps and read the output.
 4.  Click the `Properties` button in both apps and read the output.
 5.  Click the `Lookup/Replaced` button in both apps and read the output.
 6.  Click the `Constants` button in both apps and read the output.
-7.  Close the apps by clicking the `X`
+7.  Close the apps by clicking the `X`.
 
 Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

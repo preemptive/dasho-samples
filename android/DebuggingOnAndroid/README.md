@@ -9,10 +9,14 @@ This sample is preconfigured with both debug enabled and debugging checks and re
 The `DebugEnabledCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
 This method returns a boolean value that will be `true` if the application allows debugging.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `DebugEnabledResponse`.
+
 The `DebugEnabledResponse` was placed on the `findRnd()` method used when calculating the random number.
+
 The `DebuggingCheck` was placed on the `onCreate()` method in the `FibonacciActivity` class.
 It sets the static variable `check` that is used by the `DebuggingResponse`.
+
 The `DebuggingResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+
 Both of the responses use randomness to determine if they should or should not do anything.
 There is also programmatic use of the boolean variables set by the `DebugEnabledCheck` and `DebugggingCheck` that shows a message to the user when launching the features.
 
@@ -20,7 +24,7 @@ Feel free to reconfigure the probability and/or response types of the responses 
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 >**Note:** When compiling, you may notice a `Warning` regarding `exit` on Android.
 >The `exit` action on Android will only close the `Activity` on the top of the activity stack.
@@ -60,8 +64,8 @@ Attach the debugger.
 1.  Run the command: `adb shell`
 2.  Run the command: `am start -D -n com.dasho.android.debug/com.dasho.android.debug.MainActivity`
 3.  Run the command: `exit`
-4.  Run the command: `adb jdwp` (look at the last port then press `Ctrl`+`C`)
-5.  Run the command: `adb forward tcp:8021 jdwp:_{the last port number}_`
+4.  Run the command: `adb jdwp` (look at the last process id then press `Ctrl`+`C`)
+5.  Run the command: `adb forward tcp:8021 jdwp:_{the last process id}_`
 6.  Run the command: `jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8021`
 
 Interact with the application on your device.

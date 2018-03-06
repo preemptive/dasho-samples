@@ -17,6 +17,9 @@ Before running these samples, they need to know where both the Android SDK and D
 Set `sdk.dir` in `local.properties` to the location of the Android SDK.
 It can also be set via an [environment variable](https://developer.android.com/studio/command-line/variables.html).
 
+>**Note:** You will need to create the `local.properties` file.
+>It should exist in the same directory as the `gradle.properties` file.
+
 ### DashO
 
 Set `DASHO_HOME` in `gradle.properties` to the [location](https://www.preemptive.com/dasho/pro/userguide/en/getting_started_first.html#install_dir) of DashO.

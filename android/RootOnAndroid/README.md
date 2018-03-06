@@ -10,8 +10,11 @@ It is configured in such a way that a root detection is injected into the releas
 The `RootCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
 This method returns a boolean value that will be `true` if the application is running on a rooted device.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `RootResponse` instances.
+
 One `RootResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+
 Another `RootResponse` was placed on the `findRnd()` method used when calculating the random number.
+
 Both of those responses use randomness to determine if they should or should not do anything.
 There is also a programmatic use of the boolean variable set by the `RootCheck` that shows a message to the user that the device is rooted.
 
@@ -21,7 +24,7 @@ This sample includes a keystore, `keystore.ks`, that is used to sign the release
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Run without Root Check
 

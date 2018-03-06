@@ -2,11 +2,12 @@
 
 ## Overview
 
-Demonstrates DashO using multiple jars as inputs and outputting multiple jars using `merge="false"`.
+Demonstrates using DashO with multiple jars as inputs.
+It will output multiple jars because of the `merge="false"` setting.
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Running
 

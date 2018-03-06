@@ -2,11 +2,11 @@
 
 ## Overview
 
-Demonstrates DashO using a simple application.
+Demonstrates using DashO with a simple application.
 
 ## Setup
 
-See the main [README](../README.md) for the neccesary requirements.
+See the main [README](../README.md) for the requirements.
 
 ## Running
 
