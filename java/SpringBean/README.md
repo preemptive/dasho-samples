@@ -1,7 +1,7 @@
 # Spring Bean Handling
 
 This sample illustrates how _PreEmptive Protection - DashO_ works with Spring Beans.
-It will be compiled via [Ant](http://ant.apache.org), obfuscated with DashO and then both versions should be run side-by-side.
+It will be compiled via [Ant](http://ant.apache.org), obfuscated with DashO and then both the original and obfuscated versions of the application should be run side-by-side.
 
 ## Setup
 
