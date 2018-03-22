@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="8.2.0">
+<dasho version="9.0.0">
     <propertylist>
         <property name="projectname" value="multijar"/>
     </propertylist>
@@ -12,6 +12,7 @@
         <pathelement location="app2.jar"/>
         <pathelement location="lib/common.jar"/>
     </inputpath>
+    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
     <entrypoints>
         <classes name="dasho.samples.app1.Main" rename="true">
             <method name="main" signature="java.lang.String[]"/>
@@ -39,4 +40,5 @@
     <stringencrypt option="on">
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>
+    <injection/>
 </dasho>

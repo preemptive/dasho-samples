@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="8.2.0">
+<dasho version="9.0.0">
     <propertylist>
         <property name="projectname" value="project"/>
     </propertylist>
@@ -10,6 +10,7 @@
     <inputpath>
         <pathelement location="helloworld.jar"/>
     </inputpath>
+    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
     <entrypoints>
         <classes name="dasho.samples.Main" rename="true">
             <method name="main" signature="java.lang.String[]"/>
