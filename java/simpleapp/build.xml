@@ -13,6 +13,13 @@
 				</not>
 			</condition>
         </fail>
+        <fail message="JDK_HOME is not configured. See README for instructions.">
+            <condition>
+                <not>
+                    <available file="${env.JDK_HOME}" />
+                </not>
+            </condition>
+        </fail>
     </target>
 
     <target name="compile" depends="-pre-check">
