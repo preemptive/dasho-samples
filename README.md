@@ -12,7 +12,12 @@ The samples are categorized by type:
 * [Java](java/README.md) - Samples demonstrating DashO with basic Java applications.
 * [Shelf Life](shelflife/README.md) - Samples demonstrating DashO's Shelf Life with basic Java applications.
 
-Support for DashO is available through our [website](https://www.preemptive.com/support/dasho-support) and/or our [support request form](https://www.preemptive.com/contact/supportrequestform).
+## About DashO
+
+_PreEmptive Protection - DashO_ is a [Java and Android obfuscator](https://www.preemptive.com/products/dasho/) and application hardening solution from [PreEmptive Solutions](https://www.preemptive.com/).
+DashO's obfuscation, hardening, and runtime check features make your application much harder to reverse engineer, pirate, or steal data from.
+World-class technical support for DashO is available through our [website](https://www.preemptive.com/support/dasho-support) and/or our [support request form](https://www.preemptive.com/contact/supportrequestform).
+
 
 Copyright 2018 [PreEmptive Solutions, LLC](https://www.preemptive.com)
 
