@@ -24,7 +24,7 @@
         <mkdir dir="classes" />
         <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7">
             <classpath>
-                <pathelement location="${dasho.home}/lib/pa-java15.jar"/>
+                <pathelement location="${dasho.home}/lib/shelflife-java15.jar"/>
             </classpath>
         </javac>
         <jar jarfile="helloworld.jar">
