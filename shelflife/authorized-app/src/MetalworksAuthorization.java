@@ -97,7 +97,7 @@ public class MetalworksAuthorization {
      * relative to the source file in which they appear.  
      * </p>
      */
-    @ShelfLifeCheck(startDateSource = "@getStartDate()", expirationPeriod = "15", warningPeriod = "5", sendMessage = false)
+    @ShelfLifeCheck(startDateSource = "@getStartDate()", expirationPeriod = "15", warningPeriod = "5")
     private static void checkInFreeTrial() {
         // All actions are added by DashO
     }
