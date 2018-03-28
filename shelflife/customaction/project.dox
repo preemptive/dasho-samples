@@ -34,9 +34,7 @@
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>
     <injection>
-        <instrumentation supportOffline="false" fullData="false">
-            <expiry key="../sample.slkey"/>
-        </instrumentation>
+        <shelflife key="../sample.slkey"/>
         <checks>
             <shelfLifeCheck action="dasho.samples.Checker.check()" expirationDate="${expireDate}" warningPeriod="120">
                 <locations>

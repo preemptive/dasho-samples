@@ -33,9 +33,7 @@
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>
     <injection>
-        <instrumentation>
-            <expiry key="../sample.slkey"/>
-        </instrumentation>
+        <shelflife key="../sample.slkey"/>
         <checks>
             <shelfLifeCheck startDateSource="@getInstallDate()" expirationPeriod="30" warningPeriod="30">
                 <locations>
