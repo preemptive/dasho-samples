@@ -10,6 +10,7 @@
                     <and>
                         <available file="${dasho.home}/DashOPro.jar" />
                         <available file="../sample.slkey" />
+                        <available file="${env.JDK_HOME}" />
                     </and>
                 </not>
             </condition>
