@@ -3,18 +3,13 @@
     <property environment="env"/>
     <property name="dasho.home" value="${env.DASHO_HOME}" />
     <property name="ShelfLifeToken" value="ShelfLifeToken.dat" />
-    <property name="shelflife-jar" value="${dasho.home}/lib/shelflife-java15.jar"/>
-    <property name="pa-jar" value="${dasho.home}/lib/pa-java15.jar"/>
 
     <target name="-pre-check">
-        <available file="${shelflife-jar}" property="runtime-jar" value="${shelflife-jar}"/>
-        <available file="${pa-jar}" property="runtime-jar" value="${pa-jar}"/>
         <fail message="Setup is incomplete. See README for instructions.">
             <condition>
                 <not>
                     <and>
                         <available file="${dasho.home}/DashOPro.jar" />
-                        <available file="${runtime-jar}" />
                         <available file="../sample.slkey" />
                         <available file="${ShelfLifeToken}" />
                         <available file="${env.JDK_HOME}" />
@@ -30,7 +25,7 @@
         <mkdir dir="classes" />
         <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7">
             <classpath>
-                <pathelement location="${runtime-jar}"/>
+                <pathelement location="${dasho.home}/lib/shelflife-java15.jar"/>
             </classpath>
         </javac>
         <jar jarfile="helloworld.jar">

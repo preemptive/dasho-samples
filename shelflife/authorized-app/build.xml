@@ -2,21 +2,17 @@
 <project name="shelflife-authorized-app" default="all" basedir=".">
     <property environment="env"/>
     <property name="dasho.home" value="${env.DASHO_HOME}" />
-    <property name="shelflife-jar" value="${dasho.home}/lib/shelflife-java15.jar"/>
-    <property name="pa-jar" value="${dasho.home}/lib/pa-java15.jar"/>
 
     <target name="all" depends="compile, instrument, run" />
 
     <target name="-pre-check">
-        <available file="${shelflife-jar}" property="runtime-jar" value="${shelflife-jar}"/>
-        <available file="${pa-jar}" property="runtime-jar" value="${pa-jar}"/>
         <fail message="Setup is incomplete. See README for instructions.">
             <condition>
                 <not>
                     <and>
                         <available file="${dasho.home}/DashOPro.jar" />
                         <available file="${dasho.home}/lib/dasho-annotations.jar" />
-                        <available file="${runtime-jar}" />
+                        <available file="${dasho.home}/lib/shelflife-java15.jar" />
                         <available file="../sample.slkey" />
                         <available file="Metalworks.jar" />
                         <available file="${env.JDK_HOME}" />
@@ -32,8 +28,8 @@
             <classpath>
                 <fileset dir="${dasho.home}/lib">
                     <include name="dasho-annotations.jar" />
+                    <include name="shelflife-java15.jar" />
                 </fileset>
-                <pathelement location="${runtime-jar}"/>
             </classpath>
             <include name="**/*.java" />
         </javac>
