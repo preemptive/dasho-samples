@@ -72,7 +72,7 @@
     </includenonclassfiles>
     <injection>
         <instrumentation>
-            <runtime target="android4" merge="false"/>
+            <runtime target="android" merge="false"/>
         </instrumentation>
         <checks>
             <rootCheck action="setupVars()">

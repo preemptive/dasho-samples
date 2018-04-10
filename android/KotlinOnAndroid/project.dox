@@ -70,7 +70,7 @@
     </includenonclassfiles>
     <injection>
         <instrumentation option="off">
-            <runtime target="android4" merge="false"/>
+            <runtime target="android" merge="false"/>
         </instrumentation>
     </injection>
 </dasho>
