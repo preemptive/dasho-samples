@@ -69,9 +69,7 @@
         <copy source="${AndroidManifestFile}" relativedest="${AndroidManifestOutput}"/>
     </includenonclassfiles>
     <injection>
-        <instrumentation>
-            <runtime target="android" merge="false"/>
-        </instrumentation>
+        <runtime target="android" merge="false"/>
         <checks>
             <debugEnabledCheck action="setupVars()">
                 <locations>
