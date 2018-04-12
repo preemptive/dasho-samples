@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="8.2.0">
+<dasho version="8.5.0">
     <propertylist>
         <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
         <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>

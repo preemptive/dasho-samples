@@ -6,8 +6,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.preemptive:dasho:3.0.+'
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.preemptive:dasho:3.1.+'
+        classpath 'com.android.tools.build:gradle:3.1.1'
     }
 }
 
@@ -39,4 +39,9 @@ android {
             signingConfig signingConfigs.release
         }
     }
+}
+
+repositories {
+    jcenter()
+    google()
 }
