@@ -71,9 +71,7 @@
         <copy source="${AndroidManifestFile}" relativedest="${AndroidManifestOutput}"/>
     </includenonclassfiles>
     <injection>
-        <instrumentation>
-            <runtime target="android4" merge="false"/>
-        </instrumentation>
+        <runtime target="android" merge="false"/>
         <checks>
             <rootCheck action="setupVars()">
                 <locations>

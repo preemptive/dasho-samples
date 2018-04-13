@@ -69,8 +69,6 @@
         <copy source="${AndroidManifestFile}" relativedest="${AndroidManifestOutput}"/>
     </includenonclassfiles>
     <injection>
-        <instrumentation option="off">
-            <runtime target="android4" merge="false"/>
-        </instrumentation>
+        <runtime target="android" merge="false"/>
     </injection>
 </dasho>

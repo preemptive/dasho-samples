@@ -37,9 +37,7 @@
         <seOutput path="${dasho.project}-se.map"/>
     </stringencrypt>
     <injection>
-        <instrumentation sendMessages="false" supportOffline="false" fullData="false">
-            <expiry key="../sample.slkey"/>
-        </instrumentation>
+        <shelflife key="../sample.slkey"/>
         <checks>
             <shelfLifeCheck action="MetalworksAuthorization.check()" tokenSource="MetalworksAuthorization.getToken()" where="End">
                 <locations>

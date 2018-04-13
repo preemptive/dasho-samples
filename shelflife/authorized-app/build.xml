@@ -12,7 +12,7 @@
                     <and>
                         <available file="${dasho.home}/DashOPro.jar" />
                         <available file="${dasho.home}/lib/dasho-annotations.jar" />
-                        <available file="${dasho.home}/lib/pa-java15.jar" />
+                        <available file="${dasho.home}/lib/shelflife-java.jar" />
                         <available file="../sample.slkey" />
                         <available file="Metalworks.jar" />
                         <available file="${env.JDK_HOME}" />
@@ -28,7 +28,7 @@
             <classpath>
                 <fileset dir="${dasho.home}/lib">
                     <include name="dasho-annotations.jar" />
-                    <include name="pa-java15.jar" />
+                    <include name="shelflife-java.jar" />
                 </fileset>
             </classpath>
             <include name="**/*.java" />
