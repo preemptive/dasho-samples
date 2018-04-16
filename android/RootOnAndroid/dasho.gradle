@@ -1,3 +1,5 @@
 dashOConfig {
     dashOHome = "${DASHO_HOME}"
 }
+android.buildTypes.debug.minifyEnabled true
+android.buildTypes.release.minifyEnabled true

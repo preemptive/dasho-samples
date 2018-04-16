@@ -7,7 +7,7 @@
 
 ## Environment Setup
 
-Before running these samples, they need to know where DashO is located.
+Before running these samples, they need to know where DashO and the JDK are located.
 
 Set an environment variable named `DASHO_HOME` to the [location](https://www.preemptive.com/dasho/pro/userguide/en/getting_started_first.html#install_dir) of DashO.
 It can also be passed via the Ant command line: `-Ddasho.home={DashO's Installation Directory}`.

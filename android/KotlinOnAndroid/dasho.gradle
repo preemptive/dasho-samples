@@ -3,3 +3,5 @@ dashOConfig {
     doxFilename = 'project.dox'
     includeAsInputs = ['kotlin-stdlib-jre7.jar', 'kotlin-stdlib.jar', 'annotations.jar']
 }
+android.buildTypes.debug.minifyEnabled true
+android.buildTypes.release.minifyEnabled true
