@@ -27,7 +27,7 @@ When the `token` argument passed to this method is `null` either the authorizati
 In that case, the `checkInFreeTrial()` method is called.
 In the source code this method has an empty body - all of its logic is added by DashO:
 
-    @ShelfLifeCheck(startDateSource = "@getStartDate()", expirationPeriod = "15", warningPeriod = "5", sendMessage = false)
+    @ShelfLifeCheck(startDateSource = "@getStartDate()", expirationPeriod = "15", warningPeriod = "5")
     private static void checkInFreeTrial() {
         // All actions are added by DashO
     }
