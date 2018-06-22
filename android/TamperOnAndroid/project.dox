@@ -78,7 +78,7 @@
                         <method name="someApplicationLogic" signature=""/>
                     </classes>
                 </locations>
-                <signerInfo alias="correct_cert" storepass="[SbJlvHrFg8s4GblvgMcQ4w==]" keystore="keystore.ks"/>
+                <signerInfo alias="correct_cert" storepass="[SbJlvHrFg8s4GblvgMcQ4w==]" storetype="JKS" keystore="keystore.ks"/>
             </tamperCheck>
             <tamperResponse source="com.dasho.android.tamper.MainActivity.isInitialized()" response="exit" probability="0.5">
                 <locations>
