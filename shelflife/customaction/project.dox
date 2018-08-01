@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="8.5.0">
+<dasho version="9.0.0">
     <propertylist>
+        <property name="expireDate" value="12/31/2018"/>
         <property name="projectname" value="project"/>
-        <property name="expireDate" value="12/31/2018" />
     </propertylist>
     <global>
         <option>FORNAMEDETECTION</option>
@@ -11,6 +11,7 @@
     <inputpath>
         <pathelement location="helloworld.jar"/>
     </inputpath>
+    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
     <entrypoints>
         <classes name="dasho.samples.Main">
             <method name="main" signature="java.lang.String[]"/>
@@ -33,9 +34,7 @@
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>
     <injection>
-        <instrumentation supportOffline="false" fullData="false">
-            <expiry key="../sample.slkey"/>
-        </instrumentation>
+        <shelflife key="../sample.slkey"/>
         <checks>
             <shelfLifeCheck action="dasho.samples.Checker.check()" expirationDate="${expireDate}" warningPeriod="120">
                 <locations>

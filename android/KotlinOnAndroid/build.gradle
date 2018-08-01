@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.1.60'
+    ext.kotlin_version = '1.2.51'
     repositories {
         flatDir dirs: "${DASHO_HOME}/gradle"
         jcenter()
@@ -24,7 +24,7 @@ dependencies {
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion "28.0.1"
 
     defaultConfig {
         minSdkVersion 10

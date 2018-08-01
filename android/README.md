@@ -4,13 +4,14 @@
 
 * Java 1.8
 * Android 8.1 (api 27) SDK platform
-* Android SDK Build tools v27.0.3
+* Android SDK Build tools v28.0.1
 
 >**Note:** The Android-specific requirements can be changed by editing the `build.gradle` file of the particular sample.
 
 ## Environment Setup
 
 Before running these samples, they need to know where both the Android SDK and DashO are located.
+>**Note:** If you import a sample into Android Studio, you should make sure Instant Run is [disabled](https://developer.android.com/studio/run/#disable-ir) so the sample will work correctly.
 
 ### Android SDK
 

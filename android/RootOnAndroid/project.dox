@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="8.5.0">
+<dasho version="9.0.0">
     <propertylist>
         <property name="build.dir" value="build"/>
         <property name="gradleSupport" value=""/>
@@ -71,9 +71,7 @@
         <copy source="${AndroidManifestFile}" relativedest="${AndroidManifestOutput}"/>
     </includenonclassfiles>
     <injection>
-        <instrumentation>
-            <runtime target="android4" merge="false"/>
-        </instrumentation>
+        <runtime target="android" merge="false"/>
         <checks>
             <rootCheck action="setupVars()">
                 <locations>
