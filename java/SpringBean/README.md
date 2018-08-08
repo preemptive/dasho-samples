@@ -33,7 +33,7 @@ These instructions will guide you through the process of creating the project us
 1.  Start DashO and run the New Project Wizard.
     *   Click `Next`.
     *   Choose "An application packaged in a Jar file."
-    *   Click `Next` and choose `SpringBean/MySpringApp.jar` as the application jar.
+    *   Click `Next` and choose `SpringBean/MySpringApp.jar` as the application jar and enter the JDK location.
     *   Click `Next` and add the jars in the `libs` directory as support jars.
     *   Continue clicking `Next`, accepting the defaults, then click `Finish`.
 2.  Once the project is created, go to the Input->Options section.
