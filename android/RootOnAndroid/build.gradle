@@ -15,7 +15,7 @@ apply plugin: 'com.android.application'
 apply from: 'dasho.gradle'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
     buildToolsVersion "28.0.2"
 
     compileOptions {
@@ -25,7 +25,7 @@ android {
 
     defaultConfig {
         minSdkVersion 10
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
