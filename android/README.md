@@ -4,7 +4,6 @@
 
 * Java 1.8
 * Android 9.0 (api 28) SDK platform
-* Android SDK Build tools v28.0.2
 
 >**Note:** The Android-specific requirements can be changed by editing the `build.gradle` file of the particular sample.
 
