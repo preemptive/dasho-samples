@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dasho version="9.0.0">
     <propertylist>
-        <property name="build.dir" value="build"/>
-        <property name="gradleSupport" value=""/>
-        <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>
-        <property name="dasho.results.dir" value="${build.dir}/dasho-results/${buildVariant}"/>
         <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
-        <property name="AndroidManifestFile" value="${build.dir}/intermediates/manifests/full/${buildVariant}/AndroidManifest.xml"/>
-        <property name="AndroidManifestOutput" value="../../../intermediates/manifests/full/dasho-${buildVariant}"/>
-        <property name="key.store" value="${user.home}/.android/debug.keystore"/>
+        <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>
         <property name="projectname" value="RootOnAndroid"/>
-        <property name="KEYSTORE_PASSWORD" value="${key.store.password:-android}"/>
-        <property name="KEYSTORE" value="${key.store}"/>
+        <property name="AndroidManifestFile" value="${build.dir}/intermediates/manifests/full/${buildVariant}/AndroidManifest.xml"/>
+        <property name="dasho.results.dir" value="${build.dir}/dasho-results/${buildVariant}"/>
+        <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
+        <property name="key.store" value="${user.home}/.android/debug.keystore"/>
         <property name="manifest.package" value="com.dasho.android.root"/>
+        <property name="KEYSTORE_PASSWORD" value="${key.store.password:-android}"/>
         <property name="KEY_ALIAS_PASSWORD" value="${key.alias.password:-android}"/>
         <property name="sdk.target" value="android-27"/>
         <property name="buildType" value="release"/>
-        <property name="gradleInput" value="build/intermediates/classes/release"/>
-        <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
+        <property name="gradleInput" value="build/intermediates/javac/release/compileReleaseJavaWithJavac/classes/"/>
+        <property name="KEYSTORE" value="${key.store}"/>
+        <property name="build.dir" value="build"/>
         <property name="sdk.dir" value="${ANDROID_SDK_ROOT}"/>
+        <property name="gradleSupport" value=""/>
+        <property name="AndroidManifestOutput" value="../../../intermediates/manifests/full/dasho-${buildVariant}"/>
         <property name="buildVariant" value="${buildType:-}"/>
     </propertylist>
     <global>
