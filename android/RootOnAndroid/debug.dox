@@ -6,8 +6,8 @@
         <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>
         <property name="dasho.results.dir" value="${build.dir}/dasho-results/${buildVariant}"/>
         <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
-        <property name="AndroidManifestFile" value="${build.dir}/intermediates/manifests/full/${buildVariant}/AndroidManifest.xml"/>
-        <property name="AndroidManifestOutput" value="../../../intermediates/manifests/full/dasho-${buildVariant}"/>
+        <property name="AndroidManifestFile" value="${build.dir}/intermediates/merged_manifests/"/>
+        <property name="AndroidManifestOutput" value="../../../intermediates/dasho-manifests"/>
         <property name="key.store" value="${user.home}/.android/debug.keystore"/>
         <property name="projectname" value="RootOnAndroid"/>
         <property name="KEYSTORE_PASSWORD" value="${key.store.password:-android}"/>
@@ -16,7 +16,7 @@
         <property name="KEY_ALIAS_PASSWORD" value="${key.alias.password:-android}"/>
         <property name="sdk.target" value="android-27"/>
         <property name="buildType" value="debug"/>
-        <property name="gradleInput" value="build/intermediates/classes/debug"/>
+        <property name="gradleInput" value="build/intermediates/javac/debug/compileDebugJavaWithJavac/classes/"/>
         <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
         <property name="sdk.dir" value="${ANDROID_SDK_ROOT}"/>
         <property name="buildVariant" value="${buildType:-}"/>
@@ -36,9 +36,9 @@
         <pathelement location="${gradleSupport:-}"/>
     </classpath>
     <entrypoints>
-        <android name="com.dasho.android.root.FibActivity" rename-class="true"/>
+        <android name="com.dasho.android.root.FibActivity"/>
         <android name="com.dasho.android.root.MainActivity"/>
-        <android name="com.dasho.android.root.RandomGenActivity" rename-class="true"/>
+        <android name="com.dasho.android.root.RandomGenActivity"/>
     </entrypoints>
     <report path="${dasho.results.dir}/${projectname}-report.txt"/>
     <output compress="false" level="0">
