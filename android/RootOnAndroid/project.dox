@@ -4,7 +4,7 @@
         <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
         <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>
         <property name="projectname" value="RootOnAndroid"/>
-        <property name="AndroidManifestFile" value="${build.dir}/intermediates/manifests/full/${buildVariant}/AndroidManifest.xml"/>
+        <property name="AndroidManifestFile" value="${build.dir}/intermediates/merged_manifests/"/>
         <property name="dasho.results.dir" value="${build.dir}/dasho-results/${buildVariant}"/>
         <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
         <property name="key.store" value="${user.home}/.android/debug.keystore"/>
@@ -18,7 +18,7 @@
         <property name="build.dir" value="build"/>
         <property name="sdk.dir" value="${ANDROID_SDK_ROOT}"/>
         <property name="gradleSupport" value=""/>
-        <property name="AndroidManifestOutput" value="../../../intermediates/manifests/full/dasho-${buildVariant}"/>
+        <property name="AndroidManifestOutput" value="../../../intermediates/dasho-manifests"/>
         <property name="buildVariant" value="${buildType:-}"/>
     </propertylist>
     <global>
@@ -36,9 +36,9 @@
         <pathelement location="${gradleSupport:-}"/>
     </classpath>
     <entrypoints>
-        <android name="com.dasho.android.root.FibActivity" rename-class="true"/>
+        <android name="com.dasho.android.root.FibActivity"/>
         <android name="com.dasho.android.root.MainActivity"/>
-        <android name="com.dasho.android.root.RandomGenActivity" rename-class="true"/>
+        <android name="com.dasho.android.root.RandomGenActivity"/>
     </entrypoints>
     <report path="${dasho.results.dir}/${projectname}-report.txt"/>
     <output compress="false" level="0">
