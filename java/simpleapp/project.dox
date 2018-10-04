@@ -32,7 +32,7 @@
         </mapping>
     </renaming>
     <optimization option="on"/>
-    <controlflow option="on" blockSplittingBlockSize="3"/>
+    <controlflow option="on"/>
     <stringencrypt option="on">
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>

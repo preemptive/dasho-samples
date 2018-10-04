@@ -61,7 +61,7 @@
             <mapoutput overwrite="true" path="${dasho.results.dir}/${projectname}.map"/>
         </mapping>
     </renaming>
-    <controlflow option="on" blockSplittingBlockSize="3"/>
+    <controlflow option="on"/>
     <stringencrypt option="on" level="2" implementations="2">
         <seOutput path="${dasho.results.dir}/${projectname}-se.map"/>
     </stringencrypt>

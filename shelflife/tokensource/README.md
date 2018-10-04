@@ -13,7 +13,7 @@ See the main [README](../README.md) for the requirements.
 To run this sample you need to create a token using _PreEmptive Protection - DashO_.
 
 1.  Start DashO's graphical user interface.
-2.  From the menu select **Window &gt; Shelf Life Token**.
+2.  From the menu select **Window &gt; Shelf Life Token...**.
 3.  Use `../sample.slkey` for the key file.
 4.  Fill in an expiration date and an optional warning date using the format: `MM/DD/YYYY`.
 5.  Click the `Save` button.
