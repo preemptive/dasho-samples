@@ -36,9 +36,9 @@
         <pathelement location="${gradleSupport:-}"/>
     </classpath>
     <entrypoints>
-        <android name="com.dasho.android.root.FibActivity"/>
+        <android name="com.dasho.android.root.FibActivity" rename-class="true"/>
         <android name="com.dasho.android.root.MainActivity"/>
-        <android name="com.dasho.android.root.RandomGenActivity"/>
+        <android name="com.dasho.android.root.RandomGenActivity" rename-class="true"/>
     </entrypoints>
     <report path="${dasho.results.dir}/${projectname}-report.txt"/>
     <output compress="false" level="0">
@@ -63,7 +63,7 @@
         </mapping>
     </renaming>
     <optimization option="on"/>
-    <controlflow option="on" blockSplittingBlockSize="3"/>
+    <controlflow option="on"/>
     <stringencrypt option="on" level="2" implementations="2">
         <seOutput path="${dasho.results.dir}/${projectname}-se.map"/>
     </stringencrypt>
