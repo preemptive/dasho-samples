@@ -7,7 +7,7 @@ Obfuscation and injection are handled via the [DashO Gradle](../../docs/gradle/i
 This sample is preconfigured with both debug enabled and debugging checks and responses.
 
 The `DebugEnabledCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
-This method returns a boolean value that will be `true` if the application allows debugging.
+This method returns a boolean value that will be `true` if the application appears to be debuggable.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `DebugEnabledResponse`.
 
 The `DebugEnabledResponse` was placed on the `findRnd()` method used when calculating the random number.
@@ -36,6 +36,7 @@ Compile, obfuscate, and install the release (non-debugging) version of the appli
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
 
+If you are testing on a real device, then disable USB debugging after installing but before testing.
 Run the application on your device.
 You will notice it behaves as expected; no errors occur and the app is responsive.
 
@@ -43,8 +44,9 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 Compile, obfuscate, and install the debug version of the application.
 
-1.  Run the command: `gradlew uninstallAll` _(if necessary)_
-2.  Run the command: `gradlew installDebug`
+1.  Re-enable USB debugging if necessary.
+2.  Run the command: `gradlew uninstallAll` _(if necessary)_
+3.  Run the command: `gradlew installDebug`
 
 Run the application on your device.
 You will notice that the Random Number feature indicates debugging is enabled, but the Fibonacci feature indicates it is not being debugged.
