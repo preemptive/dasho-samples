@@ -44,7 +44,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 Compile, obfuscate, and install the debug version of the application.
 
-1.  Re-enable USB debugging if necessary.
+1.  Re-enable USB debugging _(if necessary)_
 2.  Run the command: `gradlew uninstallAll` _(if necessary)_
 3.  Run the command: `gradlew installDebug`
 
