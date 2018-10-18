@@ -36,7 +36,10 @@ Compile, obfuscate, and install the release (non-debugging) version of the appli
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
 
-If you are testing on a real device, then disable USB debugging after installing but before testing.
+>**Note:** If USB debugging is enabled, then the `DebugEnabledCheck` will trigger.
+>USB debugging is required to deploy the application to a real device, and some emulators have USB debugging enabled by default.
+>Disable USB debugging in [Developer options](https://developer.android.com/studio/debug/dev-options) before running the application if it is enabled.
+
 Run the application on your device.
 You will notice it behaves as expected; no errors occur and the app is responsive.
 
