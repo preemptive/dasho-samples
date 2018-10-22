@@ -8,10 +8,10 @@
     <target name="-pre-check" >
         <fail message="DASHO_HOME is not configured. See README for instructions.">
             <condition>
-				<not>
+                <not>
                     <available file="${dasho.home}/DashOPro.jar"/>
-				</not>
-			</condition>
+                </not>
+            </condition>
         </fail>
         <fail message="JDK_HOME is not configured. See README for instructions.">
             <condition>
