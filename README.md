@@ -5,6 +5,8 @@ The samples use either [Ant](http://ant.apache.org) or [Gradle](http://www.gradl
 All samples will need to know the location where DashO is installed (i.e. `DASHO_HOME`).
 Each sample has its own README with any setup and/or configuration instructions.
 
+>**Note:** Please download the appropriate [release](./releases).
+
 The samples are categorized by type:
 
 * [Android&trade;](android/README.md) - Samples demonstrating DashO with Android projects.
