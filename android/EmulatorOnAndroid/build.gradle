@@ -1,0 +1,53 @@
+buildscript {
+    repositories {
+        flatDir dirs: "${DASHO_HOME}/gradle"
+        jcenter()
+        google()
+    }
+
+    dependencies {
+        classpath 'com.preemptive:dasho:3.2.+'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply from: 'dasho.gradle'
+
+android {
+    compileSdkVersion 28
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore.ks")
+            storePassword "password"
+            keyAlias "correct_cert"
+            keyPassword "password"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+}
+
+repositories {
+    jcenter()
+    google()
+}

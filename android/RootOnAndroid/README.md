@@ -5,7 +5,7 @@ This project can be imported into Android Studio.
 Obfuscation and injection are handled via the [DashO Gradle](../../docs/gradle/index.html) integration.
 
 This sample is preconfigured with a single root check and three root responses.
-It is configured in such a way that a root detection is injected into the release build and not a debug build.
+It is configured in such a way that root detection is injected into the release build and not the debug build.
 
 The `RootCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
 This method returns a boolean value that will be `true` if the application is running on a rooted device.

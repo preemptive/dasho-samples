@@ -29,6 +29,7 @@ It can also be passed via the command line: `-PDASHO_HOME={DashO's Installation 
 
 * [DashO-GameOfLife](https://github.com/preemptive/DashO-GameOfLife) - A separate repository with a more-complex Android application that includes a library.
 * [DebuggingOnAndroid](DebuggingOnAndroid) - An Android application which uses Debug Checking.
+* [EmulatorOnAndroid](EmulatorOnAndroid) - An Android application which uses Emulator Checking.
 * [KotlinOnAndroid](KotlinOnAndroid) - An Android application using Kotlin.
 * [RootOnAndroid](RootOnAndroid) - An Android application which uses Root Checking.
 * [TamperOnAndroid](TamperOnAndroid) - An Android application which uses Tamper Checking.
