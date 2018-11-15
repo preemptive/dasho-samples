@@ -30,6 +30,7 @@ public class MainActivity extends Activity implements OnClickListener {
      *
      * @return True if rooted.
      */
+    @SuppressWarnings("unused") //Used by the response
     public static boolean isInitialized() {
         return initializedLogic;
     }
@@ -52,7 +53,7 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         if (item.getItemId() == R.id.menu_about) {
-            showDialog(R.string.abtTitle, R.string.abtMsg);
+            showAboutDialog();
             return true;
         }
         return super.onMenuItemSelected(featureId, item);
@@ -82,15 +83,13 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     /**
-     * Shows a dialog
+     * Shows the about dialog
      *
-     * @param title   The title id
-     * @param message The message id
      */
-    private void showDialog(int title, int message) {
+    private void showAboutDialog() {
         AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
-        dlgAlert.setTitle(title);
-        dlgAlert.setMessage(message);
+        dlgAlert.setTitle(R.string.abtTitle);
+        dlgAlert.setMessage(R.string.abtMsg);
         dlgAlert.setPositiveButton(Resources.getSystem().getText(android.R.string.ok), null);
         dlgAlert.setCancelable(true);
         dlgAlert.create().show();

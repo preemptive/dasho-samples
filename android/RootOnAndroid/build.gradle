@@ -1,8 +1,8 @@
 buildscript {
     repositories {
         flatDir dirs: "${DASHO_HOME}/gradle"
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
@@ -43,11 +43,9 @@ android {
             signingConfig signingConfigs.release
         }
     }
-
-
 }
 
 repositories {
-    jcenter()
     google()
+    jcenter()
 }

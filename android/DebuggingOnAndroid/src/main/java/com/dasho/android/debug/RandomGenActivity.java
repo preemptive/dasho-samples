@@ -38,9 +38,9 @@ public class RandomGenActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.random_main);
         findViewById(R.id.genBtn).setOnClickListener(this);
-        minNum = (EditText)findViewById(R.id.rndMinNum);
-        maxNum = (EditText)findViewById(R.id.rndMaxNum);
-        genNum = (TextView)findViewById(R.id.genNumber);
+        minNum = findViewById(R.id.rndMinNum);
+        maxNum = findViewById(R.id.rndMaxNum);
+        genNum = findViewById(R.id.genNumber);
     }
 
     /**
@@ -54,14 +54,15 @@ public class RandomGenActivity extends Activity implements OnClickListener {
                 int minInt = Integer.parseInt(minStr);
                 maxStr = maxNum.getText().toString();
                 int maxInt = Integer.parseInt(maxStr);
+                if (minInt < 0 || maxInt < 0) {
+                    Toast.makeText(getApplicationContext(), R.string.badNum,
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (maxInt <= minInt) {
                     Toast.makeText(getApplicationContext(), R.string.minMaxErr,
                             Toast.LENGTH_SHORT).show();
                     return;
-                }
-                if (minInt < 0 || maxInt < 0) {
-                    Toast.makeText(getApplicationContext(), R.string.badNum,
-                            Toast.LENGTH_SHORT).show();
                 }
                 genNum.setText(nf.format(findRnd(minInt, maxInt)));
             } catch (NumberFormatException e) {

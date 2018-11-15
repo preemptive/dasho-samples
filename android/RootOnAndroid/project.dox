@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="9.1.0">
+<dasho version="9.2.0">
     <propertylist>
         <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
         <property name="AndroidManifestFile" value="${build.dir}/intermediates/merged_manifests"/>

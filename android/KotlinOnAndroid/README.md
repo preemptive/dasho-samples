@@ -1,6 +1,6 @@
 # Kotlin use in an Android App
 
-This sample Android&trade; app illustrates the use of Kotlin in _PreEmptive Protection - DashO_.
+This [sample Android&trade; app](../README.md#sample_desc) illustrates the use of Kotlin in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
 Obfuscation is handled via the [DashO Gradle](../../docs/gradle/index.html) integration.
 

@@ -38,7 +38,7 @@ class MainActivity : Activity(), OnClickListener {
 
     override fun onMenuItemSelected(featureId: Int, item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_about) {
-            showDialog(R.string.abtTitle, R.string.abtMsg)
+            showAboutDialog()
             return true
         }
         return super.onMenuItemSelected(featureId, item)
@@ -55,16 +55,13 @@ class MainActivity : Activity(), OnClickListener {
         }
     }
 
-
     /**
-     * Shows a dialog
-     * @param title   The title id
-     * @param message The message id
+     * Shows the about dialog
      */
-    private fun showDialog(title: Int, message: Int) {
+    private fun showAboutDialog() {
         val dlgAlert = AlertDialog.Builder(this)
-        dlgAlert.setTitle(title)
-        dlgAlert.setMessage(message)
+        dlgAlert.setTitle(R.string.abtTitle)
+        dlgAlert.setMessage(R.string.abtMsg)
         dlgAlert.setPositiveButton(Resources.getSystem().getText(android.R.string.ok), null)
         dlgAlert.setCancelable(true)
         dlgAlert.create().show()

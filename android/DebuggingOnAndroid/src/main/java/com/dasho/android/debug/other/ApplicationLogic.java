@@ -31,22 +31,27 @@ public class ApplicationLogic {
         return myBoolean;
     }
 
-
-
+    /**
+     * Used by the check
+     * @param b the result of the check
+     */
+    @SuppressWarnings("unused") //Used by the check
     private void setupVars(boolean b) {
         usingDashO=true;
         myBoolean=b;
     }
 
     /**
-     * DebugDetection requires this method.
+     * Debug detection requires this method.
      *
      * @return The original application's context.
      */
+    @SuppressWarnings("unused") //Used by the check
     public Context getApplicationContext() {
         return context;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean usingDashO() {
         return usingDashO;
     }

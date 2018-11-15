@@ -1,6 +1,6 @@
 # Debug Checks use in an Android App
 
-This sample Android&trade; app illustrates the use of the debug checks and responses in _PreEmptive Protection - DashO_.
+This [sample Android&trade; app](../README.md#sample_desc) illustrates the use of the debug checks and responses in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
 Obfuscation and injection are handled via the [DashO Gradle](../../docs/gradle/index.html) integration.
 
@@ -93,7 +93,8 @@ These debug checks and responses may be added to the code directly as annotation
 
 ## Best Practices
 
-It is recommended to not place a `DebuggingCheck` or `DebugEnabledCheck` directly in the entry classes as those would be the first places investigated.
+Do not place the `DebuggingCheck` or `DebugEnabledCheck` directly in the entry classes.
+Hackers investigate those places first.
 In this sample the `DebugEnabledCheck` was placed in an internal class that is called when the application starts up.
 In a real application this should be an existing class and not one added for the sole purpose of debug checking.
 The `Responses` were added to different methods with different outcomes, randomly deciding if or if not to act on the result from the debug check.

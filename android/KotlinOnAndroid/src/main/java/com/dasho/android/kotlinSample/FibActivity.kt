@@ -17,6 +17,13 @@ import android.widget.Toast
 import java.text.NumberFormat
 
 import kotlinx.android.synthetic.main.fib_main.*
+import android.widget.TextView
+import java.lang.ref.WeakReference
+
+
+
+const val WARN_SEQUENCE = 30
+const val MAX_SEQUENCE = 50
 
 /**
  * The Fibonacci calculator
@@ -25,7 +32,7 @@ import kotlinx.android.synthetic.main.fib_main.*
 class FibActivity : Activity(), OnClickListener {
 
     private var num = ""
-
+    private var fibTask: FibTask? = null
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fib_main)
@@ -45,24 +52,26 @@ class FibActivity : Activity(), OnClickListener {
      * Processes the request.
      */
     private fun processFibRequest() {
-        if (resources.getString(R.string.fibCalcProc) == calcFibRes.text) {
+        if (calcFibRes.text.startsWith(getString(R.string.fibCalcProcessing))) {
             Toast.makeText(applicationContext, R.string.fibProc, Toast.LENGTH_SHORT).show()
             return
         }
-        calcFibRes.setText(R.string.fibCalcProc)
+        calcFibRes.setText(R.string.fibCalcProcessing)
         try {
             num = fibSeqNum.text.toString()
             val seq = num.toInt()
-            if (seq > 40) {
-                num = "40"
-                Toast.makeText(applicationContext, R.string.fibTooLarge, Toast.LENGTH_SHORT)
-                        .show()
-                calcFibRes.text = ""
-            } else if (seq < 1) {
-                showNumberError()
-                return
-            } else if (seq > 30) {
-                Toast.makeText(applicationContext, R.string.fibLarge, Toast.LENGTH_SHORT)
+            when {
+                seq > MAX_SEQUENCE -> {
+                    num = Integer.toString(MAX_SEQUENCE)
+                    Toast.makeText(applicationContext, getString(R.string.fibTooLarge, MAX_SEQUENCE) , Toast.LENGTH_SHORT)
+                            .show()
+                    fibSeqNum.setText(num)
+                }
+                seq < 1 -> {
+                    showNumberError()
+                    return
+                }
+                seq > WARN_SEQUENCE -> Toast.makeText(applicationContext, R.string.fibLarge, Toast.LENGTH_SHORT)
                         .show()
             }
             findFib()
@@ -89,8 +98,8 @@ class FibActivity : Activity(), OnClickListener {
      * Finds the Fibonacci number at that sequence index
      */
     private fun findFib() {
-        val task = FibTask()
-        task.execute(Integer.valueOf(num))
+        fibTask = FibTask(calcFibRes, getString(R.string.fibCalcProgress))
+        fibTask?.execute(Integer.valueOf(num))
     }
 
     /**
@@ -102,6 +111,7 @@ class FibActivity : Activity(), OnClickListener {
         val prefEditor = prefs.edit()
         prefEditor.putString("seq", num)
         prefEditor.apply()
+        fibTask?.cancel()
     }
 
     /**
@@ -110,42 +120,72 @@ class FibActivity : Activity(), OnClickListener {
     override fun onResume() {
         super.onResume()
         val prefs = getSharedPreferences("FibPrefs", Context.MODE_PRIVATE)
-        num = prefs.getString("seq", getString(R.string.fibSeqDef))
+        num = prefs.getString("seq", getString(R.string.fibSeqDef))?:"11"
         fibSeqNum.setText(num)
         fibSeqNum.setSelection(num.length)
     }
 
     /**
      * An async task to calculate the number.
+     *
      * @author Matt Insko
      */
-    private inner class FibTask : AsyncTask<Int, Void, Int>() {
+    private class FibTask(fibNum: TextView, private val progressString: String) : AsyncTask<Int, Int, Long>() {
 
+        private var cancelled: Boolean = false
         private var seqNum: Int = 0
+        private var max: Int = 0
+        private val outputText: WeakReference<TextView> = WeakReference(fibNum)
         private val nf = NumberFormat.getIntegerInstance()
 
-        /**
-         * Add a FeatureStart("Fibonacci") virtual annotation
-         */
-        override fun doInBackground(vararg params: Int?): Int {
+        fun cancel() {
+            cancelled = true
+        }
+
+        override fun doInBackground(vararg params: Int?): Long? {
             seqNum = params[0] ?: 1
-            return Integer.valueOf(getFib(seqNum))
+            return getFib(seqNum)
         }
 
         /**
          * Calculates the Fibonacci number at a certain location
+         *
          * @param num The location
          * @return The Fibonacci number at that location
          */
-        private fun getFib(num: Int): Int = if (num < 3) { 1 }
-            else { getFib(num - 1) + getFib(num - 2) }
-
-        /**
-         * Shows the result on the screen
-         */
-        override fun onPostExecute(result: Int?) {
-            calcFibRes.text = nf.format(result)
+        private fun getFib(num: Int): Long {
+            val result = if (num < 3 || cancelled) {
+                1
+            } else {
+                getFib(num - 1) + getFib(num - 2)
+            }
+            reportMax(num)
+            return result
         }
 
+        private fun reportMax(num: Int) {
+            if (num > max) {
+                publishProgress(num)
+                max = num
+            }
+        }
+
+        override fun onPostExecute(result: Long?) {
+            val field = outputText.get()
+            if (field != null) {
+                if (cancelled) {
+                    field.text = ""
+                } else {
+                    field.text = nf.format(result)
+                }
+            }
+        }
+
+        override fun onProgressUpdate(vararg values: Int?) {
+            val field = outputText.get()
+            if (field != null) {
+                field.text = String.format(progressString, values[0])
+            }
+        }
     }
 }

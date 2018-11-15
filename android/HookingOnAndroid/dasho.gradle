@@ -1,0 +1,6 @@
+dashOConfig {
+    dashOHome = "${DASHO_HOME}"
+    doxFilename = 'project.dox'
+}
+android{buildTypes{debug{minifyEnabled true}}}
+android{buildTypes{release{minifyEnabled true}}}

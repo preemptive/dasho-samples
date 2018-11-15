@@ -46,14 +46,14 @@ class RandomGenActivity : Activity(), OnClickListener {
                 val minInt = minStr?.toInt() ?: 0
                 maxStr = rndMaxNum.text.toString()
                 val maxInt = maxStr?.toInt() ?: 100
+                if (minInt < 0 || maxInt < 0) {
+                    Toast.makeText(applicationContext, R.string.badNum, Toast.LENGTH_SHORT)
+                            .show()
+                }
                 if (maxInt <= minInt) {
                     Toast.makeText(applicationContext, R.string.minMaxErr, Toast.LENGTH_SHORT)
                             .show()
                     return
-                }
-                if (minInt < 0 || maxInt < 0) {
-                    Toast.makeText(applicationContext, R.string.badNum, Toast.LENGTH_SHORT)
-                            .show()
                 }
                 genNumber.text = nf.format(findRnd(minInt, maxInt))
             } catch (e: NumberFormatException) {

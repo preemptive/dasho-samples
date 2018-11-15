@@ -10,10 +10,9 @@ import android.content.Context;
 import android.os.Build;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
- * This class could contain some business logic. 
+ * This class could contain some business logic.
  * It is used for the Root Check.
  */
 public class ApplicationLogic {
@@ -36,18 +35,22 @@ public class ApplicationLogic {
         return myBoolean;
     }
 
-
-
+    /**
+     * Used by the check
+     * @param b the result of the check
+     */
+    @SuppressWarnings("unused") //Used by the check
     private void setupVars(boolean b) {
         usingCheck=true;
         myBoolean=b;
     }
 
     /**
-     * RootDetection requires this method.
+     * Root detection requires this method.
      *
      * @return The original application's context.
      */
+    @SuppressWarnings("unused") //Used by the check
     public Context getApplicationContext() {
         return context;
     }
@@ -55,7 +58,7 @@ public class ApplicationLogic {
     public static boolean usingCheck() {
         return usingCheck;
     }
-    
+
     /**
      * A check to see if PreEmptive Protection - DashO had been run.
      */
@@ -67,7 +70,7 @@ public class ApplicationLogic {
         try {
             Method methods[] = Class.forName("com.dasho.android.root.other.ApplicationLogic").getDeclaredMethods();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                return Arrays.stream(methods).filter(m-> m.getName().length()==1).findAny().isPresent();
+                return Arrays.stream(methods).anyMatch(m-> m.getName().length()==1);
             } else {
                 for (Method m : methods) {
                     if (m.getName().length() == 1) {
@@ -75,8 +78,7 @@ public class ApplicationLogic {
                     }
                 }
             }
-        } catch (ClassNotFoundException cnfe) {}
-        
+        } catch (ClassNotFoundException ignored) {}
         return false;
     }
 

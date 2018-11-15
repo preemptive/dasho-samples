@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/minNum"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <EditText
+            android:id="@+id/rndMinNum"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_marginLeft="25dp"
+            android:layout_toRightOf="@+id/textView1"
+            android:ems="10"
+            android:gravity="right|center_vertical"
+            android:inputType="number"/>
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="25dp"
+            android:text="@string/maxNum"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <EditText
+            android:id="@+id/rndMaxNum"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView2"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignLeft="@+id/rndMinNum"
+            android:layout_below="@+id/rndMinNum"
+            android:ems="10"
+            android:gravity="right|center_vertical"
+            android:inputType="number"/>
+
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/rndTitle"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+    <Button
+            android:id="@+id/genBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/rndMaxNum"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:paddingRight="25dp"
+            android:paddingLeft="25dp"
+            android:background="@drawable/rounded"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/genBt"/>
+
+    <TextView
+            android:id="@+id/genNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/genBtn"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceLarge"/>
+
+</RelativeLayout>

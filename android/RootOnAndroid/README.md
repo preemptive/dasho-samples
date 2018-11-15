@@ -1,6 +1,6 @@
 # Root Check Use in an Android App
 
-This sample Android&trade; app illustrates the use of `RootCheck` and `RootResponse` in _PreEmptive Protection - DashO_.
+This [sample Android&trade; app](../README.md#sample_desc) illustrates the use of `RootCheck` and `RootResponse` in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
 Obfuscation and injection are handled via the [DashO Gradle](../../docs/gradle/index.html) integration.
 
@@ -67,7 +67,8 @@ The root checks and responses may be added to the code directly as annotations o
 
 ## Best Practices
 
-It is recommended to not place `RootCheck` directly in the entry classes as those would be the first places investigated.
+Do not place the `RootCheck` directly in the entry classes.
+Hackers investigate those places first.
 In this sample the `RootCheck` was placed in an internal class that is called when the application starts up.
 In a real application this should be an existing class and not one added for the sole purpose of root checking.
 The `Responses` were added to different methods with different outcomes, randomly deciding if or if not to act on the result of the root check.

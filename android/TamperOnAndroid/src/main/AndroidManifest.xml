@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.1" package="com.dasho.android.tamper">
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.dasho.android.tamper">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -7,14 +7,10 @@
         <activity android:label="@string/title_activity_main" android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:label="@string/title_activity_random_gen" android:name=".RandomGenActivity">
-        </activity>
-        <activity android:label="@string/title_activity_fib" android:name=".FibActivity">
-        </activity>
+        <activity android:label="@string/title_activity_random_gen" android:name=".RandomGenActivity"/>
+        <activity android:label="@string/title_activity_fib" android:name=".FibActivity"/>
     </application>
-
 </manifest>

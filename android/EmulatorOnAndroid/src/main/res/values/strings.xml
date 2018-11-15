@@ -16,11 +16,12 @@
     <string name="fibSeqDef">11</string>
     <string name="fibBtn">Fibonacci Calculator</string>
     <string name="fibCalcBt">Calculate</string>
-    <string name="fibCalcProc">Calculating&#8230;</string>
+    <string name="fibCalcProcessing">Calculating&#8230;</string>
+    <string name="fibCalcProgress">Calculating&#8230; (at #%d)</string>
     <string name="badNum">Please enter positive numbers.</string>
     <string name="fibTitle">Fibonacci Calculator</string>
     <string name="fibProc">Currently processing a sequence number.</string>
-    <string name="fibLarge">That sequence number fairly large, it may take a while.</string>
-    <string name="fibTooLarge">That sequence number is too large, the 50th number will be calculated.</string>
+    <string name="fibLarge">That sequence is fairly large, it may take a while.</string>
+    <string name="fibTooLarge">That sequence number is too large, %d will be used. It may take a while.</string>
     <string name="errTitle">Error</string>
 </resources>

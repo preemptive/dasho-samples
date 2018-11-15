@@ -30,9 +30,25 @@ It can also be passed via the command line: `-PDASHO_HOME={DashO's Installation 
 * [DashO-GameOfLife](https://github.com/preemptive/DashO-GameOfLife) - A separate repository with a more-complex Android application that includes a library.
 * [DebuggingOnAndroid](DebuggingOnAndroid) - An Android application which uses Debug Checking.
 * [EmulatorOnAndroid](EmulatorOnAndroid) - An Android application which uses Emulator Checking.
+* [HookingOnAndroid](HookingOnAndroid) - An Android application which uses Hook Checking.
 * [KotlinOnAndroid](KotlinOnAndroid) - An Android application using Kotlin.
 * [RootOnAndroid](RootOnAndroid) - An Android application which uses Root Checking.
 * [TamperOnAndroid](TamperOnAndroid) - An Android application which uses Tamper Checking.
+
+<a name="sample_desc"></a>
+### Running the Samples
+
+The included samples have the same basic functionality.
+
+![sample](sample.png)
+
+The main screen allows selection of the *Random Generator* or the *Fibonacci Calculator*.
+The *Random Generator* generates and displays a random number in a configured range.
+The*Fibonacci Calculator*  calculates and displays a number in the Fibonacci sequence.
+The samples for Checks and Responses attach additional behavior to the `Generate` and `Calculate` actions.
+When the Check is triggered, those areas of the application will not work properly.
+
+
 
 Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
 

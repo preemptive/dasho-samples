@@ -2,8 +2,8 @@ buildscript {
     ext.kotlin_version = '1.2.71'
     repositories {
         flatDir dirs: "${DASHO_HOME}/gradle"
-        jcenter()
         google()
+        jcenter()
     }
 
     dependencies {
@@ -25,6 +25,11 @@ dependencies {
 android {
     compileSdkVersion 28
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 28
@@ -34,6 +39,6 @@ android {
 }
 
 repositories {
-    jcenter()
     google()
+    jcenter()
 }

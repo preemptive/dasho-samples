@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="Autofill" severity="ignore"/>
+    <issue id="GoogleAppIndexingWarning" severity="ignore"/>
+    <issue id="GradleDynamicVersion" severity="ignore"/>
+    <issue id="LabelFor" severity="ignore"/>
+    <issue id="PluralsCandidate" severity="ignore"/>
+    <issue id="RtlHardcoded" severity="ignore"/>
+</lint>
