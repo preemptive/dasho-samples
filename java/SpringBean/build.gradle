@@ -1,0 +1,45 @@
+apply plugin: 'java'
+
+libsDirName = '../'
+
+configurations {
+    libs
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    libs 'org.springframework:spring-context:5.1.5.RELEASE'
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+jar {
+    baseName 'MySpringApp'
+    manifest {
+        attributes 'Main-Class': 'com.example.spring.app.MySpringApp'
+        attributes 'Class-Path': configurations.compile.files.collect{
+            projectDir.toURI().relativize(project.uri(it)).getPath()
+        }.join(' ')
+    }
+}
+
+task downloadJars(type: Copy) {
+   from configurations.libs
+   into 'libs'
+}
+
+task run(type: JavaExec) {
+    main '-jar'
+    args 'MySpringApp.jar'
+}
+
+task runObfuscated(type: JavaExec) {
+    main '-jar'
+    args 'MyObfuscatedSpringApp.jar'
+}
+
+clean {
+    delete 'libs', fileTree('./') { include 'My*SpringApp.jar', '*report.txt', '*.map'}
+}
