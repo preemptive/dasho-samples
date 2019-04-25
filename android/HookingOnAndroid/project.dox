@@ -36,9 +36,9 @@
         <pathelement location="${gradleSupport:-}"/>
     </classpath>
     <entrypoints>
-        <android name="com.dasho.android.hook.FibActivity" rename-class="true"/>
+        <android name="com.dasho.android.hook.FibActivity"/>
         <android name="com.dasho.android.hook.MainActivity"/>
-        <android name="com.dasho.android.hook.RandomGenActivity" rename-class="true"/>
+        <android name="com.dasho.android.hook.RandomGenActivity"/>
     </entrypoints>
     <report path="${dasho.results.dir}/${projectname}-report.txt"/>
     <output compress="false" level="0">
