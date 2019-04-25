@@ -6,8 +6,8 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.preemptive:dasho:3.3.+'
-        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath 'com.preemptive:dasho:3.4.+'
+        classpath 'com.android.tools.build:gradle:3.4.0'
     }
 }
 
