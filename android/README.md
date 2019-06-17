@@ -22,8 +22,10 @@ It can also be set via an [environment variable](https://developer.android.com/s
 
 ### DashO
 
-Set `DASHO_HOME` in `gradle.properties` to the [location](https://www.preemptive.com/dasho/pro/userguide/en/getting_started_first.html#install_dir) of DashO.
-It can also be passed via the command line: `-PDASHO_HOME={DashO's Installation Directory}`, or set via an environment variable named `ORG_GRADLE_PROJECT_DASHO_HOME`.
+If DashO is installed in the default location, the *DashO Gradle Plugin for Android* will find *DashO* automatically.
+Otherwise, you will need to set `DASHO_HOME` in `gradle.properties` to the DashO home directory.
+It can also be passed via the command line: `-PDASHO_HOME=<DashO Home>`, or set via an environment variable named `ORG_GRADLE_PROJECT_DASHO_HOME`.
+See the [DashO User Guide](https://www.preemptive.com/dasho/pro/10.0/userguide/en/ref_dagp_dasho_home.html) for details.
 
 ## Samples
 
@@ -50,6 +52,6 @@ When the Check is triggered, those areas of the application will not work proper
 
 
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
 
 Android is a trademark of Google Inc.
