@@ -25,4 +25,4 @@ Run the application on your device or emulator.
 Android is a trademark of Google Inc.  
 Gradle is a trademark of Gradle Inc.
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

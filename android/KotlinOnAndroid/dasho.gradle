@@ -1,8 +1,8 @@
-dashOConfig {
-    dashOHome = "${DASHO_HOME}"
+dasho {
+    // home '/Applications/PreEmptive Protection - DashO 10.0.app/Contents/Java' // usually found automatically
     doxFilename = 'project.dox'
-    includeAsInputs = ['kotlin-stdlib-jdk7.jar', 'kotlin-stdlib.jar', 'annotations.jar']
-    skipManifestProcessing = true
+    // includeAsInputs = ['kotlin-stdlib-jdk7.jar', 'kotlin-stdlib.jar', 'annotations.jar'] // no longer relevant
+    // skipManifestProcessing = true // no longer relevant
 }
 android{buildTypes{debug{minifyEnabled true}}}
 android{buildTypes{release{minifyEnabled true}}}
