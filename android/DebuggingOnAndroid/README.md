@@ -77,7 +77,7 @@ Interact with the application on your device.
 You will notice that the Random Number feature indicates debugging is enabled and the Fibonacci feature indicates it is being debugged.
 Both features will fail sometimes because of the configured `Responses`.
 
->**Note:** If Android Studio is running, you will need to stop it in order for `jdb` to be able to connect to the process.
+>**Note:** If Android Studio is running, you may need to stop it in order for `jdb` to be able to connect to the process.
 
 ## How to Add Debug Checking to Your Android Application
 
@@ -107,4 +107,4 @@ If called with `true`, the check was positive for debugging and you can perform 
 Android is a trademark of Google Inc.  
 Gradle is a trademark of Gradle Inc.
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
