@@ -78,4 +78,4 @@ This makes it difficult to track down what is going wrong.
 Android is a trademark of Google Inc.  
 Gradle is a trademark of Gradle Inc.
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

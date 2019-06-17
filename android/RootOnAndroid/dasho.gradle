@@ -1,6 +1,0 @@
-dashOConfig {
-    dashOHome = "${DASHO_HOME}"
-    skipManifestProcessing = true
-}
-android{buildTypes{debug{minifyEnabled true}}}
-android{buildTypes{release{minifyEnabled true}}}
