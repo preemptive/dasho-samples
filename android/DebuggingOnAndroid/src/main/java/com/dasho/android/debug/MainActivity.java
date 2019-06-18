@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -75,15 +75,16 @@ public class MainActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.GenActBtn:
-                if (!ApplicationLogic.usingDashO()) {
+                if (!ApplicationLogic.wasDashOUsed()) {
                     toast("PreEmptive Protection - DashO was not used.");
+                } else if (!ApplicationLogic.wasRenamingApplied()) {
+                    toast("PreEmptive Protection - DashO was used, but R8 was not used.");
+                } else if (initializedLogic) {
+                    toast("This app has debugging enabled.");
                 } else {
-                    if (initializedLogic) {
-                        toast("This app has debugging enabled.");
-                    } else {
-                        toast("This app does not have debugging enabled.");
-                    }
+                    toast("This app does not have debugging enabled.");
                 }
+
                 startActivity(new Intent(getApplicationContext(), RandomGenActivity.class));
                 break;
             case R.id.FibActBtn:

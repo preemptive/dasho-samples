@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -14,7 +14,7 @@ import android.content.Context;
 public class ApplicationLogic {
 
     private boolean myBoolean = false;
-    private static boolean usingDashO=false;//Used to verify DashO has been run correctly.
+    private static boolean dashOWasUsed = false; // Used just to verify DashO has been run correctly.
     private Context context;
 
     public ApplicationLogic(Context context) {
@@ -33,12 +33,12 @@ public class ApplicationLogic {
 
     /**
      * Used by the check
-     * @param b the result of the check
+     * @param triggered the result of the check
      */
     @SuppressWarnings("unused") //Used by the check
-    private void setupVars(boolean b) {
-        usingDashO=true;
-        myBoolean=b;
+    private void setupVars(boolean triggered) {
+        dashOWasUsed = true;
+        myBoolean = triggered;
     }
 
     /**
@@ -52,8 +52,19 @@ public class ApplicationLogic {
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    public static boolean usingDashO() {
-        return usingDashO;
+    public static boolean wasDashOUsed() {
+        return dashOWasUsed;
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    public static boolean wasRenamingApplied() {
+        try {
+            // Prevent R8 from recognizing and unintentionally "fixing" this string by replacing it with the class's new
+            // name.
+            Class.forName("xcom.dasho.android.debug.other.ApplicationLogic".substring(1));
+            return false;
+        } catch (ClassNotFoundException ignored) {
+            return true;
+        }
+    }
 }
