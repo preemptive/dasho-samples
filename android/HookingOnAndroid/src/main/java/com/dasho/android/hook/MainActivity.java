@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -65,8 +65,10 @@ public class MainActivity extends Activity implements OnClickListener {
      * @param v The view clicked
      */
     public void onClick(View v) {
-        if (!ApplicationLogic.usingDashO()) {
+        if (!ApplicationLogic.wasDashOUsed()) {
             toast("PreEmptive Protection - DashO was not used.");
+        } else if (!ApplicationLogic.wasRenamingApplied()) {
+            toast("PreEmptive Protection - DashO was used, but R8 was not used.");
         } else if (!ApplicationLogic.usingCheck()) {
             toast("Hook Check was not used in this build.");
         } else if (initializedLogic) {
