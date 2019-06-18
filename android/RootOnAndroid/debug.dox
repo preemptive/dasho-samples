@@ -2,5 +2,17 @@
 <dasho mode="android" version="10.0.0">
     <controlflow option="on"/>
     <stringencrypt option="on" level="2" implementations="2"/>
-    <injection/>
+    <injection>
+        <runtime target="android" merge="false"/>
+        <checks>
+            <!-- The result of this check is ignored: this is just for verifying that DashO injection was applied. -->
+            <debugEnabledCheck action="setupInjectionWasApplied()">
+                <locations>
+                    <classes name="com.dasho.android.root.other.ApplicationLogic">
+                        <method name="someApplicationLogic" signature=""/>
+                    </classes>
+                </locations>
+            </debugEnabledCheck>
+        </checks>
+    </injection>
 </dasho>

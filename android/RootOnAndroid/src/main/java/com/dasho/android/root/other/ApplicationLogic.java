@@ -1,15 +1,11 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
  */
 package com.dasho.android.root.other;
 
-import android.annotation.TargetApi;
 import android.content.Context;
-import android.os.Build;
-import java.lang.reflect.Method;
-import java.util.Arrays;
 
 /**
  * This class could contain some business logic.
@@ -18,8 +14,11 @@ import java.util.Arrays;
 public class ApplicationLogic {
 
     private boolean myBoolean = false;
-    private static boolean usingCheck=false;//Used to verify DashO has been run correctly.
     private Context context;
+
+    // These flags are only used to verify that DashO has been run correctly.
+    private static boolean usingCheck = false;
+    private static boolean injectionApplied = false;
 
     public ApplicationLogic(Context context) {
         this.context = context;
@@ -37,12 +36,21 @@ public class ApplicationLogic {
 
     /**
      * Used by the check
-     * @param b the result of the check
+     * @param triggered the result of the check
      */
     @SuppressWarnings("unused") //Used by the check
-    private void setupVars(boolean b) {
-        usingCheck=true;
-        myBoolean=b;
+    private void setupVars(boolean triggered) {
+        usingCheck = true;
+        myBoolean = triggered;
+    }
+
+    /**
+     * Used by a check just to report that DashO injection was applied correctly.
+     * @param ignored an unused check result
+     */
+    @SuppressWarnings("unused") // only referenced in the DashO config
+    private void setupInjectionWasApplied(boolean ignored) {
+        injectionApplied = true;
     }
 
     /**
@@ -59,27 +67,18 @@ public class ApplicationLogic {
         return usingCheck;
     }
 
-    /**
-     * A check to see if PreEmptive Protection - DashO had been run.
-     */
-    @TargetApi(24)
-    public static boolean usingDashO() {
-        if (usingCheck) {
-            return true;
-        }
-        try {
-            Method methods[] = Class.forName("com.dasho.android.root.other.ApplicationLogic").getDeclaredMethods();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                return Arrays.stream(methods).anyMatch(m-> m.getName().length()==1);
-            } else {
-                for (Method m : methods) {
-                    if (m.getName().length() == 1) {
-                        return true;
-                    }
-                }
-            }
-        } catch (ClassNotFoundException ignored) {}
-        return false;
+    public static boolean wasDashOUsed() {
+        return usingCheck || injectionApplied;
     }
 
+    public static boolean wasRenamingApplied() {
+        try {
+            // Prevent R8 from recognizing and unintentionally "fixing" this string by replacing it with the class's new
+            // name.
+            Class.forName("xcom.dasho.android.root.other.ApplicationLogic".substring(1));
+            return false;
+        } catch (ClassNotFoundException ignored) {
+            return true;
+        }
+    }
 }
