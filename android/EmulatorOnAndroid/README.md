@@ -1,9 +1,9 @@
 # Emulator Check Use in an Android App
 
-This [sample Android&trade; app](../README.md#sample_desc) illustrates the use of `EmulatorCheck` and `EmulatorResponse` in _PreEmptive Protection - DashO_.
+This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of `EmulatorCheck` and `EmulatorResponse` in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-Obfuscation and injection are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/10.0/userguide/en/ref_dagp_index.html) integration.
-Renaming and removal are handled by [R8](https://r8-docs.preemptive.com/).
+[Control flow obfuscation](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/10.0/userguide/en/ref_dagp_index.html) integration.
+Renaming obfuscation (minification) and removal (tree-shaking) are handled by [R8](https://r8-docs.preemptive.com/).
 
 This sample is preconfigured with a single emulator check and three emulator responses.
 It is configured in such a way that emulator detection is injected into the release build and not the debug build.

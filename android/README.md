@@ -52,12 +52,8 @@ When the Check is triggered, those areas of the application will not work proper
 
 #### Notification
 
-While investigating a sample, it is possible to misconfigure it so that it will appear to install and run successfully but not have obfuscation applied correctly.
-Each sample is designed to provide notification of this condition in a toast whenever either the *Random Generator* or *Fibonacci Calculator* are selected from the main activity.
-Two different conditions are checked for:
-* `PreEmptive Protection - DashO was not used.`
-* `PreEmptive Protection - DashO was used, but R8 was not used.`
-
+Each of the sample apps is designed to detect certain configuration issues.
+In the case that something does go wrong, a message will be displayed in a toast whenever either the *Random Generator* or *Fibonacci Calculator* are selected from the main activity.
 If you see these messages unexpectedly, please review the `README.md` for the sample and review any changes you may have made to the configuration.
 
 

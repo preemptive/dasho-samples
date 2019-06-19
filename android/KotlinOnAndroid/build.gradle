@@ -19,7 +19,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 dasho {
-    enabledBuildVariants ".*" // regular expression, matches debug and release
+    enabledBuildVariants "" // blank matches any variant (debug or release)
 }
 
 android{buildTypes{debug{minifyEnabled true}}}
