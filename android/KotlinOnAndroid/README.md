@@ -2,7 +2,7 @@
 
 This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of Kotlin in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-[Control flow obfuscation](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/10.0/userguide/en/ref_dagp_index.html) integration.
+[Control flow obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
 Renaming obfuscation (minification) and removal (tree-shaking) are handled by [R8](https://r8-docs.preemptive.com/).
 
 This sample is preconfigured with obfuscation.

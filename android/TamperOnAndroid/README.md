@@ -2,7 +2,7 @@
 
 This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of `TamperCheck` and `TamperResponse` in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-[Control flow obfuscation](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/10.0/userguide/en/ref_dagp_index.html) integration.
+[Control flow obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
 Renaming obfuscation (minification) and removal (tree-shaking) are handled by [R8](https://r8-docs.preemptive.com/).
 
 This sample is preconfigured with a single tamper check and three tamper responses.
@@ -29,7 +29,7 @@ This is what allows this sample to easily show tampered behavior.
 >**Note:**
 > In general, real applications should use the signing information passed to *DashO* by the *DashO Gradle Plugin for Android* and not override it.
 > This is not the case when using [Google Play App Signing](https://developer.android.com/studio/publish/app-signing.html#app-signing-google-play).
-> See the [DashO User Guide](https://www.preemptive.com/dasho/pro/10.0/userguide/en/understanding_checks_tamper.html#google_play_signing) for details.
+> See the [DashO User Guide](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_tamper.html#google_play_signing) for details.
 
 ## Setup
 
