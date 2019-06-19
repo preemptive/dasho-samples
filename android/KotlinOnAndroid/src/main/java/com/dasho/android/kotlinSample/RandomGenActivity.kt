@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -13,10 +13,13 @@ import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.Toast
+import kotlinx.android.synthetic.main.random_main.genBtn
+import kotlinx.android.synthetic.main.random_main.genNumber
+import kotlinx.android.synthetic.main.random_main.rndMaxNum
+import kotlinx.android.synthetic.main.random_main.rndMinNum
 import java.text.NumberFormat
 import java.util.Random
 
-import kotlinx.android.synthetic.main.random_main.*
 
 /**
  * The Random Number Generator

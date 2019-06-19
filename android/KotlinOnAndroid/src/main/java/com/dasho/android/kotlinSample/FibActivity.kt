@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -16,8 +16,10 @@ import android.view.View.OnClickListener
 import android.widget.Toast
 import java.text.NumberFormat
 
-import kotlinx.android.synthetic.main.fib_main.*
 import android.widget.TextView
+import kotlinx.android.synthetic.main.fib_main.calcFibBtn
+import kotlinx.android.synthetic.main.fib_main.calcFibRes
+import kotlinx.android.synthetic.main.fib_main.fibSeqNum
 import java.lang.ref.WeakReference
 
 

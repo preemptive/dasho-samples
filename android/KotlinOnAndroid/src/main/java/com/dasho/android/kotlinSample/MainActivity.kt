@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -14,7 +14,10 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.Toast
+import com.dasho.android.kotlinSample.other.ApplicationLogic
+import kotlinx.android.synthetic.main.activity_main.FibActBtn
+import kotlinx.android.synthetic.main.activity_main.GenActBtn
 
 
 /**
@@ -28,6 +31,7 @@ class MainActivity : Activity(), OnClickListener {
         setContentView(R.layout.activity_main)
         GenActBtn.setOnClickListener(this)
         FibActBtn.setOnClickListener(this)
+        ApplicationLogic(applicationContext).someApplicationLogic()
     }
 
 
@@ -49,6 +53,12 @@ class MainActivity : Activity(), OnClickListener {
      * @param v The view clicked
      */
     override fun onClick(v: View) {
+        if (!ApplicationLogic.wasDashOUsed()) {
+            toast("PreEmptive Protection - DashO was not used.");
+        } else if (!ApplicationLogic.wasRenamingApplied()) {
+            toast("PreEmptive Protection - DashO was used, but R8 was not used.");
+        }
+
         when (v) {
             GenActBtn -> startActivity(Intent(applicationContext, RandomGenActivity::class.java))
             FibActBtn -> startActivity(Intent(applicationContext, FibActivity::class.java))
@@ -65,5 +75,14 @@ class MainActivity : Activity(), OnClickListener {
         dlgAlert.setPositiveButton(Resources.getSystem().getText(android.R.string.ok), null)
         dlgAlert.setCancelable(true)
         dlgAlert.create().show()
+    }
+
+    /**
+     * Makes a toast
+     *
+     * @param message The toast message
+     */
+    private fun toast(message:String) {
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
     }
 }
