@@ -23,9 +23,7 @@ It can also be set via an [environment variable](https://developer.android.com/s
 ### DashO
 
 If DashO is installed in the default location, the *DashO Gradle Plugin for Android* will find *DashO* automatically, and no explicit configuration is necessary.
-Otherwise, you will need to set `DASHO_HOME` in `gradle.properties` to the DashO home directory.
-It can also be passed via the command line: `-PDASHO_HOME=<DashO Home>`, or set via an environment variable named `ORG_GRADLE_PROJECT_DASHO_HOME`.
-See documentation for the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_dasho_home.html) for details.
+Otherwise, see documentation for the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_dasho_home.html) for details about setting DashO Home.
 
 ## Samples
 
