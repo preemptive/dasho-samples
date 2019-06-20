@@ -1,8 +1,9 @@
 # Tamper Check use in an Android App
 
-This [sample Android&trade; app](../README.md#sample_desc) illustrates the use of `TamperCheck` and `TamperResponse` in _PreEmptive Protection - DashO_.
+This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of `TamperCheck` and `TamperResponse` in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-Obfuscation and injection are handled via the [DashO Gradle](../../docs/gradle/index.html) integration.
+[Control flow obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
+Renaming obfuscation and removal are handled by [R8](https://r8-docs.preemptive.com/).
 
 This sample is preconfigured with a single tamper check and three tamper responses.
 It is configured in such a way that a debug build will act as if it was tampered and a release build will act in a non-tampered fashion.
@@ -23,9 +24,12 @@ Feel free to reconfigure the probability and/or responses of the `TamperResponse
 This sample includes a keystore, `keystore.ks`, with two certificates, `correct_cert` and `other_cert`.
 The `correct_cert` is configured to be used when signing the release build.
 The `TamperCheck` overrides the signing information passed by the Gradle integration preventing the correct certificate from being used during the debug build.
-This is what allows this sample to easily show tampered behavior.  
+This is what allows this sample to easily show tampered behavior.
 
->**Note:** In a real environment you should use the signing information passed to DashO by the Gradle integrations and not override it.
+>**Note:**
+> In general, real applications should use the signing information passed to *DashO* by the *DashO Gradle Plugin for Android* and not override it.
+> This is not the case when using [Google Play App Signing](https://developer.android.com/studio/publish/app-signing.html#app-signing-google-play).
+> See the [DashO User Guide](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_tamper.html#google_play_signing) for details.
 
 ## Setup
 
@@ -80,8 +84,8 @@ In a real application this should be an existing class and not one added for the
 The `Responses` were added to different methods with different outcomes, randomly deciding if or if not to act on the result of the tamper check.
 This makes it difficult to track down what is going wrong.
 
->**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).  
-Android is a trademark of Google Inc.  
+>**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
+Android is a trademark of Google Inc.
 Gradle is a trademark of Gradle Inc.
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

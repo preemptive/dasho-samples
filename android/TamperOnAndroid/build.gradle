@@ -1,18 +1,25 @@
 buildscript {
     repositories {
-        flatDir dirs: "${DASHO_HOME}/gradle"
+        maven { url 'https://maven.preemptive.com/' }
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.preemptive:dasho:3.4.+'
+        classpath 'com.preemptive.dasho:dasho-android:1.0.+'
         classpath 'com.android.tools.build:gradle:3.4.0'
     }
 }
 
 apply plugin: 'com.android.application'
-apply from: 'dasho.gradle'
+apply plugin: 'com.preemptive.dasho.android'
+
+dasho {
+    enabledBuildVariants "" // blank matches any variant (debug or release)
+}
+
+android{buildTypes{debug{minifyEnabled true}}}
+android{buildTypes{release{minifyEnabled true}}}
 
 android {
     compileSdkVersion 28

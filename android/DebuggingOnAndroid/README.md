@@ -1,8 +1,9 @@
 # Debug Checks use in an Android App
 
-This [sample Android&trade; app](../README.md#sample_desc) illustrates the use of the debug checks and responses in _PreEmptive Protection - DashO_.
+This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of the debug checks and responses in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-Obfuscation and injection are handled via the [DashO Gradle](../../docs/gradle/index.html) integration.
+[Control flow obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
+Renaming obfuscation and removal are handled by [R8](https://r8-docs.preemptive.com/).
 
 This sample is preconfigured with both debug enabled and debugging checks and responses.
 
@@ -57,7 +58,7 @@ The Random Number feature will fail sometimes because of the `DebugEnabledRespon
 
 ## Actively Debug
 
-Compile, obfuscate, and install the debug version of the application.  
+Compile, obfuscate, and install the debug version of the application.
 
 >**Note:** These instructions assume `adb` and `jdb` are available via your `PATH` environment variable.
 
@@ -77,7 +78,7 @@ Interact with the application on your device.
 You will notice that the Random Number feature indicates debugging is enabled and the Fibonacci feature indicates it is being debugged.
 Both features will fail sometimes because of the configured `Responses`.
 
->**Note:** If Android Studio is running, you will need to stop it in order for `jdb` to be able to connect to the process.
+>**Note:** If Android Studio is running, you may need to stop it in order for `jdb` to be able to connect to the process.
 
 ## How to Add Debug Checking to Your Android Application
 
@@ -103,8 +104,8 @@ This makes it difficult to track down what is going wrong.
 You can also run your own custom response by referencing a method in the check's `action`.
 If called with `true`, the check was positive for debugging and you can perform a custom action like sending a message to Google Analytics.
 
->**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).  
-Android is a trademark of Google Inc.  
+>**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
+Android is a trademark of Google Inc.
 Gradle is a trademark of Gradle Inc.
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

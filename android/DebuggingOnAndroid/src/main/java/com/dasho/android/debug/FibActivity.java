@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -128,15 +128,16 @@ public class FibActivity extends Activity implements OnClickListener {
     @Override
     protected void onResume() {
         super.onResume();
-        if (!ApplicationLogic.usingDashO()) {
+        if (!ApplicationLogic.wasDashOUsed()) {
             toast("PreEmptive Protection - DashO was not used.");
+        } else if (!ApplicationLogic.wasRenamingApplied()) {
+            toast("PreEmptive Protection - DashO was used, but R8 was not used.");
+        } else if (check) {
+            toast("This app is being debugged.");
         } else {
-            if (check) {
-                toast("This app is being debugged.");
-            } else {
-                toast("This app is not being debugged.");
-            }
+            toast("This app is not being debugged.");
         }
+
         SharedPreferences prefs = getSharedPreferences("FibPrefs", MODE_PRIVATE);
         num = prefs.getString("seq", getString(R.string.fibSeqDef));
         seqNum.setText(num);
@@ -166,7 +167,7 @@ public class FibActivity extends Activity implements OnClickListener {
         private final String progressString;
         private final NumberFormat nf = NumberFormat.getIntegerInstance();
 
-        public FibTask(TextView fibNum, String progressString) {
+        FibTask(TextView fibNum, String progressString) {
             this.outputText = new WeakReference<>(fibNum);
             this.progressString = progressString;
         }

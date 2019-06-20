@@ -1,76 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="9.2.0">
-    <propertylist>
-        <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
-        <property name="AndroidManifestFile" value="${build.dir}/intermediates/merged_manifests"/>
-        <property name="AndroidManifestOutput" value="../../../intermediates/dasho-manifests"/>
-        <property name="build.dir" value="build"/>
-        <property name="buildType" value="debug"/>
-        <property name="buildVariant" value="${buildType:-}"/>
-        <property name="dasho.results.dir" value="${build.dir}/dasho-results/${buildVariant}"/>
-        <property name="gradleInput" value="build/intermediates/javac/debug/compileDebugJavaWithJavac/classes"/>
-        <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>
-        <property name="gradleSupport" value=""/>
-        <property name="key.store" value="${user.home}/.android/debug.keystore"/>
-        <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
-        <property name="KEY_ALIAS_PASSWORD" value="${key.alias.password:-android}"/>
-        <property name="KEYSTORE" value="${key.store}"/>
-        <property name="KEYSTORE_PASSWORD" value="${key.store.password:-android}"/>
-        <property name="manifest.package" value="com.dasho.android.root"/>
-        <property name="projectname" value="RootOnAndroid"/>
-        <property name="sdk.dir" value="${ANDROID_SDK_ROOT}"/>
-        <property name="sdk.target" value="android-28"/>
-    </propertylist>
-    <global>
-        <option>NOMAKEPUBLIC</option>
-        <option>IGNORENOTFOUNDCLASSES</option>
-        <option>FORNAMEDETECTION</option>
-        <option>FORCE</option>
-        <option>RENAMEFORNAME</option>
-    </global>
-    <inputpath>
-        <pathelement location="${gradleInput}"/>
-    </inputpath>
-    <classpath appendrtjar="false">
-        <pathelement location="${sdk.dir}/platforms/${sdk.target}/android.jar"/>
-        <pathelement location="${gradleSupport:-}"/>
-    </classpath>
-    <entrypoints>
-        <android name="com.dasho.android.root.FibActivity"/>
-        <android name="com.dasho.android.root.MainActivity"/>
-        <android name="com.dasho.android.root.RandomGenActivity"/>
-    </entrypoints>
-    <report path="${dasho.results.dir}/${projectname}-report.txt"/>
-    <output compress="false" level="0">
-        <jar path="${gradleOutput}"/>
-    </output>
-    <removal classes="unused" members="unused">
-        <debug/>
-        <attributes/>
-    </removal>
-    <methodCallRemoval/>
-    <renaming option="on">
-        <class-options randomize="true" prefix="${manifest.package}."/>
-        <member-options randomize="true"/>
-        <excludelist>
-            <classes excludeclass="false" name="com.dasho.android.root.other.ApplicationLogic">
-                <method name="getApplicationContext" signature=""/>
-            </classes>
-        </excludelist>
-        <mapping>
-            <mapreport path="${dasho.results.dir}/${projectname}-mapreport.txt"/>
-            <mapoutput overwrite="true" path="${dasho.results.dir}/${projectname}.map"/>
-        </mapping>
-    </renaming>
-    <optimization option="on"/>
+<dasho mode="android" version="10.0.0">
     <controlflow option="on"/>
-    <stringencrypt option="on" level="2" implementations="2">
-        <seOutput path="${dasho.results.dir}/${projectname}-se.map"/>
-    </stringencrypt>
-    <includenonclassfiles>
-        <copy source="${AndroidManifestFile}" relativedest="${AndroidManifestOutput}"/>
-    </includenonclassfiles>
+    <stringencrypt option="on" level="2" implementations="2"/>
     <injection>
         <runtime target="android" merge="false"/>
+        <checks>
+            <!-- The result of this check is ignored: this is just for verifying that DashO injection was applied. -->
+            <debugEnabledCheck action="setupInjectionWasApplied()">
+                <locations>
+                    <classes name="com.dasho.android.root.other.ApplicationLogic">
+                        <method name="someApplicationLogic" signature=""/>
+                    </classes>
+                </locations>
+            </debugEnabledCheck>
+        </checks>
     </injection>
 </dasho>

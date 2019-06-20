@@ -10,7 +10,7 @@
 ## Environment Setup
 
 Before running these samples, they need to know where both the Android SDK and DashO are located.
->**Note:** If you import a sample into Android Studio, you should make sure Instant Run is [disabled](https://developer.android.com/studio/run/#disable-ir) so the sample will work correctly.
+>**Note:** If you import a sample into Android Studio, make sure that Instant Run is [disabled](https://developer.android.com/studio/run/#disable-ir) so that the sample will work correctly.
 
 ### Android SDK
 
@@ -22,8 +22,10 @@ It can also be set via an [environment variable](https://developer.android.com/s
 
 ### DashO
 
-Set `DASHO_HOME` in `gradle.properties` to the [location](https://www.preemptive.com/dasho/pro/userguide/en/getting_started_first.html#install_dir) of DashO.
-It can also be passed via the command line: `-PDASHO_HOME={DashO's Installation Directory}`, or set via an environment variable named `ORG_GRADLE_PROJECT_DASHO_HOME`.
+If DashO is installed in the default location, the *DashO Gradle Plugin for Android* will find *DashO* automatically, and no explicit configuration is necessary.
+Otherwise, you will need to set `DASHO_HOME` in `gradle.properties` to the DashO home directory.
+It can also be passed via the command line: `-PDASHO_HOME=<DashO Home>`, or set via an environment variable named `ORG_GRADLE_PROJECT_DASHO_HOME`.
+See documentation for the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_dasho_home.html) for details.
 
 ## Samples
 
@@ -44,12 +46,17 @@ The included samples have the same basic functionality.
 
 The main screen allows selection of the *Random Generator* or the *Fibonacci Calculator*.
 The *Random Generator* generates and displays a random number in a configured range.
-The*Fibonacci Calculator*  calculates and displays a number in the Fibonacci sequence.
+The *Fibonacci Calculator* calculates and displays a number in the Fibonacci sequence.
 The samples for Checks and Responses attach additional behavior to the `Generate` and `Calculate` actions.
 When the Check is triggered, those areas of the application will not work properly.
 
+#### Notification
+
+Each of the sample apps is designed to detect certain configuration issues.
+In the case that something does go wrong, a message will be displayed in a toast whenever either the *Random Generator* or *Fibonacci Calculator* are selected from the main activity.
+If you see these messages unexpectedly, please review the `README.md` for the sample and review any changes you may have made to the configuration.
 
 
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
+Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
 
 Android is a trademark of Google Inc.

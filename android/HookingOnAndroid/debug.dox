@@ -8,7 +8,7 @@
             <!-- The result of this check is ignored: this is just for verifying that DashO injection was applied. -->
             <debugEnabledCheck action="setupInjectionWasApplied()">
                 <locations>
-                    <classes name="com.dasho.android.emulator.other.ApplicationLogic">
+                    <classes name="com.dasho.android.hook.other.ApplicationLogic">
                         <method name="someApplicationLogic" signature=""/>
                     </classes>
                 </locations>
