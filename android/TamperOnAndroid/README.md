@@ -2,10 +2,10 @@
 
 This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of `TamperCheck` and `TamperResponse` in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-[Control flow obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
-Renaming obfuscation and removal are handled by [R8](https://r8-docs.preemptive.com/).
+[Control Flow Obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [String Encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check Injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
+Renaming Obfuscation and Removal are handled by [R8](https://r8-docs.preemptive.com/).
 
-This sample is preconfigured with a single tamper check and three tamper responses.
+This sample is preconfigured with a single Tamper Check and two Tamper Responses.
 It is configured in such a way that a debug build will act as if it was tampered and a release build will act in a non-tampered fashion.
 
 The `TamperCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
@@ -13,10 +13,9 @@ This method returns a boolean value that will be `true` if the application has b
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `TamperResponse` instances.
 
 One `TamperResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
-
 Another `TamperResponse` was placed on the `findRnd()` method used when calculating the random number.
+Both of those Responses use randomness to determine if they should or should not do anything.
 
-Both of those responses use randomness to determine if they should or should not do anything.
 There is also a programmatic use of the boolean variable set by the `TamperCheck` that shows a message to the user that the application has been tampered.
 
 Feel free to reconfigure the probability and/or responses of the `TamperResponse` by editing them inside the `project.dox` file or via the DashO UI.
@@ -58,9 +57,9 @@ Run the application on your device. You will notice it does not behave as expect
 
 ## How to Add Tamper Checking to Your Android Application
 
-Adding basic tamper checking is relatively simple.
+Adding basic Tamper Checks is relatively simple.
 
-1.  Decide when during the lifetime of your app you want to make the check.
+1.  Decide when during the lifetime of your app you want to make the Check.
 2.  Add a `TamperCheck` with an action to take.
 3.  Configure the signing information (if needed).
 
@@ -68,21 +67,21 @@ To test it; extract, repackage, and resign your apk with a key that is not the o
 
 The keystore in this sample has two certificates.
 You can see them by running: `keytool -list -v -keystore keystore.ks -storepass password`.
-If `correct_cert` is used to when injecting tamper detection, and the installed APK has been signed with `other_cert`, the tamper check will show that the application has been tampered with.
+If `correct_cert` is used to when injecting tamper detection, and the installed APK has been signed with `other_cert`, the Tamper Check will show that the application has been tampered with.
 
 If you wish to use `TamperResponse`, it is a bit more difficult as you must provide a mechanism for communication between the `TamperCheck` and `TamperResponse`.
 In this sample, that mechanism involves the boolean variable and the `MainActivity.isInitialized()` method.
 
-The tamper checks and responses may be added to the code directly as annotations or configured on the Tamper Check screen.
+The Tamper Checks and Responses may be added to the code directly as annotations or configured on the Tamper Check screen.
 
 ## Best Practices
 
 Do not place the `TamperCheck` directly in the entry classes.
 Hackers investigate those places first.
 In this sample the `TamperCheck` was placed in an internal class that is called when the application starts up.
-In a real application this should be an existing class and not one added for the sole purpose of tamper checking.
-The `Responses` were added to different methods with different outcomes, randomly deciding if or if not to act on the result of the tamper check.
-This makes it difficult to track down what is going wrong.
+In a real application this should be an existing class and not one added for the sole purpose of Tamper Checks.
+The Responses were added to different methods with different outcomes, randomly deciding whether or not to act on the result of the Tamper Check.
+This makes it difficult for an attacker to track down what is going wrong.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
 Android is a trademark of Google Inc.

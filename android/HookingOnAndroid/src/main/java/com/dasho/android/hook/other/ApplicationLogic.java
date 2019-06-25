@@ -14,11 +14,8 @@ import android.content.Context;
 public class ApplicationLogic {
 
     private boolean myBoolean = false;
+    private static boolean dashOWasUsed = false; // Used just to verify DashO has been run correctly.
     private Context context;
-
-    // These flags are only used to verify that DashO has been run correctly.
-    private static boolean usingCheck = false;
-    private static boolean injectionApplied = false;
 
     public ApplicationLogic(Context context) {
         this.context = context;
@@ -40,17 +37,8 @@ public class ApplicationLogic {
      */
     @SuppressWarnings("unused") //Used by the check
     private void setupVars(boolean triggered) {
-        usingCheck = true;
+        dashOWasUsed = true;
         myBoolean = triggered;
-    }
-
-    /**
-     * Used by a check just to report that DashO injection was applied correctly.
-     * @param ignored an unused check result
-     */
-    @SuppressWarnings("unused") // only referenced in the DashO config
-    private void setupInjectionWasApplied(boolean ignored) {
-        injectionApplied = true;
     }
 
     /**
@@ -63,12 +51,8 @@ public class ApplicationLogic {
         return context;
     }
 
-    public static boolean usingCheck() {
-        return usingCheck;
-    }
-
     public static boolean wasDashOUsed() {
-        return usingCheck || injectionApplied;
+        return dashOWasUsed;
     }
 
     public static boolean wasRenamingApplied() {
