@@ -2,8 +2,8 @@
 
 This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of `HookCheck` and `HookResponse` in _PreEmptive Protection - DashO_.
 This project can be imported into Android Studio.
-[Control flow obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [string encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
-Renaming obfuscation and removal are handled by [R8](https://r8-docs.preemptive.com/).
+[Control Flow Obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [String Encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check Injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
+Renaming Obfuscation and Removal are handled by [R8](https://r8-docs.preemptive.com/).
 
 This sample is preconfigured with a single Hook Check and two Hook Responses.
 
@@ -27,7 +27,7 @@ See the main [README](../README.md) for the requirements.
 
 >**Note:** When compiling, you may notice a `Warning` regarding `exit` on Android. The `exit` action on Android will only close the `Activity` on the top of the activity stack.
 
-## Run Normal
+## Run Normally
 
 Compile, obfuscate, and install the application.
 
