@@ -69,7 +69,7 @@ public class MainActivity extends Activity implements OnClickListener {
             toast("PreEmptive Protection - DashO was not used.");
         } else if (!ApplicationLogic.wasRenamingApplied()) {
             toast("PreEmptive Protection - DashO was used, but R8 was not used.");
-        } else if (!ApplicationLogic.usingCheck()) {
+        } else if (!ApplicationLogic.wasDashOUsed()) {
             toast("Hook Check was not used in this build.");
         } else if (initializedLogic) {
             toast("Hooking was detected.");
