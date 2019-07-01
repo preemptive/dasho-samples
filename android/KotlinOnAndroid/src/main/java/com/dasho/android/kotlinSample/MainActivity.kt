@@ -18,6 +18,7 @@ import android.widget.Toast
 import com.dasho.android.kotlinSample.other.ApplicationLogic
 import kotlinx.android.synthetic.main.activity_main.FibActBtn
 import kotlinx.android.synthetic.main.activity_main.GenActBtn
+import kotlinx.coroutines.*
 
 
 /**
@@ -32,6 +33,12 @@ class MainActivity : Activity(), OnClickListener {
         GenActBtn.setOnClickListener(this)
         FibActBtn.setOnClickListener(this)
         ApplicationLogic(applicationContext).someApplicationLogic()
+        GlobalScope.launch {
+            delay(500L)
+            runOnUiThread {
+                toast("Delayed toast!")
+            }
+        }
     }
 
 

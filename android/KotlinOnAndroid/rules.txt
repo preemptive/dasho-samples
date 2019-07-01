@@ -1,0 +1,5 @@
+-printconfiguration "configout.txt"
+
+-keepclassmembers class kotlinx.coroutines.** {
+    volatile <fields>;
+}
