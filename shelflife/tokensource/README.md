@@ -20,5 +20,3 @@ To run this sample you need to create a token using _PreEmptive Protection - Das
 6.  Save the token as `ShelfLifeToken.dat` in this directory.
 
 You may then run the sample with `ant`.
-
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

@@ -108,5 +108,3 @@ If called with `true`, the Check was positive for debugging and you can perform 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
 Android is a trademark of Google Inc.
 Gradle is a trademark of Gradle Inc.
-
-Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

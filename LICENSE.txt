@@ -1,4 +1,6 @@
-This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.  
+Copyright 2019 [PreEmptive Solutions, LLC](https://www.preemptive.com)
+
+This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
 1. Definitions
 The terms "reproduce," "reproduction," "derivative works," and "distribution" have the same meaning here as under U.S. copyright law.
 A "contribution" is the original software, or any additions or changes to the software.

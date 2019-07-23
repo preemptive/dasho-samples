@@ -20,7 +20,4 @@ _PreEmptive Protection - DashO_ is a [Java and Android obfuscator](https://www.p
 DashO's obfuscation, hardening, and runtime check features make your application much harder to reverse engineer, pirate, or steal data from.
 World-class technical support for DashO is available through our [website](https://www.preemptive.com/support/dasho-support) and/or our [support request form](https://www.preemptive.com/contact/supportrequestform).
 
-
-Copyright 2018 [PreEmptive Solutions, LLC](https://www.preemptive.com)
-
 Android is a trademark of Google Inc.

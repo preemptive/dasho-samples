@@ -12,5 +12,3 @@ See the main [README](../README.md) for the requirements.
 
 * `ant` - Compiles, instruments, and runs the sample.
 * `ant reset` - Resets the dynamic start date.
-
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

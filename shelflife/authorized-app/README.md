@@ -70,6 +70,3 @@ The resulting `ProtectedMetalworks.jar` is now ready for testing.
         java -classpath ProtectedMetalworks.jar MetalworksAuthorization reset
 
 4.  Run the jar again - no dialogs should be shown since the application is now authorized.
-
-
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

@@ -13,5 +13,3 @@ Before running the Shelf Life samples you need to place your [shelf life key](ht
 * [customaction](customaction) - Use a custom expiration action to bring up dialogs when the application has expired.
 * [relativestart](relativestart) - Expire an application a certain number of days from a dynamic start date.
 * [tokensource](tokensource) - Read the expiration token from an external source, in this case from resources.
-
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

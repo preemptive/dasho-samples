@@ -57,5 +57,3 @@ These instructions will guide you through running the original and obfuscated ve
 5. Click the `Lookup/Replaced` button in both apps and read the output.
 6. Click the `Constants` button in both apps and read the output.
 7. Close the apps by clicking the `X`.
-
-Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
