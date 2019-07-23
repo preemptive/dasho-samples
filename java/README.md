@@ -20,5 +20,3 @@ Set an environment variable named `JDK_HOME` to the location of the JDK.  This w
 * [multijar](multijar) - Cross-jar obfuscation using the `merge="false"` output option.
 * [simpleapp](simpleapp) - A hello world type application.
 * [SpringBean](SpringBean) - An Spring Application showing how DashO deals with Spring Beans.
-
-Copyright 2018 [PreEmptive Solutions, LLC.](https://www.preemptive.com)

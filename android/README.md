@@ -54,7 +54,4 @@ Each of the sample apps is designed to detect certain configuration issues.
 In the case that something does go wrong, a message will be displayed in a toast whenever either the *Random Generator* or *Fibonacci Calculator* are selected from the main activity.
 If you see these messages unexpectedly, please review the `README.md` for the sample and review any changes you may have made to the configuration.
 
-
-Copyright 2019 [PreEmptive Solutions, LLC.](https://www.preemptive.com)
-
 Android is a trademark of Google Inc.
