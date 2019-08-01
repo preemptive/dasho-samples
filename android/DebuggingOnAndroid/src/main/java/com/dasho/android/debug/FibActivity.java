@@ -129,9 +129,9 @@ public class FibActivity extends Activity implements OnClickListener {
     protected void onResume() {
         super.onResume();
         if (!ApplicationLogic.wasDashOUsed()) {
-            toast("PreEmptive Protection - DashO was not used.");
+            toast("DashO was not used.");
         } else if (!ApplicationLogic.wasRenamingApplied()) {
-            toast("PreEmptive Protection - DashO was used, but R8 was not used.");
+            toast("DashO was used, but R8 was not used.");
         } else if (check) {
             toast("This app is being debugged.");
         } else {

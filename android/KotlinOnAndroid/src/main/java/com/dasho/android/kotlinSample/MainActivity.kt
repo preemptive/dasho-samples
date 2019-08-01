@@ -54,9 +54,9 @@ class MainActivity : Activity(), OnClickListener {
      */
     override fun onClick(v: View) {
         if (!ApplicationLogic.wasDashOUsed()) {
-            toast("PreEmptive Protection - DashO was not used.");
+            toast("DashO was not used.");
         } else if (!ApplicationLogic.wasRenamingApplied()) {
-            toast("PreEmptive Protection - DashO was used, but R8 was not used.");
+            toast("DashO was used, but R8 was not used.");
         }
 
         when (v) {

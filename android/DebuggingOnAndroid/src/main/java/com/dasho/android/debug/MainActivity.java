@@ -76,9 +76,9 @@ public class MainActivity extends Activity implements OnClickListener {
         switch (v.getId()) {
             case R.id.GenActBtn:
                 if (!ApplicationLogic.wasDashOUsed()) {
-                    toast("PreEmptive Protection - DashO was not used.");
+                    toast("DashO was not used.");
                 } else if (!ApplicationLogic.wasRenamingApplied()) {
-                    toast("PreEmptive Protection - DashO was used, but R8 was not used.");
+                    toast("DashO was used, but R8 was not used.");
                 } else if (initializedLogic) {
                     toast("This app has debugging enabled.");
                 } else {

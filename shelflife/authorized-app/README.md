@@ -4,7 +4,7 @@
 
 This example uses Shelf Life to add an authorization check to an existing application.
 In this case the application is Metalworks, one of the demo programs that is available with the Oracle JDK.
-The example uses a combination of code instrumented by _PreEmptive Protection - DashO_ and some custom code in a class that is combined with the Metalworks jar.
+The example uses a combination of code instrumented by _PreEmptive Protection™ DashO™ for Android & Java_ and some custom code in a class that is combined with the Metalworks jar.
 
 The class `MetalworksAuthorization` contains static methods that are called by the added Shelf Life code.
 Configuration in the DashO project file adds a Shelf Life check to the constructor of `MetalworksFrame`, and is equivalent to:

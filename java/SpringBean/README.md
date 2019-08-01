@@ -1,6 +1,6 @@
 # Spring Bean Handling
 
-This sample illustrates how _PreEmptive Protection - DashO_ works with Spring Beans.
+This sample illustrates how _PreEmptive Protection™ DashO™ for Android & Java_ works with Spring Beans.
 It will be compiled via [Gradle](http://www.gradle.org), obfuscated with DashO, and then both the original and obfuscated versions of the application should be run side-by-side.
 
 ## Setup

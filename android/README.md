@@ -9,7 +9,7 @@
 
 ## Environment Setup
 
-Before running these samples, they need to know where both the Android SDK and DashO are located.
+Before running these samples, they need to know where both the Android SDK and DashO™ are located.
 >**Note:** If you import a sample into Android Studio, make sure that Instant Run is [disabled](https://developer.android.com/studio/run/#disable-ir) so that the sample will work correctly.
 
 ### Android SDK
