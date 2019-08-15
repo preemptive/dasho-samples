@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="10.0.0">
+    <propertylist>
+        <property name="projectname" value="simpleapp"/>
+    </propertylist>
+    <global>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <inputpath>
+        <pathelement location="classes"/>
+    </inputpath>
+    <classpath useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <entrypoints>
+        <classes name="dasho.samples.HelloWorld">
+            <method name="main" signature="java.lang.String[]"/>
+        </classes>
+    </entrypoints>
+    <report path="${projectname}-report.txt"/>
+    <output>
+        <dir path="obfuscated"/>
+    </output>
+    <removal classes="unused" members="unused">
+        <debug/>
+        <attributes/>
+    </removal>
+    <methodCallRemoval/>
+    <renaming option="on" renameAnnotations="off">
+        <mapping>
+            <mapreport path="${projectname}-mapreport.txt"/>
+            <mapoutput overwrite="true" path="${projectname}.map"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <controlflow option="on" tryCatch="off"/>
+    <stringencrypt option="off">
+        <seOutput path="${projectname}-se.map"/>
+    </stringencrypt>
+    <injection/>
+</dasho>

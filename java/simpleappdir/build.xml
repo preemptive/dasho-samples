@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="simpleapp" default="all" basedir=".">
+<project name="simpleappdir" default="all" basedir=".">
     <property environment="env"/>
     <property name="dasho.home" value="${env.DASHO_HOME}" />
 
-    <target name="all" depends="compile" />
+    <target name="all" depends="copy, compile, dasho, run" />
+
+    <target name="copy">
+        <copy todir="src" overwrite="true">
+            <fileset dir="../simpleapp/src">
+                <include name="**"/>
+            </fileset>
+        </copy>
+		</target>
 
     <target name="-pre-check" >
         <fail message="DASHO_HOME is not configured. See README for instructions.">

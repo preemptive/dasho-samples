@@ -1,0 +1,5 @@
+Exception in thread "main" a: cannot calculate
+	at c.a(Unknown Source)
+	at b.a(Unknown Source)
+	at d.a(Unknown Source)
+	at com.preemptive.Example.main(Unknown Source)
