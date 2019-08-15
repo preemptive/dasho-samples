@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="10.0.0">
+    <propertylist>
+        <property name="ANDROID_BUILD_TOOLS_HOME" value="${sdk.dir}/build-tools/29.0.0"/>
+        <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
+        <property name="AndroidManifestFile" value="${build.dir}/intermediates/manifests/full/${buildVariant}/AndroidManifest.xml"/>
+        <property name="AndroidManifestOutput" value="../../../intermediates/manifests/full/dasho-${buildVariant}"/>
+        <property name="build.dir" value="build"/>
+        <property name="buildType" value="debug"/>
+        <property name="buildVariant" value="${buildType:-}"/>
+        <property name="dasho.results.dir" value="${build.dir}/dasho-results/${buildVariant}"/>
+        <property name="gradleInput" value="build/intermediates/classes/debug"/>
+        <property name="gradleOutput" value="${build.dir}/dasho/${buildVariant}/classes.jar"/>
+        <property name="gradleSupport" value=""/>
+        <property name="key.store" value="${user.home}/.android/debug.keystore"/>
+        <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
+        <property name="KEY_ALIAS_PASSWORD" value="${key.alias.password:-android}"/>
+        <property name="KEYSTORE" value="${key.store}"/>
+        <property name="KEYSTORE_PASSWORD" value="${key.store.password:-android}"/>
+        <property name="manifest.package" value="com.dasho.android.tamper"/>
+        <property name="projectname" value="TamperOnAndroid"/>
+        <property name="sdk.dir" value="${ANDROID_SDK_ROOT}"/>
+        <property name="sdk.target" value="android-27"/>
+    </propertylist>
+    <global>
+        <option>NOMAKEPUBLIC</option>
+        <option>IGNORENOTFOUNDCLASSES</option>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <inputpath>
+        <pathelement location="build\outputs\apk\release\TamperOnAndroid-release.apk"/>
+    </inputpath>
+    <classpath appendrtjar="false">
+        <pathelement location="${sdk.dir}/platforms/${sdk.target}/android.jar"/>
+        <pathelement location="${gradleSupport:-}"/>
+    </classpath>
+    <entrypoints>
+        <android name="com.dasho.android.tamper.FibActivity" rename-class="true"/>
+        <android name="com.dasho.android.tamper.MainActivity"/>
+        <android name="com.dasho.android.tamper.RandomGenActivity" rename-class="true"/>
+    </entrypoints>
+    <report path="${dasho.results.dir}/${projectname}-report.txt"/>
+    <output merge="false" filesonly="false" compress="false" level="0" zipAlign="true">
+        <apk path="${gradleOutput}"/>
+    </output>
+    <removal classes="unused" members="unused">
+        <debug/>
+        <attributes/>
+    </removal>
+    <methodCallRemoval/>
+    <renaming option="on">
+        <class-options randomize="true" prefix="${manifest.package}."/>
+        <member-options randomize="true"/>
+        <excludelist>
+            <classes excludeclass="false" name="com.dasho.android.tamper.other.ApplicationLogic">
+                <method name="getApplicationContext" signature=""/>
+            </classes>
+        </excludelist>
+        <mapping>
+            <mapreport path="${dasho.results.dir}/${projectname}-mapreport.txt"/>
+            <mapoutput overwrite="true" path="${dasho.results.dir}/${projectname}.map"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <controlflow option="on"/>
+    <stringencrypt option="on" level="2" implementations="2">
+        <seOutput path="${dasho.results.dir}/${projectname}-se.map"/>
+    </stringencrypt>
+    <includenonclassfiles>
+        <copy source="${AndroidManifestFile}" relativedest="${AndroidManifestOutput}"/>
+    </includenonclassfiles>
+    <injection>
+        <runtime target="android" merge="false"/>
+        <checks>
+            <tamperCheck action="setupVars()">
+                <locations>
+                    <classes name="com.dasho.android.tamper.other.ApplicationLogic">
+                        <method name="someApplicationLogic" signature=""/>
+                    </classes>
+                </locations>
+                <signerInfo alias="correct_cert" storepass="[SbJlvHrFg8s4GblvgMcQ4w==]" keystore="keystore.ks" storetype="JKS"/>
+            </tamperCheck>
+            <tamperResponse source="com.dasho.android.tamper.MainActivity.isInitialized()" response="exit" probability="0.5">
+                <locations>
+                    <classes regex="true" name="com\.dasho\.android\.tamper\.RandomGen.*">
+                        <method name="findRnd" signature=".*"/>
+                    </classes>
+                </locations>
+            </tamperResponse>
+            <tamperResponse source="com.dasho.android.tamper.MainActivity.isInitialized()" response="exception" probability="0.25">
+                <locations>
+                    <classes name="com.dasho.android.tamper.FibActivity$FibTask">
+                        <method name="doInBackground" signature="java.lang.Integer[]"/>
+                    </classes>
+                </locations>
+            </tamperResponse>
+        </checks>
+    </injection>
+    <signjar></signjar>
+</dasho>

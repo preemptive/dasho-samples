@@ -1,40 +1,118 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="9.2.0">
+<dasho version="10.0.0">
     <propertylist>
         <property name="projectname" value="simpleapp"/>
     </propertylist>
     <global>
+        <option>IGNORENOTFOUNDCLASSES</option>
         <option>FORNAMEDETECTION</option>
         <option>FORCE</option>
+        <exclude classname="dasho\.samples\.Greetings"/>
     </global>
     <inputpath>
         <pathelement location="classes"/>
     </inputpath>
-    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}">
+        <pathelement location="lib\servlet-api.jar"/>
+    </classpath>
     <entrypoints>
+        <library>
+            <dir path="My Library"/>
+        </library>
+        <library>
+            <jar path="MyJar.jar"/>
+        </library>
+        <springbean name="CustomerBean" rename-class="false" rename-members="false"/>
+        <applet name="ImageSelectorApplet"/>
+        <servlet name="AddressBookServlet"/>
         <classes name="dasho.samples.HelloWorld">
             <method name="main" signature="java.lang.String[]"/>
         </classes>
     </entrypoints>
     <report path="${projectname}-report.txt"/>
     <output>
-        <dir path="obfuscated"/>
+        <jar path="obfuscated"/>
     </output>
     <removal classes="unused" members="unused">
         <debug/>
         <attributes/>
+        <excludelist>
+            <classes name="dasho.sample.Special">
+                <method name="getField" signature=""/>
+                <method name="setField" signature="int"/>
+                <field name="otherField"/>
+            </classes>
+        </excludelist>
     </removal>
-    <methodCallRemoval/>
+    <methodCallRemoval>
+        <method className="dasho.samples.Greetings" methodName="sayHello" signature="java.lang.String"/>
+    </methodCallRemoval>
     <renaming option="on" renameAnnotations="off">
+        <member-options keeppublics="true"/>
+        <excludelist>
+            <classes name="dasho.samples.Greetings">
+                <method name="sayHello" signature="java.lang.String"/>
+            </classes>
+        </excludelist>
         <mapping>
             <mapreport path="${projectname}-mapreport.txt"/>
             <mapoutput overwrite="true" path="${projectname}.map"/>
         </mapping>
     </renaming>
-    <optimization option="on"/>
-    <controlflow option="on"/>
+    <optimization option="on">
+        <includelist>
+            <classes name="dasho.samples.Greetings">
+                <method name="sayHello" signature="java.lang.String"/>
+            </classes>
+        </includelist>
+        <excludelist>
+            <classes name="dasho.samples.Greetings">
+                <method name="sayHello" signature="java.lang.String"/>
+            </classes>
+        </excludelist>
+    </optimization>
+    <controlflow option="on">
+        <includelist>
+            <classes name="dasho.samples.Greetings">
+                <method name="sayGoodbye" signature="java.lang.String"/>
+            </classes>
+        </includelist>
+    </controlflow>
     <stringencrypt option="on">
+        <excludelist>
+            <classes name="dasho.samples.Greetings">
+                <method name="say*" signature="java.lang.string"/>
+            </classes>
+        </excludelist>
         <seOutput path="${projectname}-se.map"/>
+        <customEncryption useCustomEncryption="true" encryptionJar="custEncryption.jar" encryptionClass="com.example.customEncryption.Encypt" encryptionMethod="encrypt" decryptionClass="com.example.myProject.Decrypt" decryptionMethod="decrypt">
+            <includelist>
+                <classes name="dasho.samples.Special">
+                    <method name="sum" signature="int"/>
+                </classes>
+                <classes name="dasho.samples.HelloWorld">
+                    <method name="main" signature="java.lang.String[]"/>
+                </classes>
+            </includelist>
+        </customEncryption>
     </stringencrypt>
+    <make-synthetic value="private">
+        <excludelist>
+            <classes name="dasho.samples.Special">
+                <field name="field"/>
+            </classes>
+            <classes name="dasho.samples.HelloWorld"/>
+        </excludelist>
+    </make-synthetic>
+    <premark option="on" truncate="off">
+        <passphrase>LAZARDO</passphrase>
+        <watermark>COPYRIGHT YOYODYNE ENGINEERING</watermark>
+    </premark>
+    <includenonclassfiles>
+        <copy source="sourceimages/*.png" relativedest="/images"/>
+        <copy source="resources/sound.jar" relativedest="/sounds"/>
+    </includenonclassfiles>
+    <preverifier run="true" nofinalize="false" nonative="true" nofp="true">C:\WTK2.5.1\bin\preverify.exe</preverifier>
     <injection/>
+    <signjar storetype="PKCS12" storepass="${theKey}" alias="LIZARDO" keypass="${theKey}" addArgs="-verbose">${JDK_HOME}\bin\jarsigner.exe</signjar>
 </dasho>
