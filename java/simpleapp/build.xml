@@ -3,7 +3,7 @@
     <property environment="env"/>
     <property name="dasho.home" value="${env.DASHO_HOME}" />
 
-    <target name="all" depends="compile, dasho, run" />
+    <target name="all" depends="compile" />
 
     <target name="-pre-check" >
         <fail message="DASHO_HOME is not configured. See README for instructions.">
