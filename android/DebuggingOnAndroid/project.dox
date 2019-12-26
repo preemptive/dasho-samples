@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho mode="android" version="10.1.0">
+<dasho mode="android" version="10.2.0">
     <controlflow option="on"/>
     <stringencrypt option="on" level="2" implementations="2"/>
     <injection>
