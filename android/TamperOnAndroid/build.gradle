@@ -1,13 +1,13 @@
 buildscript {
     repositories {
-        maven { url 'https://maven.preemptive.com/' }
         google()
         jcenter()
+        maven { url 'https://maven.preemptive.com/' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
-        classpath 'com.preemptive.dasho:dasho-android:1.0.+'
+        classpath 'com.android.tools.build:gradle:3.5.3'
+        classpath 'com.preemptive.dasho:dasho-android:1.1.+'
     }
 }
 
