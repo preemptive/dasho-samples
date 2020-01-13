@@ -72,7 +72,7 @@ Attach the debugger.
 2.  Run the command: `am start -D -n com.dasho.android.debug/com.dasho.android.debug.MainActivity`
 3.  Run the command: `exit`
 4.  Run the command: `adb jdwp` (look at the last process id then press `Ctrl`+`C`)
-5.  Run the command: `adb forward tcp:8021 jdwp:_{the last process id}_`
+5.  Run the command: `adb forward tcp:8021 jdwp:{the last process id}`
 6.  Run the command: `jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8021`
 
 Interact with the application on your device.
