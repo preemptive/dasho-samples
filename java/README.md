@@ -2,8 +2,8 @@
 
 ## Basic Requirements
 
-* Java 1.7, 1.8, 9, or 10
-* [Ant](http://ant.apache.org) v1.8 (or later)
+* Java 8 (or later)
+* [Ant](http://ant.apache.org) v1.9 (or later)
 
 ## Environment Setup
 
