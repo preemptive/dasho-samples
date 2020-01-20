@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dasho version="10.2.0">
     <propertylist>
-        <property name="expireDate" value="12/31/2018"/>
+        <property name="expireDate" value="12/31/2021"/>
         <property name="projectname" value="project"/>
     </propertylist>
     <global>
