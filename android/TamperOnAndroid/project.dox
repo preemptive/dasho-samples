@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dasho mode="android" version="10.2.0">
     <propertylist>
+        <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
         <property name="key.store" value="${user.home}/.android/debug.keystore"/>
         <property name="KEY_ALIAS" value="${key.alias:-androiddebugkey}"/>
         <property name="KEYSTORE" value="${key.store}"/>
