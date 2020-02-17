@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.preemptive.dasho.android'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.dasho.android.encryption"
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    signingConfigs {
+        release {
+            storeFile file("keystore.ks")
+            storePassword "password"
+            keyAlias "correct_cert"
+            keyPassword "password"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+}
