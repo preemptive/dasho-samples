@@ -54,13 +54,13 @@ Please read through the [limitations](https://www.preemptive.com/dasho/pro/userg
 
 ## Attributions
 
-Images are from the following contributors on (Unsplash)[https://unsplash.com]:
+Images are from the following contributors on [Unsplash](https://unsplash.com):
 
-* (Lance Anderson)[https://unsplash.com/@lanceanderson]
-* (Allison Christine)[https://unsplash.com/@happpyal]
-* (DJ Johnson)[https://unsplash.com/@dj_johns1]
-* (Igor Oliyarnik)[https://unsplash.com/@igorius]
-* (Benjamin Suter)[https://unsplash.com/@benjaminjsuter]
+* [Lance Anderson](https://unsplash.com/@lanceanderson)
+* [Allison Christine](https://unsplash.com/@happpyal)
+* [DJ Johnson](https://unsplash.com/@dj_johns1)
+* [Igor Oliyarnik](https://unsplash.com/@igorius)
+* [Benjamin Suter](https://unsplash.com/@benjaminjsuter)
 
 The quotes are a subset from <https://github.com/erossignon/qod4outlook/blob/master/quotes.txt>.
 
