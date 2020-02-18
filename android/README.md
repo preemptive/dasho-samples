@@ -1,4 +1,4 @@
-# Android&trade; Samples
+# Android™ Samples
 
 ## Basic Requirements
 
