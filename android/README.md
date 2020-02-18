@@ -28,13 +28,13 @@ Otherwise, see documentation for the [DashO Gradle Plugin for Android](https://w
 ## Samples
 
 * [DashO-GameOfLife](https://github.com/preemptive/DashO-GameOfLife) - A separate repository with a more-complex Android application that includes a library.
-* [DebuggingOnAndroid](DebuggingOnAndroid) - An Android application which uses Debug Checking.
-* [EmulatorOnAndroid](EmulatorOnAndroid) - An Android application which uses Emulator Checking.
-* [EncryptionOnAndroid](EncryptionOnAndroid) - An Android application which uses Resource Encryption.
-* [HookingOnAndroid](HookingOnAndroid) - An Android application which uses Hook Checking.
+* [DebuggingOnAndroid](DebuggingOnAndroid) - An Android application that uses Debug Checking.
+* [EmulatorOnAndroid](EmulatorOnAndroid) - An Android application that uses Emulator Checking.
+* [EncryptionOnAndroid](EncryptionOnAndroid) - An Android application that uses Resource Encryption.
+* [HookingOnAndroid](HookingOnAndroid) - An Android application that uses Hook Checking.
 * [KotlinOnAndroid](KotlinOnAndroid) - An Android application using Kotlin.
-* [RootOnAndroid](RootOnAndroid) - An Android application which uses Root Checking.
-* [TamperOnAndroid](TamperOnAndroid) - An Android application which uses Tamper Checking.
+* [RootOnAndroid](RootOnAndroid) - An Android application that uses Root Checking.
+* [TamperOnAndroid](TamperOnAndroid) - An Android application that uses Tamper Checking.
 
 <a name="sample_desc"></a>
 ### Running the Samples
