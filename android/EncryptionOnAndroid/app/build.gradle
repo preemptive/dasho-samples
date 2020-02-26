@@ -3,7 +3,7 @@ apply plugin: 'com.preemptive.dasho.android'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+
     defaultConfig {
         applicationId "com.dasho.android.encryption"
         minSdkVersion 14
