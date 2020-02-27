@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Encryption on Android</string>
+    <string name="imageBtn">Random Image</string>
+    <string name="quoteBtn">Random Quote</string>
+</resources>
