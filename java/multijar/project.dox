@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="10.0.0">
+<dasho version="10.2.0">
     <propertylist>
         <property name="projectname" value="multijar"/>
     </propertylist>
