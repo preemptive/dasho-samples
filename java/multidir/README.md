@@ -2,7 +2,7 @@
 
 ## Overview
 
-Demonstrates using PreEmptive Protection™ DashO™ for Android & Java with multiple class directories as inputs.
+Demonstrates using PreEmptive Protection™ DashO™ with multiple class directories as inputs.
 It will output multiple directories because of the `merge="false"` setting.
 
 ## Setup
