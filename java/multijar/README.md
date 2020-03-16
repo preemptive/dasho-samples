@@ -2,7 +2,7 @@
 
 ## Overview
 
-Demonstrates using PreEmptive Protection™ DashO™ for Android & Java with multiple jars as inputs.
+Demonstrates using PreEmptive Protection™ DashO™ with multiple jars as inputs.
 It will output multiple jars because of the `merge="false"` setting.
 
 ## Setup
