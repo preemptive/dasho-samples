@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="10.0.0">
+<dasho version="10.2.0">
     <propertylist>
         <property name="ANDROID_BUILD_TOOLS_HOME" value="${sdk.dir}/build-tools/29.0.0"/>
         <property name="ANDROID_SDK_ROOT" value="${ANDROID_HOME:-}"/>
@@ -64,7 +64,7 @@
     </renaming>
     <optimization option="on"/>
     <controlflow option="on"/>
-    <stringencrypt option="on" level="2" implementations="2">
+    <stringencrypt level="2" implementations="2" option="on">
         <seOutput path="${dasho.results.dir}/${projectname}-se.map"/>
     </stringencrypt>
     <includenonclassfiles>
