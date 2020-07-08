@@ -2,12 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.preemptive.dasho.android'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.dasho.android.encryption"
         minSdkVersion 14
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
     }
