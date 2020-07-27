@@ -2,7 +2,7 @@
 
 ## Overview
 
-Demonstrates using PreEmptive Protection™ DashO™ for Android & Java with a simple application.
+Demonstrates using PreEmptive Protection™ DashO™ with a simple application.
 
 ## Setup
 

@@ -10,7 +10,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Important Note
 
-To run this sample you need to create a token using _PreEmptive Protection™ DashO™ for Android & Java_.
+To run this sample you need to create a token using _PreEmptive Protection™ DashO™_.
 
 1.  Start DashO's graphical user interface.
 2.  From the menu select **Window &gt; Shelf Life Token...**.

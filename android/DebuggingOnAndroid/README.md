@@ -1,6 +1,6 @@
 # Debug Checks use in an Android App
 
-This [sample app](../README.md#sample_desc) for Android&trade; illustrates the use of the Debug Checks and Responses in _PreEmptive Protection™ DashO™ for Android & Java_.
+This [sample app](../README.md#sample_desc) for Android™ illustrates the use of the Debug Checks and Responses in _PreEmptive Protection™ DashO™_.
 This project can be imported into Android Studio.
 [Control Flow Obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [String Encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check Injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
 Renaming Obfuscation and Removal are handled by [R8](https://r8-docs.preemptive.com/).
@@ -72,7 +72,7 @@ Attach the debugger.
 2.  Run the command: `am start -D -n com.dasho.android.debug/com.dasho.android.debug.MainActivity`
 3.  Run the command: `exit`
 4.  Run the command: `adb jdwp` (look at the last process id then press `Ctrl`+`C`)
-5.  Run the command: `adb forward tcp:8021 jdwp:_{the last process id}_`
+5.  Run the command: `adb forward tcp:8021 jdwp:{the last process id}`
 6.  Run the command: `jdb -connect com.sun.jdi.SocketAttach:hostname=localhost,port=8021`
 
 Interact with the application on your device.
