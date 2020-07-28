@@ -9,6 +9,7 @@ plugins {
 
 dasho {
     enabledBuildVariants = "" // blank matches any variant (debug or release)
+    excludeFromProtection = "kotlinx-coroutines-core"
 }
 
 android{buildTypes{getByName("debug"){isMinifyEnabled =  true}}}
@@ -16,6 +17,8 @@ android{buildTypes{getByName("release"){isMinifyEnabled = true}}}
 
 dependencies {
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.8")
 }
 
 android {
