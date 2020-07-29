@@ -111,11 +111,19 @@ class FibActivity : Activity(), OnClickListener {
     }
 
 
+    /**
+     * Finds the Fibonacci number via a coroutine
+     * @param num The sequence number
+     */
     private fun getFibAsync(num: Int): Deferred<Long> =
         coroutineScope.async(Dispatchers.Default) {
             return@async calcFib(num)
         }
 
+    /**
+     * Reports the progress
+     * @param currentNum The sequence number just calculated
+     */
     private fun reportMax(currentNum: Int) {
         if (max < currentNum) {
             max = currentNum
@@ -132,7 +140,7 @@ class FibActivity : Activity(), OnClickListener {
      * @return The Fibonacci number at that location
      */
     private fun calcFib(num: Int): Long {
-        val result =  if (num < 3) {
+        val result = if (num < 3) {
             1
         } else {
             calcFib(num - 1) + calcFib(num - 2)

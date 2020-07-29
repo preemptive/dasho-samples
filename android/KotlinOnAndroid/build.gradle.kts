@@ -1,10 +1,10 @@
 
 buildscript {
     repositories {
-        maven("https://maven.preemptive.com/")
         google()
         jcenter()
         gradlePluginPortal()
+        maven("https://maven.preemptive.com/")
     }
 
     dependencies {
