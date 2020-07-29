@@ -28,7 +28,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run without Emulator Check
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installDebug`
@@ -38,7 +38,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 ## Run with Emulator Check
 
-Compile, obfuscate, and install the release version of the application.
+Compile, protect, and install the release version of the application.
 
 >**Note:** When compiling, you may notice a `Warning` regarding `exit` on Android. The `exit` action on Android will only close the `Activity` on the top of the activity stack.
 

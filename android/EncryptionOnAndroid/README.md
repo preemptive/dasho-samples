@@ -13,7 +13,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Build Without Resource Encryption
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installDebug`
@@ -22,7 +22,7 @@ If you [check](#check_encryption) for encryption, you will see neither `res/raw/
 
 ## Build With Resource Encryption
 
-Compile, obfuscate, and install the release version of the application.
+Compile, protect, and install the release version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`

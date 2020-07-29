@@ -33,7 +33,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run Normally
 
-Compile, obfuscate, and install the release (non-debugging) version of the application.
+Compile, protect, and install the release (non-debugging) version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -47,7 +47,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 ## Run with Debugging Enabled
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 1.  Re-enable USB debugging _(if necessary)_
 2.  Run the command: `gradlew uninstallAll` _(if necessary)_
@@ -59,7 +59,7 @@ The Random Number feature will fail sometimes because of the `DebugEnabledRespon
 
 ## Actively Debug
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 >**Note:** These instructions assume `adb` and `jdb` are available via your `PATH` environment variable.
 

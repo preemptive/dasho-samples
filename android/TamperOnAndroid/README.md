@@ -39,7 +39,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run Non-Tampered
 
-Compile, obfuscate, and install the release (non-tampered) version of the application.
+Compile, protect, and install the release (non-tampered) version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -48,7 +48,7 @@ Run the application on your device. You will notice it behaves as expected; no e
 
 ## Run Tampered
 
-Compile, obfuscate, and install the debug (tampered) version of the application.
+Compile, protect, and install the debug (tampered) version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installDebug`

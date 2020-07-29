@@ -29,7 +29,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run Normally
 
-Compile, obfuscate, and install the application.
+Compile, protect, and install the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -39,7 +39,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 ## Run with a Hooking Framework
 
-Compile, obfuscate, and install the application.
+Compile, protect, and install the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
