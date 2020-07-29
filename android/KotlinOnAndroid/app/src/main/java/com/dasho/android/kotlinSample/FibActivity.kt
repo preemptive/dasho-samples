@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -35,6 +35,7 @@ const val MAX_SEQUENCE = 50
 class FibActivity : Activity(), OnClickListener {
 
     private var num = ""
+    private var max = 0
     private val parentJob = Job()
     private val coroutineScope = CoroutineScope(Dispatchers.Main + parentJob)
     private val nf = NumberFormat.getIntegerInstance()
@@ -103,15 +104,26 @@ class FibActivity : Activity(), OnClickListener {
      * Finds the Fibonacci number at that sequence index
      */
     private fun findFib() {
+        max = 0
         coroutineScope.launch(Dispatchers.Main) {
             calcFibRes.text = nf.format(getFibAsync(num.toInt()).await())
         }
     }
 
+
     private fun getFibAsync(num: Int): Deferred<Long> =
         coroutineScope.async(Dispatchers.Default) {
             return@async calcFib(num)
         }
+
+    private fun reportMax(currentNum: Int) {
+        if (max < currentNum) {
+            max = currentNum
+            coroutineScope.launch(Dispatchers.Main) {
+                calcFibRes.text = resources.getString(R.string.fibCalcProgress, max)
+            }
+        }
+    }
 
     /**
      * Calculates the Fibonacci number at a certain location
@@ -120,11 +132,13 @@ class FibActivity : Activity(), OnClickListener {
      * @return The Fibonacci number at that location
      */
     private fun calcFib(num: Int): Long {
-        return if (num < 3) {
+        val result =  if (num < 3) {
             1
         } else {
             calcFib(num - 1) + calcFib(num - 2)
         }
+        reportMax(num)
+        return result
     }
 
     /**

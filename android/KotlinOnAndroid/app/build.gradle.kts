@@ -7,13 +7,10 @@ plugins {
     kotlin("android.extensions")
 }
 
-dasho {
-    enabledBuildVariants = "" // blank matches any variant (debug or release)
-    excludeFromProtection = "kotlinx-coroutines-core"
+repositories {
+    google()
+    jcenter()
 }
-
-android{buildTypes{getByName("debug"){isMinifyEnabled =  true}}}
-android{buildTypes{getByName("release"){isMinifyEnabled = true}}}
 
 dependencies {
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
@@ -22,7 +19,7 @@ dependencies {
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -31,13 +28,31 @@ android {
 
     defaultConfig {
         minSdkVersion(14)
-        targetSdkVersion(29)
+        targetSdkVersion(30)
         versionCode = 1
         versionName = "1.0"
     }
+    buildTypes {
+        getByName("debug") {
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "coroutine-rule.txt")
+            isMinifyEnabled = true
+        }
+        getByName("release") {
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "coroutine-rule.txt")
+            isMinifyEnabled = true
+        }
+    }
 }
 
-repositories {
-    google()
-    jcenter()
+dasho {
+    enabledBuildVariants = "" // blank matches any variant (debug or release)
 }
+
+
+
+
+
+
+
