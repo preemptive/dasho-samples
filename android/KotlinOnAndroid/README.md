@@ -7,6 +7,8 @@ Renaming Obfuscation and Removal are handled by [R8](https://r8-docs.preemptive.
 
 This sample is preconfigured with protection.
 
+>**Note:** The `kotlinx.coroutines.internal.MainDispatcherLoader.loadMainDispatcher()` method has been excluded from control flow processing to workaround a bug in R8.
+
 ## Setup
 
 See the main [README](../README.md) for the requirements.
