@@ -13,7 +13,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Running
 
-Compile, obfuscate, and install a debug version of the application.
+Compile, protect, and install a debug version of the application.
 
 1.  Run the command: `gradlew clean installDebug`
 
