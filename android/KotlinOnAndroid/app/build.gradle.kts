@@ -22,8 +22,8 @@ android {
     compileSdkVersion(30)
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        setSourceCompatibility(JavaVersion.VERSION_1_8)
+        setTargetCompatibility(JavaVersion.VERSION_1_8)
     }
 
     defaultConfig {
@@ -32,6 +32,7 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+
     buildTypes {
         getByName("debug") {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -44,6 +45,7 @@ android {
             isMinifyEnabled = true
         }
     }
+
 }
 
 dasho {
