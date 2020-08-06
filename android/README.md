@@ -32,7 +32,7 @@ Otherwise, see documentation for the [DashO Gradle Plugin for Android](https://w
 * [EmulatorOnAndroid](EmulatorOnAndroid) - An Android application that uses Emulator Checking.
 * [EncryptionOnAndroid](EncryptionOnAndroid) - An Android application that uses Resource Encryption.
 * [HookingOnAndroid](HookingOnAndroid) - An Android application that uses Hook Checking.
-* [KotlinOnAndroid](KotlinOnAndroid) - An Android application using Kotlin.
+* [KotlinOnAndroid](KotlinOnAndroid) - An Android application using Kotlin and Kotlin DSL scripts.
 * [RootOnAndroid](RootOnAndroid) - An Android application that uses Root Checking.
 * [TamperOnAndroid](TamperOnAndroid) - An Android application that uses Tamper Checking.
 
