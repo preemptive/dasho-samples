@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho mode="android" version="10.2.0">
+<dasho mode="android" version="11.0.0">
     <propertylist>
         <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt option="on" level="2" implementations="2"/>
+    <stringencrypt level="2" implementations="2" option="on"/>
     <injection>
         <runtime target="android" merge="false"/>
         <checks>
