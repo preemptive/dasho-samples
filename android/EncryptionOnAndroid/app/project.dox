@@ -9,7 +9,7 @@
         <assetencrypt>
             <includelist/>
             <excludelist>
-                <items regex="false" name="img/allison-*"/>
+                <items name="img/allison-*" regex="false"/>
             </excludelist>
         </assetencrypt>
     </resourceencryption>

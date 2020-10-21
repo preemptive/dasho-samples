@@ -12,7 +12,7 @@
         <pathelement location="classes/app2"/>
         <pathelement location="classes/lib"/>
     </inputpath>
-    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <classpath appendrtjar="false" JDKHome="${JDK_HOME:-}" useJDKHome="true"/>
     <entrypoints>
         <classes name="dasho.samples.app1.Main">
             <method name="main" signature="java.lang.String[]"/>
@@ -22,7 +22,7 @@
         </classes>
     </entrypoints>
     <report path="${projectname}-report.txt"/>
-    <output merge="false" autocopy="false">
+    <output autocopy="false" merge="false">
         <dir path="obfuscated"/>
     </output>
     <removal classes="unused" members="unused">
@@ -42,8 +42,8 @@
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>
     <includenonclassfiles>
-        <copy source="src/app1/dasho/samples/app1/*.properties" relativedest="app1/dasho/samples/app1"/>
-        <copy source="src/app2/dasho/samples/app2/*.properties" relativedest="app2/dasho/samples/app2"/>
+        <copy relativedest="app1/dasho/samples/app1" source="src/app1/dasho/samples/app1/*.properties"/>
+        <copy relativedest="app2/dasho/samples/app2" source="src/app2/dasho/samples/app2/*.properties"/>
     </includenonclassfiles>
     <injection/>
 </dasho>

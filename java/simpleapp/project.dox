@@ -10,7 +10,7 @@
     <inputpath>
         <pathelement location="classes"/>
     </inputpath>
-    <classpath useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <classpath JDKHome="${JDK_HOME:-}" useJDKHome="true"/>
     <entrypoints>
         <classes name="dasho.samples.HelloWorld">
             <method name="main" signature="java.lang.String[]"/>

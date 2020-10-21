@@ -11,7 +11,7 @@
     <inputpath>
         <pathelement location="helloworld.jar"/>
     </inputpath>
-    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <classpath appendrtjar="false" JDKHome="${JDK_HOME:-}" useJDKHome="true"/>
     <entrypoints>
         <classes name="dasho.samples.Main" rename="true">
             <method name="main" signature="java.lang.String[]"/>
@@ -19,7 +19,7 @@
     </entrypoints>
     <report path="${projectname}-report.txt"/>
     <output autocopy="false">
-        <jar path="obfuscated/helloworld.jar" manifest="helloworld.jar"/>
+        <jar manifest="helloworld.jar" path="obfuscated/helloworld.jar"/>
     </output>
     <removal classes="unused" members="unused"/>
     <methodCallRemoval/>

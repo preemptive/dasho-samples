@@ -10,9 +10,9 @@
             </classes>
         </excludelist>
     </controlflow>
-    <stringencrypt level="2" implementations="2" option="on"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <!-- The result of this check is ignored: this is just for verifying that DashO injection was applied. -->
             <debugEnabledCheck action="setupInjectionWasApplied()">

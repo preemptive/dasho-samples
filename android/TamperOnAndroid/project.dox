@@ -8,9 +8,9 @@
         <property name="KEYSTORE_PASSWORD" value="${key.store.password:-android}"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt level="2" implementations="2" option="on"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <tamperCheck action="setupVars()">
                 <locations>
@@ -18,16 +18,16 @@
                         <method name="someApplicationLogic" signature=""/>
                     </classes>
                 </locations>
-                <signerInfo alias="correct_cert" storepass="[SbJlvHrFg8s4GblvgMcQ4w==]" keystore="keystore.ks" storetype="JKS"/>
+                <signerInfo alias="correct_cert" keystore="keystore.ks" storepass="[SbJlvHrFg8s4GblvgMcQ4w==]" storetype="JKS"/>
             </tamperCheck>
-            <tamperResponse source="com.dasho.android.tamper.MainActivity.isInitialized()" response="exit" probability="0.5">
+            <tamperResponse probability="0.5" response="exit" source="com.dasho.android.tamper.MainActivity.isInitialized()">
                 <locations>
-                    <classes regex="true" name="com\.dasho\.android\.tamper\.RandomGen.*">
+                    <classes name="com\.dasho\.android\.tamper\.RandomGen.*" regex="true">
                         <method name="findRnd" signature=".*"/>
                     </classes>
                 </locations>
             </tamperResponse>
-            <tamperResponse source="com.dasho.android.tamper.MainActivity.isInitialized()" response="exception" probability="0.25">
+            <tamperResponse probability="0.25" response="exception" source="com.dasho.android.tamper.MainActivity.isInitialized()">
                 <locations>
                     <classes name="com.dasho.android.tamper.FibActivity$FibTask">
                         <method name="doInBackground" signature="java.lang.Integer[]"/>

@@ -4,9 +4,9 @@
         <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt level="2" implementations="2" option="on"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <debugEnabledCheck action="setupVars()">
                 <locations>
@@ -15,9 +15,9 @@
                     </classes>
                 </locations>
             </debugEnabledCheck>
-            <debugEnabledResponse source="com.dasho.android.debug.MainActivity.isInitialized()" response="exit" probability="0.5">
+            <debugEnabledResponse probability="0.5" response="exit" source="com.dasho.android.debug.MainActivity.isInitialized()">
                 <locations>
-                    <classes regex="true" name="com\.dasho\.android\.debug\.RandomGen.*">
+                    <classes name="com\.dasho\.android\.debug\.RandomGen.*" regex="true">
                         <method name="findRnd" signature=".*"/>
                     </classes>
                 </locations>
@@ -29,7 +29,7 @@
                     </classes>
                 </locations>
             </debuggingCheck>
-            <debuggingResponse source="com.dasho.android.debug.FibActivity.check" response="exception" probability="0.75">
+            <debuggingResponse probability="0.75" response="exception" source="com.dasho.android.debug.FibActivity.check">
                 <locations>
                     <classes name="com.dasho.android.debug.FibActivity$FibTask">
                         <method name="doInBackground" signature="java.lang.Integer[]"/>
