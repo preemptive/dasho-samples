@@ -4,9 +4,9 @@
         <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt level="2" implementations="2" option="on"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <hookCheck action="setupVars()">
                 <locations>
@@ -15,14 +15,14 @@
                     </classes>
                 </locations>
             </hookCheck>
-            <hookResponse source="com.dasho.android.hook.MainActivity.isInitialized()" response="exit" probability="0.5">
+            <hookResponse probability="0.5" response="exit" source="com.dasho.android.hook.MainActivity.isInitialized()">
                 <locations>
-                    <classes regex="true" name="com\.dasho\.android\.hook\.RandomGen.*">
+                    <classes name="com\.dasho\.android\.hook\.RandomGen.*" regex="true">
                         <method name="findRnd" signature=".*"/>
                     </classes>
                 </locations>
             </hookResponse>
-            <hookResponse source="com.dasho.android.hook.MainActivity.isInitialized()" response="exception" probability="0.25">
+            <hookResponse probability="0.25" response="exception" source="com.dasho.android.hook.MainActivity.isInitialized()">
                 <locations>
                     <classes name="com.dasho.android.hook.FibActivity$FibTask">
                         <method name="doInBackground" signature="java.lang.Integer[]"/>

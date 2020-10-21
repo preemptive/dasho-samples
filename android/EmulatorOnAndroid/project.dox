@@ -4,9 +4,9 @@
         <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt level="2" implementations="2" option="on"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <emulatorCheck action="setupVars()">
                 <locations>
@@ -15,14 +15,14 @@
                     </classes>
                 </locations>
             </emulatorCheck>
-            <emulatorResponse source="com.dasho.android.emulator.MainActivity.isInitialized()" response="exit" probability="0.5">
+            <emulatorResponse probability="0.5" response="exit" source="com.dasho.android.emulator.MainActivity.isInitialized()">
                 <locations>
-                    <classes regex="true" name="com\.dasho\.android\.emulator\.RandomGen.*">
+                    <classes name="com\.dasho\.android\.emulator\.RandomGen.*" regex="true">
                         <method name="findRnd" signature=".*"/>
                     </classes>
                 </locations>
             </emulatorResponse>
-            <emulatorResponse source="com.dasho.android.emulator.MainActivity.isInitialized()" response="exception" probability="0.25">
+            <emulatorResponse probability="0.25" response="exception" source="com.dasho.android.emulator.MainActivity.isInitialized()">
                 <locations>
                     <classes name="com.dasho.android.emulator.FibActivity$FibTask">
                         <method name="doInBackground" signature="java.lang.Integer[]"/>
