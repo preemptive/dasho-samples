@@ -106,5 +106,5 @@ You can also run your own custom response by referencing a method in the Check's
 If called with `true`, the Check was positive for debugging and you can perform a custom action like sending a message to Google Analytics.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
-Android is a trademark of Google Inc.
-Gradle is a trademark of Gradle Inc.
+><br>Android is a trademark of Google Inc.
+><br>Gradle is a trademark of Gradle Inc.

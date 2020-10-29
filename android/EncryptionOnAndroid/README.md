@@ -65,5 +65,5 @@ Images are from the following contributors on [Unsplash](https://unsplash.com):
 The quotes are a subset from <https://github.com/erossignon/qod4outlook/blob/master/quotes.txt>.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
-Android is a trademark of Google Inc.
-Gradle is a trademark of Gradle Inc.
+><br>Android is a trademark of Google Inc.
+><br>Gradle is a trademark of Gradle Inc.
