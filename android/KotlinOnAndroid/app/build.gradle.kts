@@ -14,8 +14,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk7", KotlinCompilerVersion.VERSION))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.8")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0")
 }
 
 android {
@@ -46,6 +46,9 @@ android {
         }
     }
 
+    sourceSets {
+        getByName("main").java.srcDirs("src/main/kotlin")
+    }
 }
 
 dasho {
