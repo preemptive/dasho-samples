@@ -1,4 +1,4 @@
-# Kotlin™ use in an Android™ App
+# Kotlin use in an Android App
 
 This [sample app](../README.md#sample_desc) for Android™ illustrates the use of Kotlin™ with _PreEmptive Protection™ DashO™_.
 This project can be imported into Android Studio.

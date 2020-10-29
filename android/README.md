@@ -1,9 +1,9 @@
-# Android™ Samples
+# Android Samples
 
 ## Basic Requirements
 
 * Java™ 1.8
-* Android 11.0 (api 30) SDK platform
+* Android™ 11.0 (api 30) SDK platform
 
 >**Note:** The Android-specific requirements can be changed by editing the `build.gradle` file of the particular sample.
 
@@ -56,4 +56,5 @@ In the case that something does go wrong, a message will be displayed in a toast
 If you see these messages unexpectedly, please review the `README.md` for the sample and review any changes you may have made to the configuration.
 
 >Android is a trademark of Google Inc.
+><br>Java is a registered trademark of Oracle and/or its affiliates.
 ><br>Kotlin is a trademark of the Kotlin Foundation.
