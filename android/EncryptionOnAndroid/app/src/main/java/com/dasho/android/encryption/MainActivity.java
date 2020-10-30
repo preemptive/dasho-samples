@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
@@ -23,7 +24,7 @@ import androidx.appcompat.app.AppCompatActivity;
  *
  * @author Matt Insko
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private ImageView imageView;
@@ -38,8 +39,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.ImageBtn).setOnClickListener(this);
-        findViewById(R.id.QuoteBtn).setOnClickListener(this);
+        findViewById(R.id.ImageBtn).setOnClickListener(ignored -> {
+            setupView(ViewType.IMAGE);
+            new ImageLoader(this, imageView, maxHeight, maxWidth).execute();
+                });
+        findViewById(R.id.QuoteBtn).setOnClickListener(ignored -> {
+            setupView(ViewType.QUOTE);
+            new QuoteLoader(this, textView).execute();
+        });
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
         if (savedInstanceState != null) {
@@ -68,29 +75,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * Handles the image and quote buttons.
-     * @param v The view that was clicked
-     */
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.ImageBtn:
-                setupView(ViewType.IMAGE);
-                new ImageLoader(this, imageView, maxHeight, maxWidth).execute();
-                break;
-            case R.id.QuoteBtn:
-                setupView(ViewType.QUOTE);
-                new QuoteLoader(this, textView).execute();
-                break;
-        }
-    }
-
-    /**
      * Saves the current state
      * @param bundle The bundle
      */
     @Override
-    protected void onSaveInstanceState(Bundle bundle) {
+    protected void onSaveInstanceState(@NonNull Bundle bundle) {
         super.onSaveInstanceState(bundle);
         bundle.putCharSequence("quote", textView.getText());
         Drawable d = imageView.getDrawable();
