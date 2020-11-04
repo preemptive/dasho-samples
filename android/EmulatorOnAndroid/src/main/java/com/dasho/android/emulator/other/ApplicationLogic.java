@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -14,7 +14,7 @@ import android.content.Context;
 public class ApplicationLogic {
 
     private boolean myBoolean = false;
-    private Context context;
+    private final Context context;
 
     // These flags are only used to verify that DashO has been run correctly.
     private static boolean usingCheck = false;
@@ -38,7 +38,7 @@ public class ApplicationLogic {
      * Used by the check
      * @param b the result of the check
      */
-    @SuppressWarnings("unused") //Used by the check
+    @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the check
     private void setupVars(boolean b) {
         usingCheck=true;
         myBoolean=b;
@@ -48,7 +48,7 @@ public class ApplicationLogic {
      * Used by a check just to report that DashO injection was applied correctly.
      * @param ignored an unused check result
      */
-    @SuppressWarnings("unused") // only referenced in the DashO config
+    @SuppressWarnings({"unused", "RedundantSuppression"}) // only referenced in the DashO config
     private void setupInjectionWasApplied(boolean ignored) {
         injectionApplied = true;
     }
@@ -58,7 +58,7 @@ public class ApplicationLogic {
      *
      * @return The original application's context.
      */
-    @SuppressWarnings("unused") //Used by the check
+    @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the check
     public Context getApplicationContext() {
         return context;
     }

@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
      *
      * @return True if rooted.
      */
-    @SuppressWarnings("unused") //Used by the response
+    @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the response
     public static boolean isInitialized() {
         return initializedLogic;
     }
