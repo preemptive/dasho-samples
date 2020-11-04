@@ -53,10 +53,12 @@ public class ApplicationLogic {
         return context;
     }
 
+    @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "RedundantSuppression"})
     public static boolean wasDashOUsed() {
         return dashOWasUsed;
     }
 
+    @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "RedundantSuppression"})
     public static boolean wasRenamingApplied() {
         try {
             // Prevent R8 from recognizing and unintentionally "fixing" this string by replacing it with the class's new

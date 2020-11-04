@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Makes a short toast
+     * Shows a long toast
      *
      * @param txt The toast.
      */

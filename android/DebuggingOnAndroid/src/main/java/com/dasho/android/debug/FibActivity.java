@@ -135,7 +135,7 @@ public class FibActivity extends Activity implements OnClickListener {
     }
 
     /**
-     * Makes a long toast
+     * Shows a long toast
      *
      * @param txt The toast.
      */

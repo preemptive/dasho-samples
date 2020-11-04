@@ -67,10 +67,12 @@ public class ApplicationLogic {
         return usingCheck;
     }
 
+    @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "RedundantSuppression"})
     public static boolean wasDashOUsed() {
         return usingCheck || injectionApplied;
     }
 
+    @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "RedundantSuppression"})
     public static boolean wasRenamingApplied() {
         try {
             // Prevent R8 from recognizing and unintentionally "fixing" this string by replacing it with the class's new
