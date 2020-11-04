@@ -110,7 +110,7 @@ public class RandomGenActivity extends Activity implements OnClickListener {
      * @param max The maximum
      * @return The random number
      */
-    private long findRnd(int min, int max) {
+    private int findRnd(int min, int max) {
         int range = max - min + 1;
         return ((int)(rnd.nextDouble() * range)) + min;
     }

@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -54,9 +54,9 @@ class MainActivity : Activity(), OnClickListener {
      */
     override fun onClick(v: View) {
         if (!ApplicationLogic.wasDashOUsed()) {
-            toast("DashO was not used.");
+            toast("DashO was not used.")
         } else if (!ApplicationLogic.wasRenamingApplied()) {
-            toast("DashO was used, but R8 was not used.");
+            toast("DashO was used, but R8 was not used.")
         }
 
         when (v) {
@@ -78,7 +78,7 @@ class MainActivity : Activity(), OnClickListener {
     }
 
     /**
-     * Makes a toast
+     * Shows a long toast
      *
      * @param message The toast message
      */
