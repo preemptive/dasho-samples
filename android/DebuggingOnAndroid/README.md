@@ -16,7 +16,7 @@ The `DebugEnabledResponse` was placed on the `findRnd()` method used when calcul
 The `DebuggingCheck` was placed on the `onCreate()` method in the `FibonacciActivity` class.
 It sets the static variable `check` that is used by the `DebuggingResponse`.
 
-The `DebuggingResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+The `DebuggingResponse` was placed on the `find()` method used when calculating the Fibonacci sequence.
 
 Both of the Responses use randomness to determine if they should or should not do anything.
 

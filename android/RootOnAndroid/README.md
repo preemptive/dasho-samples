@@ -12,7 +12,7 @@ The `RootCheck` was placed on an internal method, `someApplicationLogic()`, call
 This method returns a boolean value that will be `true` if the application is running on a rooted device.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `RootResponse` instances.
 
-One `RootResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+One `RootResponse` was placed on the `find()` method used when calculating the Fibonacci sequence.
 Another `RootResponse` was placed on the `findRnd()` method used when calculating the random number.
 Both of those Responses use randomness to determine if they should or should not do anything.
 
