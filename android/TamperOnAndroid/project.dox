@@ -29,8 +29,8 @@
             </tamperResponse>
             <tamperResponse probability="0.25" response="exception" source="com.dasho.android.tamper.MainActivity.isInitialized()">
                 <locations>
-                    <classes name="com.dasho.android.tamper.FibActivity$FibTask">
-                        <method name="doInBackground" signature="java.lang.Integer[]"/>
+                    <classes name="com.dasho.android.tamper.FindFibTask">
+                        <method name="find" signature="int"/>
                     </classes>
                 </locations>
             </tamperResponse>

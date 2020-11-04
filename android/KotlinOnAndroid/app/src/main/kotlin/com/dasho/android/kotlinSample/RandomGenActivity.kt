@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -102,8 +102,8 @@ class RandomGenActivity : Activity(), OnClickListener {
      * @param max The maximum
      * @return The random number
      */
-    private fun findRnd(min: Int, max: Int): Long {
+    private fun findRnd(min: Int, max: Int): Int {
         val range = max - min + 1
-        return ((rnd.nextDouble() * range).toInt() + min).toLong()
+        return ((rnd.nextDouble() * range).toInt() + min)
     }
 }

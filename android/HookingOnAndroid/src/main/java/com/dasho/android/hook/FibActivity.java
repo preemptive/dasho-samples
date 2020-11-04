@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -10,15 +10,12 @@ import android.app.AlertDialog;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.lang.ref.WeakReference;
-import java.text.NumberFormat;
 
 
 /**

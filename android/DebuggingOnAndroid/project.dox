@@ -31,8 +31,8 @@
             </debuggingCheck>
             <debuggingResponse probability="0.75" response="exception" source="com.dasho.android.debug.FibActivity.check">
                 <locations>
-                    <classes name="com.dasho.android.debug.FibActivity$FibTask">
-                        <method name="doInBackground" signature="java.lang.Integer[]"/>
+                    <classes name="com.dasho.android.debug.FindFibTask">
+                        <method name="find" signature="int"/>
                     </classes>
                 </locations>
             </debuggingResponse>

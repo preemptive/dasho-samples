@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -28,7 +28,7 @@ public class MainActivity extends Activity {
      *
      * @return True if hooking is detected.
      */
-    @SuppressWarnings("unused") //Used by the response
+    @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the response
     public static boolean isInitialized() {
         return initializedLogic;
     }
@@ -66,8 +66,6 @@ public class MainActivity extends Activity {
             toast("DashO was not used.");
         } else if (!ApplicationLogic.wasRenamingApplied()) {
             toast("DashO was used, but R8 was not used.");
-        } else if (!ApplicationLogic.wasDashOUsed()) {
-            toast("Hook Check was not used in this build.");
         } else if (initializedLogic) {
             toast("Hooking was detected.");
         }
@@ -88,7 +86,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Makes a short toast
+     * Shows a long toast
      *
      * @param txt The toast.
      */
