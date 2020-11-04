@@ -31,7 +31,7 @@ public class FibActivity extends Activity implements OnClickListener {
     private String num = "";
     private TextView fibNum;
     private EditText seqNum;
-    private FibTask fibTask;
+    private FindFibTask fibTask;
     private static final int WARN_SEQUENCE = 30;
     private static final int MAX_SEQUENCE = 50;
 
@@ -43,6 +43,7 @@ public class FibActivity extends Activity implements OnClickListener {
         findViewById(R.id.calcFibBtn).setOnClickListener(this);
         seqNum = findViewById(R.id.fibSeqNum);
         fibNum = findViewById(R.id.calcFibRes);
+        fibTask = new FindFibTask(this, fibNum, getString(R.string.fibCalcProgress));
     }
 
     /**
@@ -78,7 +79,7 @@ public class FibActivity extends Activity implements OnClickListener {
                 Toast.makeText(getApplicationContext(), R.string.fibLarge, Toast.LENGTH_SHORT)
                         .show();
             }
-            findFib();
+            fibTask.find(seq);
         } catch (NumberFormatException e) {
             showNumberError();
         }
@@ -95,14 +96,6 @@ public class FibActivity extends Activity implements OnClickListener {
         dlgAlert.setCancelable(true);
         dlgAlert.create().show();
         fibNum.setText("");
-    }
-
-    /**
-     * Finds the Fibonacci number at that sequence index
-     */
-    private void findFib() {
-        fibTask = new FibTask(fibNum, getString(R.string.fibCalcProgress));
-        fibTask.execute(Integer.valueOf(num));
     }
 
     /**
@@ -130,79 +123,5 @@ public class FibActivity extends Activity implements OnClickListener {
         num = prefs.getString("seq", getString(R.string.fibSeqDef));
         seqNum.setText(num);
         seqNum.setSelection(num.length());
-    }
-
-    /**
-     * An async task to calculate the number.
-     *
-     * @author Matt Insko
-     */
-    private static class FibTask extends AsyncTask<Integer, Integer, Long> {
-
-        private boolean cancelled;
-        private int seqNum;
-        private int max;
-        private final WeakReference<TextView> outputText;
-        private final String progressString;
-        private final NumberFormat nf = NumberFormat.getIntegerInstance();
-
-        public FibTask(TextView fibNum, String progressString) {
-            this.outputText = new WeakReference<>(fibNum);
-            this.progressString = progressString;
-        }
-
-        private void cancel() {
-            cancelled = true;
-        }
-
-        @Override
-        protected Long doInBackground(Integer... params) {
-            seqNum = params[0];
-            return getFib(seqNum);
-        }
-
-        /**
-         * Calculates the Fibonacci number at a certain location
-         *
-         * @param num The location
-         * @return The Fibonacci number at that location
-         */
-        private long getFib(int num) {
-            long result;
-            if (num < 3 || cancelled) {
-                result =  1;
-            } else {
-                result = getFib(num - 1) + getFib(num - 2);
-            }
-            reportMax(num);
-            return result;
-        }
-
-        private void reportMax(int num) {
-            if (num > max) {
-                publishProgress(num);
-                max = num;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Long result) {
-            TextView field = outputText.get();
-            if (field != null) {
-                if (cancelled) {
-                    field.setText("");
-                } else {
-                    field.setText(nf.format(result));
-                }
-            }
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            TextView field = outputText.get();
-            if (field != null) {
-                field.setText(String.format(progressString, values[0]));
-            }
-        }
     }
 }
