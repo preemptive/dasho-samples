@@ -3,7 +3,7 @@
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
  */
-package com.dasho.android.hook;
+package com.dasho.android.tamper;
 
 import android.app.Activity;
 import android.widget.TextView;

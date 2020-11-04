@@ -24,8 +24,8 @@
             </rootResponse>
             <rootResponse probability="0.25" response="exception" source="com.dasho.android.root.MainActivity.isInitialized()">
                 <locations>
-                    <classes name="com.dasho.android.root.FibActivity$FibTask">
-                        <method name="doInBackground" signature="java.lang.Integer[]"/>
+                    <classes name="com.dasho.android.root.FindFibTask">
+                        <method name="find" signature="int"/>
                     </classes>
                 </locations>
             </rootResponse>
