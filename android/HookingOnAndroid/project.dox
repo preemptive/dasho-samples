@@ -24,8 +24,8 @@
             </hookResponse>
             <hookResponse probability="0.25" response="exception" source="com.dasho.android.hook.MainActivity.isInitialized()">
                 <locations>
-                    <classes name="com.dasho.android.hook.FibActivity$FibTask">
-                        <method name="doInBackground" signature="java.lang.Integer[]"/>
+                    <classes name="com.dasho.android.hook.FindFibTask">
+                        <method name="find" signature="int"/>
                     </classes>
                 </locations>
             </hookResponse>
