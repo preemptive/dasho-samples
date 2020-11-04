@@ -27,10 +27,14 @@ public class FindFibTask {
         cancelled = true;
     }
 
-    public void find(final int sequence) {
+    /**
+     * Finds and displays the Fibonacci number at the given position.
+     * @param position The position in the sequence of Fibonacci numbers.
+     */
+    public void find(final int position) {
         reset();
         runningThread = new Thread(()-> {
-            final long number = getFib(sequence);
+            final long number = getFib(position);
             runOnUI(() -> outputResult(number));
         });
         runningThread.start();
@@ -45,10 +49,10 @@ public class FindFibTask {
     }
 
     /**
-     * Calculates the Fibonacci number at a certain location.
+     * Calculates the Fibonacci number at a certain position.
      *
-     * @param num The location.
-     * @return The Fibonacci number at that location.
+     * @param num The position.
+     * @return The Fibonacci number at that position.
      */
     private long getFib(int num) {
         long result;

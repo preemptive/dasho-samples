@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.ImageBtn).setOnClickListener(ignored -> {
             setupView(ViewType.IMAGE);
             new ImageLoader(this, imageView, maxHeight, maxWidth).execute();
-                });
+        });
         findViewById(R.id.QuoteBtn).setOnClickListener(ignored -> {
             setupView(ViewType.QUOTE);
             new QuoteLoader(this, textView).execute();

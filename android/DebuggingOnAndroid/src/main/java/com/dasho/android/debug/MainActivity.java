@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findViewById(R.id.GenActBtn).setOnClickListener(
-                ignored -> toastAndLaunch( RandomGenActivity.class));
+                ignored -> toastAndLaunch(RandomGenActivity.class));
         findViewById(R.id.FibActBtn).setOnClickListener(
                 ignored -> toastAndLaunch(FibActivity.class));
         initializedLogic = new ApplicationLogic(getApplicationContext()).someApplicationLogic();
