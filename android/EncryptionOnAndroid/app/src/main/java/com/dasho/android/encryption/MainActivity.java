@@ -6,12 +6,12 @@
 package com.dasho.android.encryption;
 
 import android.graphics.Bitmap;
-import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.view.Display;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -67,11 +67,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Display display = getWindowManager().getDefaultDisplay();
-        Point p = new Point();
-        display.getSize(p);
-        maxHeight = p.y;
-        maxWidth = p.x;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            getDisplay().getRealMetrics(displayMetrics);
+        } else {
+            getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+        }
+        maxHeight = displayMetrics.heightPixels;
+        maxWidth = displayMetrics.widthPixels;
     }
 
     /**

@@ -6,42 +6,45 @@
 package com.dasho.android.encryption;
 
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Asynchronously loads and displays a random quote.
  *
  * @author Matt Insko
  */
-class QuoteLoader extends AsyncTask<Void, Void, String> {
-    private final WeakReference<Activity> activityReference;
-    private final WeakReference<TextView> textViewReference;
-    private final Random rand = new Random();
+class QuoteLoader extends AbstractLoader<TextView> {
 
     QuoteLoader(Activity activity, TextView textView) {
-        this.activityReference = new WeakReference<>(activity);
-        this.textViewReference = new WeakReference<>(textView);
+        super(activity, textView);
     }
 
+    public void execute() {
+        new Thread(()->{
+            String quote = findQuote();
+            if (quote != null) {
+                runOnUIThread(() ->{
+                    TextView view = viewReference.get();
+                    if (view != null) {
+                        view.setText(quote);
+                    }
+                });
+            }
+        }).start();
+    }
     /**
      *
-     * @param voids  Nothing
      * @return A random quote
      */
-    @Override
-    protected String doInBackground(Void... voids) {
+    protected String findQuote() {
         try {
             List<String> quotes = readQuotes();
             if (quotes.size() > 0) {
@@ -49,27 +52,9 @@ class QuoteLoader extends AsyncTask<Void, Void, String> {
             }
         } catch (final IOException e) {
             Log.e("QuoteLoader", "Error reading quotes", e);
-            activityReference.get().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(activityReference.get(),
-                            "Issue loading quotes: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();
-                }
-            });
+            toastOnUIThread("Issue loading quotes: " + e.getMessage(), true);
         }
         return "\"There are no quotes\" - Matt Insko";
-    }
-
-    /**
-     * Displays the quote on the screen.
-     * @param quote The quote to display
-     */
-    @Override
-    protected void onPostExecute(String quote) {
-        if (quote != null) {
-            textViewReference.get().setText(quote);
-        }
     }
 
     /**
@@ -80,19 +65,13 @@ class QuoteLoader extends AsyncTask<Void, Void, String> {
     private List<String> readQuotes() throws IOException {
         InputStream in = activityReference.get().getResources().openRawResource(R.raw.quotes);
         List<String> quotes = new ArrayList<>();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(in));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
             String line = reader.readLine();
             while (line != null) {
                 if (!line.startsWith("#")) {
                     quotes.add(line);
                 }
                 line = reader.readLine();
-            }
-        } finally {
-            if (reader != null) {
-                reader.close();
             }
         }
         return quotes;

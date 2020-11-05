@@ -9,57 +9,56 @@ import android.app.Activity;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.ref.WeakReference;
 import java.util.Locale;
-import java.util.Random;
 
 /**
  * Asynchronously loads and displays a random image.
  *
  * @author Matt Insko
  */
-class ImageLoader extends AsyncTask<Void, Void, Bitmap> {
+class ImageLoader extends AbstractLoader<ImageView> {
 
-    private final WeakReference<Activity> activityReference;
-    private final WeakReference<ImageView> imageView;
-    private final Random rand = new Random();
+
     private final int maxHeight;
     private final int maxWidth;
 
     ImageLoader(Activity activity, ImageView imageView, int maxHeight, int maxWidth) {
-        this.activityReference = new WeakReference<>(activity);
-        this.imageView = new WeakReference<>(imageView);
+        super(activity, imageView);
         this.maxHeight = maxHeight;
         this.maxWidth = maxWidth;
     }
 
+    public void execute() {
+        new Thread(()->{
+            final Bitmap image = loadImage();
+            if (image != null) {
+                runOnUIThread(() ->{
+                    ImageView view = viewReference.get();
+                    if (view != null) {
+                        view.setImageBitmap(image);
+                    }
+                });
+            }
+
+        }).start();
+    }
+
     /**
      * Reads and decodes a random image file
-     * @param voids Nothing
      * @return A bitmap of the random image
      */
-    @Override
-    protected Bitmap doInBackground(Void... voids) {
+    private Bitmap loadImage() {
         final long start = System.currentTimeMillis();
         try {
             AssetManager assetManager = activityReference.get().getAssets();
             String[] imageNames = assetManager.list("img");
             if (imageNames == null || imageNames.length == 0) {
-                activityReference.get().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(activityReference.get(),
-                                "No images found.",
-                                Toast.LENGTH_LONG).show();
-                    }
-                });
+                toastOnUIThread("No images found.", true);
                 return null;
             }
             final String name = imageNames[rand.nextInt(imageNames.length)];
@@ -68,39 +67,13 @@ class ImageLoader extends AsyncTask<Void, Void, Bitmap> {
             InputStream is = assetManager.open("img/" + name);
             Bitmap image = getImage(is, options);
             final long end = System.currentTimeMillis();
-            activityReference.get().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(activityReference.get(),
-                            String.format(Locale.ROOT, "Loaded %s in %d ms.", name, (end - start)),
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
+            toastOnUIThread(String.format(Locale.ROOT, "Loaded %s in %d ms.", name, (end - start)), false);
             return image;
         } catch (final IOException e) {
             Log.e("ImageLoader", "Error reading images", e);
-            activityReference.get().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Toast.makeText(activityReference.get(),
-                            "Issue loading image: " + e.getMessage(),
-                            Toast.LENGTH_LONG).show();
-                }
-            });
+            toastOnUIThread("Issue loading image: " + e.getMessage(), true);
             return null;
         }
-    }
-
-
-    /**
-     * Displays the image on the screen.
-     */
-    @Override
-    protected void onPostExecute(Bitmap image) {
-        if (image == null) {
-            return;
-        }
-        imageView.get().setImageBitmap(image);
     }
 
     /**
@@ -140,5 +113,4 @@ class ImageLoader extends AsyncTask<Void, Void, Bitmap> {
         }
         return sampleSize;
     }
-
 }
