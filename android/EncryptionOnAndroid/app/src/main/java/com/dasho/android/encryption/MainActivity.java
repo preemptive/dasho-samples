@@ -6,14 +6,15 @@
 package com.dasho.android.encryption;
 
 import android.graphics.Bitmap;
-import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.view.Display;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private ImageView imageView;
+    private ScrollView textScroll;
+    private ScrollView imageScroll;
     private int maxHeight;
     private int maxWidth;
     private enum ViewType {IMAGE, QUOTE}
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         });
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
+        textScroll = findViewById(R.id.textScroll);
+        imageScroll = findViewById(R.id.imageScroll);
         if (savedInstanceState != null) {
             textView.setText(savedInstanceState.getCharSequence("quote"));
             Parcelable image = savedInstanceState.getParcelable("image");
@@ -67,11 +72,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        Display display = getWindowManager().getDefaultDisplay();
-        Point p = new Point();
-        display.getSize(p);
-        maxHeight = p.y;
-        maxWidth = p.x;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            getDisplay().getRealMetrics(displayMetrics);
+        } else {
+            getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+        }
+        maxHeight = displayMetrics.heightPixels;
+        maxWidth = displayMetrics.widthPixels;
     }
 
     /**
@@ -95,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setupView(ViewType type) {
         currentView = type;
+        imageScroll.setVisibility(type == ViewType.IMAGE ? View.VISIBLE : View.INVISIBLE);
         imageView.setVisibility(type == ViewType.IMAGE ? View.VISIBLE : View.INVISIBLE);
+        textScroll.setVisibility(type == ViewType.QUOTE ? View.VISIBLE : View.INVISIBLE);
         textView.setVisibility(type == ViewType.QUOTE ? View.VISIBLE : View.INVISIBLE);
     }
 
