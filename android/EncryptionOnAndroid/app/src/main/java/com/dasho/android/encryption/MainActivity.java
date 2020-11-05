@@ -14,6 +14,7 @@ import android.os.Parcelable;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textView;
     private ImageView imageView;
+    private ScrollView textScroll;
+    private ScrollView imageScroll;
     private int maxHeight;
     private int maxWidth;
     private enum ViewType {IMAGE, QUOTE}
@@ -49,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         });
         textView = findViewById(R.id.textView);
         imageView = findViewById(R.id.imageView);
+        textScroll = findViewById(R.id.textScroll);
+        imageScroll = findViewById(R.id.imageScroll);
         if (savedInstanceState != null) {
             textView.setText(savedInstanceState.getCharSequence("quote"));
             Parcelable image = savedInstanceState.getParcelable("image");
@@ -98,7 +103,9 @@ public class MainActivity extends AppCompatActivity {
      */
     private void setupView(ViewType type) {
         currentView = type;
+        imageScroll.setVisibility(type == ViewType.IMAGE ? View.VISIBLE : View.INVISIBLE);
         imageView.setVisibility(type == ViewType.IMAGE ? View.VISIBLE : View.INVISIBLE);
+        textScroll.setVisibility(type == ViewType.QUOTE ? View.VISIBLE : View.INVISIBLE);
         textView.setVisibility(type == ViewType.QUOTE ? View.VISIBLE : View.INVISIBLE);
     }
 
