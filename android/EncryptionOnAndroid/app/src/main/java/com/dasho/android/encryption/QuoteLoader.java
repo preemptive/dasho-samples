@@ -7,7 +7,7 @@ package com.dasho.android.encryption;
 
 import android.app.Activity;
 import android.util.Log;
-import android.widget.*;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
