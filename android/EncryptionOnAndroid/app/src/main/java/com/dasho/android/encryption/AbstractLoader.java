@@ -36,12 +36,15 @@ public class AbstractLoader<T extends View> {
     /**
      * Shows a toast on the UI thread.
      * @param message The message to toast.
-     * @param winded Is it a long toast?
+     * @param long_winded Is it a long toast?
      */
-    protected void toastOnUIThread(String message, boolean winded) {
+    protected void toastOnUIThread(String message, boolean long_winded) {
         Activity activity = activityReference.get();
         if (activity != null) {
-            activity.runOnUiThread(()-> Toast.makeText(activity, message, winded ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show());
+            activity.runOnUiThread(()-> Toast.makeText(activity,
+                    message,
+                    long_winded ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT)
+                    .show());
         }
     }
 }
