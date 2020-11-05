@@ -41,7 +41,7 @@ public class AbstractLoader<T extends View> {
     protected void toastOnUIThread(String message, boolean long_winded) {
         Activity activity = activityReference.get();
         if (activity != null) {
-            activity.runOnUiThread(()-> Toast.makeText(activity,
+            activity.runOnUiThread(() -> Toast.makeText(activity,
                     message,
                     long_winded ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT)
                     .show());

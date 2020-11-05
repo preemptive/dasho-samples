@@ -34,10 +34,10 @@ class ImageLoader extends AbstractLoader<ImageView> {
     }
 
     public void execute() {
-        new Thread(()->{
+        new Thread(() -> {
             final Bitmap image = loadImage();
             if (image != null) {
-                runOnUIThread(() ->{
+                runOnUIThread(() -> {
                     ImageView view = viewReference.get();
                     if (view != null) {
                         view.setImageBitmap(image);

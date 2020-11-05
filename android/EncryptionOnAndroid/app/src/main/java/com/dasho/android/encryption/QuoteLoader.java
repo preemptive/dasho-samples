@@ -28,10 +28,10 @@ class QuoteLoader extends AbstractLoader<TextView> {
     }
 
     public void execute() {
-        new Thread(()->{
+        new Thread(() -> {
             String quote = findQuote();
             if (quote != null) {
-                runOnUIThread(() ->{
+                runOnUIThread(() -> {
                     TextView view = viewReference.get();
                     if (view != null) {
                         view.setText(quote);
