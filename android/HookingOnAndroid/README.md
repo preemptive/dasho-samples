@@ -11,7 +11,7 @@ The `HookCheck` was placed on an internal method, `someApplicationLogic()`, call
 This method returns a boolean value that will be `true` if hooking is detected.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `HookResponse` instances.
 
-One `HookResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+One `HookResponse` was placed on the `find()` method used when calculating the Fibonacci sequence.
 Another `HookResponse` was placed on the `findRnd()` method used when calculating the random number.
 Both of those Responses use randomness to determine if they should or should not do anything.
 
@@ -29,7 +29,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run Normally
 
-Compile, obfuscate, and install the application.
+Compile, protect, and install the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -39,7 +39,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 ## Run with a Hooking Framework
 
-Compile, obfuscate, and install the application.
+Compile, protect, and install the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -80,5 +80,5 @@ The Responses were added to different methods with different outcomes, randomly 
 This makes it difficult for an attacker to track down what is going wrong.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
-Android is a trademark of Google Inc.
-Gradle is a trademark of Gradle Inc.
+><br>Android is a trademark of Google Inc.
+><br>Gradle is a trademark of Gradle Inc.

@@ -16,7 +16,7 @@ The `DebugEnabledResponse` was placed on the `findRnd()` method used when calcul
 The `DebuggingCheck` was placed on the `onCreate()` method in the `FibonacciActivity` class.
 It sets the static variable `check` that is used by the `DebuggingResponse`.
 
-The `DebuggingResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+The `DebuggingResponse` was placed on the `find()` method used when calculating the Fibonacci sequence.
 
 Both of the Responses use randomness to determine if they should or should not do anything.
 
@@ -33,7 +33,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run Normally
 
-Compile, obfuscate, and install the release (non-debugging) version of the application.
+Compile, protect, and install the release (non-debugging) version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -47,7 +47,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 ## Run with Debugging Enabled
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 1.  Re-enable USB debugging _(if necessary)_
 2.  Run the command: `gradlew uninstallAll` _(if necessary)_
@@ -59,7 +59,7 @@ The Random Number feature will fail sometimes because of the `DebugEnabledRespon
 
 ## Actively Debug
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 >**Note:** These instructions assume `adb` and `jdb` are available via your `PATH` environment variable.
 
@@ -106,5 +106,5 @@ You can also run your own custom response by referencing a method in the Check's
 If called with `true`, the Check was positive for debugging and you can perform a custom action like sending a message to Google Analytics.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
-Android is a trademark of Google Inc.
-Gradle is a trademark of Gradle Inc.
+><br>Android is a trademark of Google Inc.
+><br>Gradle is a trademark of Gradle Inc.

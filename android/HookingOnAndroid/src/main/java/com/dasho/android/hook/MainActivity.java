@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -12,8 +12,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Toast;
 import com.dasho.android.hook.other.ApplicationLogic;
 
@@ -22,7 +20,7 @@ import com.dasho.android.hook.other.ApplicationLogic;
  *
  * @author Matt Insko
  */
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Activity {
     private static boolean initializedLogic = false;
 
     /**
@@ -30,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener {
      *
      * @return True if hooking is detected.
      */
-    @SuppressWarnings("unused") //Used by the response
+    @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the response
     public static boolean isInitialized() {
         return initializedLogic;
     }
@@ -39,8 +37,8 @@ public class MainActivity extends Activity implements OnClickListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.GenActBtn).setOnClickListener(this);
-        findViewById(R.id.FibActBtn).setOnClickListener(this);
+        findViewById(R.id.GenActBtn).setOnClickListener(ignored -> toastAndLaunch(RandomGenActivity.class));
+        findViewById(R.id.FibActBtn).setOnClickListener(ignored -> toastAndLaunch(FibActivity.class));
         initializedLogic = new ApplicationLogic(getApplicationContext()).someApplicationLogic();
     }
 
@@ -60,28 +58,18 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     /**
-     * Handles the button clicks
-     *
-     * @param v The view clicked
+     * Displays an optional toast and launches the clazz.
+     * @param clazz The activity to launch
      */
-    public void onClick(View v) {
+    public void toastAndLaunch(Class<?> clazz) {
         if (!ApplicationLogic.wasDashOUsed()) {
             toast("DashO was not used.");
         } else if (!ApplicationLogic.wasRenamingApplied()) {
             toast("DashO was used, but R8 was not used.");
-        } else if (!ApplicationLogic.wasDashOUsed()) {
-            toast("Hook Check was not used in this build.");
         } else if (initializedLogic) {
             toast("Hooking was detected.");
         }
-        switch (v.getId()) {
-            case R.id.GenActBtn:
-                startActivity(new Intent(getApplicationContext(), RandomGenActivity.class));
-                break;
-            case R.id.FibActBtn:
-                startActivity(new Intent(getApplicationContext(), FibActivity.class));
-                break;
-        }
+        startActivity(new Intent(getApplicationContext(), clazz));
     }
 
     /**
@@ -98,7 +86,7 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     /**
-     * Makes a short toast
+     * Shows a long toast
      *
      * @param txt The toast.
      */

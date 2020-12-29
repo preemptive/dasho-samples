@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="10.2.0">
+<dasho version="11.1.0">
     <propertylist>
         <property name="projectname" value="multijar"/>
     </propertylist>
@@ -12,7 +12,7 @@
         <pathelement location="app2.jar"/>
         <pathelement location="lib/common.jar"/>
     </inputpath>
-    <classpath appendrtjar="false" useJDKHome="true" JDKHome="${JDK_HOME:-}"/>
+    <classpath appendrtjar="false" JDKHome="${JDK_HOME:-}" useJDKHome="true"/>
     <entrypoints>
         <classes name="dasho.samples.app1.Main" rename="true">
             <method name="main" signature="java.lang.String[]"/>
@@ -22,7 +22,7 @@
         </classes>
     </entrypoints>
     <report path="${projectname}-report.txt"/>
-    <output merge="false" autocopy="false">
+    <output autocopy="false" merge="false">
         <dir path="obfuscated"/>
     </output>
     <removal classes="unused" members="unused">

@@ -12,7 +12,7 @@ The `RootCheck` was placed on an internal method, `someApplicationLogic()`, call
 This method returns a boolean value that will be `true` if the application is running on a rooted device.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `RootResponse` instances.
 
-One `RootResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+One `RootResponse` was placed on the `find()` method used when calculating the Fibonacci sequence.
 Another `RootResponse` was placed on the `findRnd()` method used when calculating the random number.
 Both of those Responses use randomness to determine if they should or should not do anything.
 
@@ -28,7 +28,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run without Root Check
 
-Compile, obfuscate, and install the debug version of the application.
+Compile, protect, and install the debug version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installDebug`
@@ -38,7 +38,7 @@ You will notice it behaves as expected; no errors occur and the app is responsiv
 
 ## Run with Root Check
 
-Compile, obfuscate, and install the release version of the application.
+Compile, protect, and install the release version of the application.
 
 >**Note:** When compiling, you may notice a `Warning` regarding `exit` on Android. The `exit` action on Android will only close the `Activity` on the top of the activity stack.
 
@@ -75,5 +75,5 @@ The Responses were added to different methods with different outcomes, randomly 
 This makes it difficult for an attacker to track down what is going wrong.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
-Android is a trademark of Google Inc.
-Gradle is a trademark of Gradle Inc.
+><br>Android is a trademark of Google Inc.
+><br>Gradle is a trademark of Gradle Inc.

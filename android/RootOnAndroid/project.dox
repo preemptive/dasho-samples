@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho mode="android" version="10.2.0">
+<dasho mode="android" version="11.1.0">
     <propertylist>
         <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt option="on" level="2" implementations="2"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <rootCheck action="setupVars()">
                 <locations>
@@ -15,17 +15,17 @@
                     </classes>
                 </locations>
             </rootCheck>
-            <rootResponse source="com.dasho.android.root.MainActivity.isInitialized()" response="exit" probability="0.5">
+            <rootResponse probability="0.5" response="exit" source="com.dasho.android.root.MainActivity.isInitialized()">
                 <locations>
-                    <classes regex="true" name="com\.dasho\.android\.root\.RandomGen.*">
+                    <classes name="com\.dasho\.android\.root\.RandomGen.*" regex="true">
                         <method name="findRnd" signature=".*"/>
                     </classes>
                 </locations>
             </rootResponse>
-            <rootResponse source="com.dasho.android.root.MainActivity.isInitialized()" response="exception" probability="0.25">
+            <rootResponse probability="0.25" response="exception" source="com.dasho.android.root.MainActivity.isInitialized()">
                 <locations>
-                    <classes name="com.dasho.android.root.FibActivity$FibTask">
-                        <method name="doInBackground" signature="java.lang.Integer[]"/>
+                    <classes name="com.dasho.android.root.FindFibTask">
+                        <method name="find" signature="int"/>
                     </classes>
                 </locations>
             </rootResponse>

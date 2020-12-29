@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho mode="android" version="10.2.0">
+<dasho mode="android" version="11.1.0">
     <propertylist>
         <property name="ANDROID_DALVIK_COMPATIBILITY" value="true"/>
     </propertylist>
     <controlflow option="on"/>
-    <stringencrypt option="on" level="2" implementations="2"/>
+    <stringencrypt implementations="2" level="2" option="on"/>
     <injection>
-        <runtime target="android" merge="false"/>
+        <runtime merge="false" target="android"/>
         <checks>
             <!-- The result of this check is ignored: this is just for verifying that DashO injection was applied. -->
             <debugEnabledCheck action="setupInjectionWasApplied()">

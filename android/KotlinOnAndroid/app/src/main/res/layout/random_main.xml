@@ -23,6 +23,7 @@
             android:layout_toRightOf="@+id/textView1"
             android:ems="10"
             android:gravity="right|center_vertical"
+            android:maxLength="9"
             android:inputType="number"/>
 
     <TextView
@@ -46,6 +47,7 @@
             android:layout_below="@+id/rndMinNum"
             android:ems="10"
             android:gravity="right|center_vertical"
+            android:maxLength="9"
             android:inputType="number"/>
 
     <TextView

@@ -12,7 +12,7 @@ The `TamperCheck` was placed on an internal method, `someApplicationLogic()`, ca
 This method returns a boolean value that will be `true` if the application has been tampered.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `TamperResponse` instances.
 
-One `TamperResponse` was placed on the `doInBackground()` method used when calculating the Fibonacci sequence.
+One `TamperResponse` was placed on the `find()` method used when calculating the Fibonacci sequence.
 Another `TamperResponse` was placed on the `findRnd()` method used when calculating the random number.
 Both of those Responses use randomness to determine if they should or should not do anything.
 
@@ -39,7 +39,7 @@ See the main [README](../README.md) for the requirements.
 
 ## Run Non-Tampered
 
-Compile, obfuscate, and install the release (non-tampered) version of the application.
+Compile, protect, and install the release (non-tampered) version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installRelease`
@@ -48,7 +48,7 @@ Run the application on your device. You will notice it behaves as expected; no e
 
 ## Run Tampered
 
-Compile, obfuscate, and install the debug (tampered) version of the application.
+Compile, protect, and install the debug (tampered) version of the application.
 
 1.  Run the command: `gradlew uninstallAll` _(if necessary)_
 2.  Run the command: `gradlew installDebug`
@@ -84,5 +84,5 @@ The Responses were added to different methods with different outcomes, randomly 
 This makes it difficult for an attacker to track down what is going wrong.
 
 >**Note:** The Android robot is reproduced or modified from work created and shared by Google and used according to terms described in the [Creative Commons 3.0 Attribution License](http://creativecommons.org/licenses/by/3.0/).
-Android is a trademark of Google Inc.
-Gradle is a trademark of Gradle Inc.
+><br>Android is a trademark of Google Inc.
+><br>Gradle is a trademark of Gradle Inc.

@@ -32,6 +32,7 @@
             android:layout_toRightOf="@+id/fibTextView1"
             android:ems="10"
             android:gravity="right|center_vertical"
+            android:maxLength="3"
             android:inputType="number"/>
 
     <Button

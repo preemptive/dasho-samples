@@ -1,4 +1,4 @@
-/* Copyright 2018 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -19,7 +19,6 @@ import android.widget.Toast;
 import java.text.NumberFormat;
 import java.util.Random;
 
-
 /**
  * The Random Number Generator
  *
@@ -28,10 +27,10 @@ import java.util.Random;
 public class RandomGenActivity extends Activity implements OnClickListener {
 
     private String minStr, maxStr;
-    private NumberFormat nf = NumberFormat.getIntegerInstance();
     private EditText minNum, maxNum;
     private TextView genNum;
-    private Random rnd = new Random(System.currentTimeMillis());
+    private final NumberFormat nf = NumberFormat.getIntegerInstance();
+    private final Random rnd = new Random(System.currentTimeMillis());
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,7 +110,7 @@ public class RandomGenActivity extends Activity implements OnClickListener {
      * @param max The maximum
      * @return The random number
      */
-    private long findRnd(int min, int max) {
+    private int findRnd(int min, int max) {
         int range = max - min + 1;
         return ((int)(rnd.nextDouble() * range)) + min;
     }

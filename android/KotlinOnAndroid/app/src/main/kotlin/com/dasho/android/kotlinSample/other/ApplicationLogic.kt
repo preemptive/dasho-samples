@@ -1,4 +1,4 @@
-/* Copyright 2019 PreEmptive Solutions, LLC. All Rights Reserved.
+/* Copyright 2020 PreEmptive Solutions, LLC. All Rights Reserved.
  *
  * This source is subject to the Microsoft Public License (MS-PL).
  * Please see the LICENSE.txt file for more information.
@@ -21,7 +21,7 @@ class ApplicationLogic constructor(private val context:Context) {
          * Used by a check just to report that DashO injection was applied correctly.
          * @param ignored an unused check result
          */
-        @Suppress("unused", "UNUSED_PARAMETER") // only referenced in the DashO config
+        @Suppress("unused", "UNUSED_PARAMETER", "RedundantSuppression") // only referenced in the DashO config
         @JvmStatic
         fun setupInjectionWasApplied(ignored:Boolean) {
             injectionApplied = true
@@ -43,12 +43,12 @@ class ApplicationLogic constructor(private val context:Context) {
         }
     }
 
-    @Suppress("unused") // Used by the check code.
+    @Suppress("unused", "RedundantSuppression") // Used by the check code.
     fun getApplicationContext():Context {
         return context
     }
 
-    @Suppress("unused") // only referenced in the DashO config
+    @Suppress("unused", "RedundantSuppression") // only referenced in the DashO config
     fun someApplicationLogic() {
     }
 }

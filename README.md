@@ -20,8 +20,8 @@ The samples are categorized by type:
 DashO's obfuscation, hardening, and runtime check features make your application much harder to reverse engineer, pirate, or steal data from.
 World-class technical support for DashO is available through our [website](https://www.preemptive.com/support/dasho-support) and/or our [support request form](https://www.preemptive.com/contact/supportrequestform).
 
-Android is a trademark of Google LLC.
-GitHub is a registered trademark of GitHub, Inc.
-Gradle is a registered trademark of Gradle, Inc.
-Oracle and Java are registered trademarks of Oracle and/or its affiliates.
-Other names may be trademarks of their respective owners.
+>Android is a trademark of Google LLC.
+><br>GitHub is a registered trademark of GitHub, Inc.
+><br>Gradle is a registered trademark of Gradle, Inc.
+><br>Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+><br>Other names may be trademarks of their respective owners.
