@@ -25,13 +25,13 @@
     <target name="compile" depends="-pre-check">
         <!-- Build the utility library -->
         <mkdir dir="classes/lib" />
-        <javac sourcepath="" srcdir="src/lib" destdir="classes/lib" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7" />
+        <javac sourcepath="" srcdir="src/lib" destdir="classes/lib" includeAntRuntime="false" fork="true" debug="false" />
         <!-- Build the first application -->
         <mkdir dir="classes/app1" />
-        <javac sourcepath="" srcdir="src/app1" destdir="classes/app1" includeAntRuntime="false" classpath="classes/lib" fork="true" debug="false" source="1.7" target="1.7" />
+        <javac sourcepath="" srcdir="src/app1" destdir="classes/app1" includeAntRuntime="false" classpath="classes/lib" fork="true" debug="false" />
         <!-- Build the second application -->
         <mkdir dir="classes/app2" />
-        <javac sourcepath="" srcdir="src/app2" destdir="classes/app2" includeAntRuntime="false" classpath="classes/lib" fork="true" debug="false" source="1.7" target="1.7" />
+        <javac sourcepath="" srcdir="src/app2" destdir="classes/app2" includeAntRuntime="false" classpath="classes/lib" fork="true" debug="false" />
     </target>
 
     <target name="dasho" depends="-pre-check">
