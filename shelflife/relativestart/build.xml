@@ -21,8 +21,7 @@
 
     <target name="compile" depends="-pre-check">
         <mkdir dir="classes" />
-        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true"
-               debug="false" />
+        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" />
         <jar jarfile="helloworld.jar">
             <fileset dir="classes">
                 <include name="**/*" />
