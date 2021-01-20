@@ -25,7 +25,7 @@
     <target name="compile" depends="-pre-check">
         <!-- Build the utility library -->
         <mkdir dir="classes/lib" />
-        <javac sourcepath="" srcdir="src/lib" destdir="classes/lib" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7" />
+        <javac sourcepath="" srcdir="src/lib" destdir="classes/lib" includeAntRuntime="false" fork="true" debug="false" />
         <mkdir dir="lib" />
         <jar destfile="lib/common.jar">
             <fileset dir="classes/lib">
@@ -37,7 +37,7 @@
         </jar>
         <!-- Build the first application -->
         <mkdir dir="classes/app1" />
-        <javac sourcepath="" srcdir="src/app1" destdir="classes/app1" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" source="1.7" target="1.7" />
+        <javac sourcepath="" srcdir="src/app1" destdir="classes/app1" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" />
         <jar destfile="app1.jar">
             <manifest>
                 <attribute name="Main-Class" value="dasho.samples.app1.Main" />
@@ -52,7 +52,7 @@
         </jar>
         <!-- Build the second application -->
         <mkdir dir="classes/app2" />
-        <javac sourcepath="" srcdir="src/app2" destdir="classes/app2" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" source="1.7" target="1.7" />
+        <javac sourcepath="" srcdir="src/app2" destdir="classes/app2" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" />
         <jar destfile="app2.jar">
             <manifest>
                 <attribute name="Main-Class" value="dasho.samples.app2.Main" />

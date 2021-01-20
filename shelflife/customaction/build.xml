@@ -21,7 +21,7 @@
 
     <target name="compile" depends="-pre-check">
         <mkdir dir="classes" />
-        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" source="1.7" target="1.7">
+        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" >
             <classpath>
                 <pathelement location="${dasho.home}/lib/shelflife-java.jar"/>
             </classpath>
