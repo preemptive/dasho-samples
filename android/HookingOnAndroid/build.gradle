@@ -18,8 +18,8 @@ dasho {
     enabledBuildVariants "" // blank matches any variant (debug or release)
 }
 
-android{buildTypes{debug{minifyEnabled true}}}
-android{buildTypes{release{minifyEnabled true}}}
+android{buildTypes{debug{minifyEnabled false}}}
+android{buildTypes{release{minifyEnabled false}}}
 
 android {
     compileSdkVersion 30
@@ -34,6 +34,9 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+         ndk {
+            abiFilters 'arm64-v8a'
+         }
     }
 
     signingConfigs {

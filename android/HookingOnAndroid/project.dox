@@ -8,13 +8,6 @@
     <injection>
         <runtime merge="false" target="android"/>
         <checks>
-            <hookCheck action="setupVars()">
-                <locations>
-                    <classes name="com.dasho.android.hook.other.ApplicationLogic">
-                        <method name="someApplicationLogic" signature=""/>
-                    </classes>
-                </locations>
-            </hookCheck>
             <hookResponse probability="0.5" response="exit" source="com.dasho.android.hook.MainActivity.isInitialized()">
                 <locations>
                     <classes name="com\.dasho\.android\.hook\.RandomGen.*" regex="true">
@@ -29,6 +22,13 @@
                     </classes>
                 </locations>
             </hookResponse>
+            <hookCheck action="hooked">
+                <locations>
+                    <classes name="com.dasho.android.hook.MainActivity">
+                        <method name="getValue" signature=""/>
+                    </classes>
+                </locations>
+            </hookCheck>
         </checks>
     </injection>
 </dasho>

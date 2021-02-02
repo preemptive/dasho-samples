@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.*;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -21,6 +22,10 @@ import com.dasho.android.hook.other.ApplicationLogic;
  * @author Matt Insko
  */
 public class MainActivity extends Activity {
+
+    static {
+        //System.loadLibrary("frida-14.1.3");//Uncomment to be able to run "frida -U Gadget ..."
+    }
     private static boolean initializedLogic = false;
 
     /**
@@ -62,14 +67,37 @@ public class MainActivity extends Activity {
      * @param clazz The activity to launch
      */
     public void toastAndLaunch(Class<?> clazz) {
-        if (!ApplicationLogic.wasDashOUsed()) {
-            toast("DashO was not used.");
-        } else if (!ApplicationLogic.wasRenamingApplied()) {
-            toast("DashO was used, but R8 was not used.");
-        } else if (initializedLogic) {
-            toast("Hooking was detected.");
+        testMe();
+//        if (!ApplicationLogic.wasDashOUsed()) {
+//            toast("DashO was not used.");
+//        } else if (!ApplicationLogic.wasRenamingApplied()) {
+//            toast("DashO was used, but R8 was not used.");
+//        } else if (initializedLogic) {
+//            toast("Hooking was detected.");
+//        }
+//        startActivity(new Intent(getApplicationContext(), clazz));
+    }
+
+    private void testMe() {
+        boolean b = getValue();
+        hookDetected(b);
+    }
+
+    private boolean hooked = false;
+    private boolean getValue() {
+        Thread.currentThread().getStackTrace();
+        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+            Log.d("DASHO_HOOK", String.format("%s.%s: %b", element.getClassName(), element.getMethodName(), element.isNativeMethod()));
         }
-        startActivity(new Intent(getApplicationContext(), clazz));
+
+        return getHookedPrimitive();
+    }
+
+    private boolean getHookedPrimitive() {
+        return hooked;
+    }
+    private void hookDetected(boolean b) {
+        Log.d("DASHO_HOOK", "Hook detected: " + b);
     }
 
     /**

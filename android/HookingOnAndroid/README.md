@@ -1,5 +1,12 @@
 # Hook Check Use in an Android App
 
+>**NOTE:** This is a test version to enable easier checking of Hook Hetection.
+><br>You can put the appropriate frida-gadget libraries in the `src/main/jniLibs/arm64-v8a/` directory.
+>(This test project was only run on a physical arm64 device)
+>Name them something like `lib-frida-{version}.so`
+><br>Set `CheckInjector.injectorDebugMode=ANDROID_LOG` when building DashO.
+><br>You can launch the stack-trace check launching via `frida -U --no-pause -l frida.js -f com.dasho.android.hook`.
+
 This [sample app](../README.md#sample_desc) for Android™ illustrates the use of `HookCheck` and `HookResponse` in _PreEmptive Protection™ DashO™_.
 This project can be imported into Android Studio.
 [Control Flow Obfuscation](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_control.html), [String Encryption](https://www.preemptive.com/dasho/pro/userguide/en/understanding_obfuscation_string_encryption.html), and [Check Injection](https://www.preemptive.com/dasho/pro/userguide/en/understanding_checks_overview.html) are handled via the [DashO Gradle Plugin for Android](https://www.preemptive.com/dasho/pro/userguide/en/ref_dagp_index.html) integration.
