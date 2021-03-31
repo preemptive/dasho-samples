@@ -11,8 +11,10 @@ import android.content.Context;
  * This class could contain some business logic.
  * It is used for the Debug Check.
  */
+@Inject
 public class ApplicationLogic {
 
+    @Inject
     private boolean myBoolean = false;
     private final Context context;
 
@@ -48,6 +50,7 @@ public class ApplicationLogic {
      *
      * @return The original application's context.
      */
+    @Inject
     @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the check
     public Context getApplicationContext() {
         return context;
