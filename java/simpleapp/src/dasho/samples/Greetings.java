@@ -5,7 +5,14 @@
  */
 package dasho.samples;
 
+@Inject
 public class Greetings {
+
+
+    @Inject
+    public static String thing = "bruh";
+
+    @Inject
     public void sayGreetings(final String name){
     System.out.println("Greetings " + name);
     }
@@ -19,3 +26,4 @@ public class Greetings {
     }
 
 }
+
