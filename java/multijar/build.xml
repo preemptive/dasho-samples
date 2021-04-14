@@ -25,7 +25,7 @@
     <target name="compile" depends="-pre-check">
         <!-- Build the utility library -->
         <mkdir dir="classes/lib" />
-        <javac sourcepath="" srcdir="src/lib" destdir="classes/lib" includeAntRuntime="false" fork="true" debug="false" />
+        <javac executable="${env.JDK_HOME}/bin/javac" sourcepath="" srcdir="src/lib" destdir="classes/lib" includeAntRuntime="false" fork="true" debug="false" />
         <mkdir dir="lib" />
         <jar destfile="lib/common.jar">
             <fileset dir="classes/lib">
@@ -37,7 +37,7 @@
         </jar>
         <!-- Build the first application -->
         <mkdir dir="classes/app1" />
-        <javac sourcepath="" srcdir="src/app1" destdir="classes/app1" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" />
+        <javac executable="${env.JDK_HOME}/bin/javac" sourcepath="" srcdir="src/app1" destdir="classes/app1" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" />
         <jar destfile="app1.jar">
             <manifest>
                 <attribute name="Main-Class" value="dasho.samples.app1.Main" />
@@ -52,7 +52,7 @@
         </jar>
         <!-- Build the second application -->
         <mkdir dir="classes/app2" />
-        <javac sourcepath="" srcdir="src/app2" destdir="classes/app2" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" />
+        <javac executable="${env.JDK_HOME}/bin/javac" sourcepath="" srcdir="src/app2" destdir="classes/app2" includeAntRuntime="false" classpath="lib/common.jar" fork="true" debug="false" />
         <jar destfile="app2.jar">
             <manifest>
                 <attribute name="Main-Class" value="dasho.samples.app2.Main" />
@@ -71,7 +71,7 @@
     </target>
 
     <target name="dasho" depends="-pre-check">
-        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
             <jvmarg value="-Djava.awt.headless=true"/>
             <arg value="-v" />
             <arg file="project.dox" />
@@ -79,10 +79,10 @@
     </target>
 
     <target name="run">
-        <java fork="true" jar="obfuscated/app1.jar" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" jar="obfuscated/app1.jar" failonerror="true">
             <arg value="This is a test" />
         </java>
-        <java fork="true" jar="obfuscated/app2.jar" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" jar="obfuscated/app2.jar" failonerror="true">
             <arg value="One" />
             <arg value="Two" />
             <arg value="This is the third arg" />

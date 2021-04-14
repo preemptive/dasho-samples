@@ -23,7 +23,7 @@
 
     <target name="compile" depends="-pre-check">
         <mkdir dir="classes" />
-        <javac sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" >
+        <javac executable="${env.JDK_HOME}/bin/javac" sourcepath="" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" >
             <classpath>
                 <pathelement location="${dasho.home}/lib/shelflife-java.jar"/>
             </classpath>
@@ -46,7 +46,7 @@
 
     <target name="instrument" depends="-pre-check">
         <!-- NB: DashO adds the token file ShelfLifeToken.dat to the jar -->
-        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
             <jvmarg value="-Djava.awt.headless=true"/>
             <arg value="--verbose" />
             <arg file="project.dox" />
@@ -54,7 +54,7 @@
     </target>
 
     <target name="run">
-        <java fork="true" jar="obfuscated/helloworld.jar" failonerror="true" />
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" jar="obfuscated/helloworld.jar" failonerror="true" />
     </target>
 
     <target name="clean">
