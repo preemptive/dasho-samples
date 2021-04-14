@@ -28,7 +28,7 @@
     </target>
 
     <target name="dasho" depends="-pre-check">
-        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
             <jvmarg value="-Djava.awt.headless=true"/>
             <arg value="-v" />
             <arg file="project.dox" />
@@ -36,7 +36,7 @@
     </target>
 
     <target name="run">
-        <java fork="true" classname="dasho.samples.HelloWorld" classpath="obfuscated" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" classname="dasho.samples.HelloWorld" classpath="obfuscated" failonerror="true">
             <arg value="World" />
         </java>
     </target>

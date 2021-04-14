@@ -21,7 +21,7 @@
 
     <target name="compile" depends="-pre-check">
         <mkdir dir="classes" />
-        <javac srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" />
+        <javac executable="${env.JDK_HOME}/bin/javac" srcdir="src" destdir="classes" includeAntRuntime="false" fork="true" debug="false" />
         <jar jarfile="helloworld.jar">
             <fileset dir="classes">
                 <include name="**/*" />
@@ -40,7 +40,7 @@
     </tstamp>
 
     <target name="instrument" depends="-pre-check">
-        <java fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar" failonerror="true">
             <jvmarg value="-Djava.awt.headless=true"/>
             <jvmarg value="-DexpireDate=${expireDate}"/>
             <arg value="--verbose" />
@@ -49,7 +49,7 @@
     </target>
 
     <target name="run">
-        <java fork="true" jar="obfuscated/helloworld.jar" failonerror="true" />
+        <java jvm="${env.JDK_HOME}/bin/java" fork="true" jar="obfuscated/helloworld.jar" failonerror="true" />
     </target>
 
     <target name="clean">
