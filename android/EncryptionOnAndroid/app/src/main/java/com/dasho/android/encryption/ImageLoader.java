@@ -66,6 +66,9 @@ class ImageLoader extends AbstractLoader<ImageView> {
             options.inSampleSize = calculateSampleSize(name);
             InputStream is = assetManager.open("img/" + name);
             Bitmap image = getImage(is, options);
+            if (image == null) {
+                throw new IOException("Image could not be decoded: " + name);
+            }
             final long end = System.currentTimeMillis();
             toastOnUIThread(String.format(Locale.ROOT, "Loaded %s in %d ms.", name, (end - start)), false);
             return image;
