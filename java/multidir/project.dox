@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<dasho version="11.1.0">
+<dasho version="11.2.0">
     <propertylist>
         <property name="projectname" value="multidir"/>
     </propertylist>
@@ -29,7 +29,6 @@
         <debug/>
         <attributes/>
     </removal>
-    <methodCallRemoval/>
     <renaming option="on" renameAnnotations="off">
         <mapping>
             <mapreport path="${projectname}-mapreport.txt"/>
