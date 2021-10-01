@@ -24,7 +24,7 @@ obfuscated with DashO, and then both the original and obfuscated versions of the
 * Run `java -jar ./target/spring-boot-starter-web-0.0.1-SNAPSHOT.war`
 
 ## Obfuscating
-These istructions will guide you through the process of creating the project using DashO's New Project Wizard.
+These instructions will guide you through the process of creating the project using DashO's New Project Wizard.
 
 1. Start DashO and run the New Project Wizard.
     * Click `Next`.
