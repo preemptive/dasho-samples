@@ -1,29 +1,22 @@
-# For most projects, this workflow file will not need changing; you simply need
-# to commit it to your repository.
-#
-# You may wish to alter this file to override the set of languages analyzed,
-# or to provide custom queries or build logic.
-#
-# ******** NOTE ********
-# We have attempted to detect the languages in your repository. Please check
-# the `language` matrix defined below to confirm you have the correct set of
-# supported CodeQL languages.
-#
 name: "CodeQL"
 
 on:
+  # Allow to run manually
+  workflow_dispatch:
+    branches: [ master ]
+  # Allow to run on "push"
   push:
     branches: [ master ]
+  # Allow to run on a pull request
   pull_request:
-    # The branches below must be a subset of the branches above
     branches: [ master ]
-  schedule:
-    - cron: '20 10 * * 2'
+#  schedule:
+#    - cron: '20 10 * * 2'
 
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: dasho-samples-self-hosted
     permissions:
       actions: read
       contents: read
@@ -33,39 +26,43 @@ jobs:
       fail-fast: false
       matrix:
         language: [ 'java' ]
-        # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
-        # Learn more:
-        # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        languages: ${{ matrix.language }}
-        # If you wish to specify custom queries, you can do so here or in a config file.
-        # By default, queries listed here will override any specified in a config file.
-        # Prefix the list here with "+" to use these queries and those in the config file.
-        # queries: ./path/to/local/query, your-org/your-repo/queries@main
+      run: |
+       cd $Env:CODEQL_HOME
+       cd ../queries
+       & 'git' @('pull')
 
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    # - name: Autobuild
-    #  uses: github/codeql-action/autobuild@v1
+    - name: Create a CodeQL database for 'multidir'
+      run: |
+       $dbname='dasho-samples-java-multidir';$multidirhome="$Env:GITHUB_WORKSPACE/java/multidir";$multidirdb="$multidirhome/$dbname";cd $multidirhome;if(!(Test-Path -Path $multidirdb)){& 'codeql' @('database', 'create', $dbname, '--language=java', "--threads=$Env:CODEQL_THREADS", '--ram=8192')}else{echo "CodeQL database '$dbname' already exists at '$multidirdb'";}
 
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 https://git.io/JvXDl
+    - name: Analyze the CodeQL database for 'multidir'
+      run: |
+       cd $Env:GITHUB_WORKSPACE/java/multidir
+       & 'codeql' @('database', 'analyze', '--format=sarif-latest', '--output=results.json', 'dasho-samples-java-multidir', 'java-security-and-quality', "--threads=$Env:CODEQL_THREADS", '--ram=8192', '--compilation-cache-size=16384', "--compilation-cache=$Env:CODEQL_CACHE")
 
-    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-    #    and modify them (or add more) to build your code if your project
-    #    uses a compiled language
+    - name: Create a CodeQL database for 'multijar'
+      run: |
+       $dbname='dasho-samples-java-multijar';$multijarhome="$Env:GITHUB_WORKSPACE/java/multijar";$multijardb="$multijarhome/$dbname";cd $multijarhome;if(!(Test-Path -Path $multijardb)){& 'codeql' @('database', 'create', $dbname, '--language=java', "--threads=$Env:CODEQL_THREADS", '--ram=8192')}else{echo "CodeQL database '$dbname' already exists at '$multijardb'";}
 
-    - run: |
-       cd $(Build.Repository.LocalPath)\java\multidir
-       ant
+    - name: Analyze the CodeQL database for 'multijar'
+      run: |
+       cd $Env:GITHUB_WORKSPACE/java/multijar
+       & 'codeql' @('database', 'analyze', '--format=sarif-latest', '--output=results.json', 'dasho-samples-java-multijar', 'java-security-and-quality', "--threads=$Env:CODEQL_THREADS", '--ram=8192', '--compilation-cache-size=16384', "--compilation-cache=$Env:CODEQL_CACHE")
 
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+    - name: Create a CodeQL database for 'simpleapp'
+      run: |
+       $dbname='dasho-samples-java-simpleapp';$simpleapphome="$Env:GITHUB_WORKSPACE/java/simpleapp";$simpleappdb="$simpleapphome/$dbname";cd $simpleapphome;if(!(Test-Path -Path $simpleappdb)){& 'codeql' @('database', 'create', $dbname, '--language=java', "--threads=$Env:CODEQL_THREADS", '--ram=8192')}else{echo "CodeQL database '$dbname' already exists at '$simpleappdb'";}
+
+    - name: Analyze the CodeQL database for 'simpleapp'
+      run: |
+       cd $Env:GITHUB_WORKSPACE/java/simpleapp
+       & 'codeql' @('database', 'analyze', '--format=sarif-latest', '--output=results.json', 'dasho-samples-java-simpleapp', 'java-security-and-quality', "--threads=$Env:CODEQL_THREADS", '--ram=8192', '--compilation-cache-size=16384', "--compilation-cache=$Env:CODEQL_CACHE")
+
+
+# Todo: analyze SpringBoot and SpringBean
