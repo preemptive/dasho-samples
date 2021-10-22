@@ -35,9 +35,20 @@ These istructions will guide you through the process of creating the project usi
     * Choose `Web`.
     * Click `Next` and choose `./target/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war`.
     * Click `Next` and skip choosing the annotation entry points.
-    * Clickclick `Finish` and wait for the war to be extracted into `./target/dasho/.unwar/`.
+    * Clickclick `Finish`.
 2. Go to the Output section.
     *   Choose Destination `WAR`.
 3. Build the project. (Make sure you do not have any errors and that `./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war` is created.)
 4. Run obfuscated war `java -jar ./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war`.
     * Then open http://locahost:8080
+## Application
+1. http://localhost:8080/persons
+	* method: get -> List all persons
+	* method: post-> save person detail
+2. http://localhost:8080/persons/{id}
+	* method: get -> display person details given id
+	* method: put -> update person details if given id exist
+	* method: delete -> delete person details of given id
+	
+## Automated Tests
+	mvn test -Dtest=com.dasho.springbootstarterdatajpa.SpringBootStarterDataJpaApplicationTests
