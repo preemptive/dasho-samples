@@ -18,22 +18,22 @@ public class PersonRestController {
     @Autowired
     private PersonDao repository;
 
-    @GetMapping("/rest")
+    @GetMapping("/persons")
     public Iterable<Person> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/rest")
+    @PostMapping("/persons")
     public Person create(@RequestBody Person newPerson) {
         return repository.save(newPerson);
     }
 
-    @GetMapping("/rest/{id}")
+    @GetMapping("/persons/{id}")
     public Person get(@PathVariable Long id) {
         return repository.findById(id).orElseThrow(() -> new PersonNotFoundException(id));
     }
 
-    @PutMapping("/rest/{id}")
+    @PutMapping("/persons/{id}")
     public Person put(@RequestBody Person existingPerson, @PathVariable Long id) {
         return repository.findById(id).map(person -> {
             person.setFirstName(existingPerson.getFirstName());
@@ -42,7 +42,7 @@ public class PersonRestController {
         }).orElseThrow(() -> new PersonNotFoundException(id));
     }
 
-    @DeleteMapping("/rest/{id}")
+    @DeleteMapping("/persons/{id}")
     public void delete(@PathVariable Long id) {
         repository.deleteById(id);
     }
