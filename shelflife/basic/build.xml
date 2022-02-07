@@ -4,14 +4,24 @@
     <property name="dasho.home" value="${env.DASHO_HOME}" />
 
     <target name="-pre-check">
-        <fail message="Setup is incomplete. See README for instructions.">
+        <fail message="Setup is incomplete. See README for instructions. Missing '${dasho.home}/DashOPro.jar'">
             <condition>
                 <not>
-                    <and>
                         <available file="${dasho.home}/DashOPro.jar" />
+                </not>
+            </condition>
+        </fail>
+        <fail message="Setup is incomplete. See README for instructions. Missing '../sample.slkey'">
+            <condition>
+                <not>
                         <available file="../sample.slkey" />
+                </not>
+            </condition>
+        </fail>
+        <fail message="Setup is incomplete. See README for instructions.. Missing '${env.JDK_HOME}'">
+            <condition>
+                <not>
                         <available file="${env.JDK_HOME}" />
-                    </and>
                 </not>
             </condition>
         </fail>
