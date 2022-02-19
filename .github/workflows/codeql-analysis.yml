@@ -1,0 +1,68 @@
+name: "CodeQL"
+
+on:
+  # Allow to run manually
+  workflow_dispatch:
+    branches: [ master ]
+  # Allow to run on "push"
+  push:
+    branches: [ master ]
+  # Allow to run on a pull request
+  pull_request:
+    branches: [ master ]
+#  schedule:
+#    - cron: '20 10 * * 2'
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: dasho-samples-self-hosted
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'java' ]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Initialize CodeQL
+      run: |
+       cd $Env:CODEQL_HOME
+       cd ../queries
+       & 'git' @('pull')
+
+    - name: Create a CodeQL database for 'multidir'
+      run: |
+       $dbname='dasho-samples-java-multidir';$multidirhome="$Env:GITHUB_WORKSPACE/java/multidir";$multidirdb="$multidirhome/$dbname";cd $multidirhome;if(!(Test-Path -Path $multidirdb)){& 'codeql' @('database', 'create', $dbname, '--language=java', "--threads=$Env:CODEQL_THREADS", '--ram=8192')}else{echo "CodeQL database '$dbname' already exists at '$multidirdb'";}
+
+    - name: Analyze the CodeQL database for 'multidir'
+      run: |
+       cd $Env:GITHUB_WORKSPACE/java/multidir
+       & 'codeql' @('database', 'analyze', '--format=sarif-latest', '--output=results.json', 'dasho-samples-java-multidir', 'java-security-and-quality', "--threads=$Env:CODEQL_THREADS", '--ram=8192', '--compilation-cache-size=16384', "--compilation-cache=$Env:CODEQL_CACHE")
+
+    - name: Create a CodeQL database for 'multijar'
+      run: |
+       $dbname='dasho-samples-java-multijar';$multijarhome="$Env:GITHUB_WORKSPACE/java/multijar";$multijardb="$multijarhome/$dbname";cd $multijarhome;if(!(Test-Path -Path $multijardb)){& 'codeql' @('database', 'create', $dbname, '--language=java', "--threads=$Env:CODEQL_THREADS", '--ram=8192')}else{echo "CodeQL database '$dbname' already exists at '$multijardb'";}
+
+    - name: Analyze the CodeQL database for 'multijar'
+      run: |
+       cd $Env:GITHUB_WORKSPACE/java/multijar
+       & 'codeql' @('database', 'analyze', '--format=sarif-latest', '--output=results.json', 'dasho-samples-java-multijar', 'java-security-and-quality', "--threads=$Env:CODEQL_THREADS", '--ram=8192', '--compilation-cache-size=16384', "--compilation-cache=$Env:CODEQL_CACHE")
+
+    - name: Create a CodeQL database for 'simpleapp'
+      run: |
+       $dbname='dasho-samples-java-simpleapp';$simpleapphome="$Env:GITHUB_WORKSPACE/java/simpleapp";$simpleappdb="$simpleapphome/$dbname";cd $simpleapphome;if(!(Test-Path -Path $simpleappdb)){& 'codeql' @('database', 'create', $dbname, '--language=java', "--threads=$Env:CODEQL_THREADS", '--ram=8192')}else{echo "CodeQL database '$dbname' already exists at '$simpleappdb'";}
+
+    - name: Analyze the CodeQL database for 'simpleapp'
+      run: |
+       cd $Env:GITHUB_WORKSPACE/java/simpleapp
+       & 'codeql' @('database', 'analyze', '--format=sarif-latest', '--output=results.json', 'dasho-samples-java-simpleapp', 'java-security-and-quality', "--threads=$Env:CODEQL_THREADS", '--ram=8192', '--compilation-cache-size=16384', "--compilation-cache=$Env:CODEQL_CACHE")
+
+
+# Todo: analyze SpringBoot and SpringBean
