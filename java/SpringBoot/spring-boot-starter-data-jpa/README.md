@@ -38,8 +38,8 @@ These istructions will guide you through the process of creating the project usi
     * Clickclick `Finish`.
 2. Go to the Output section.
     *   Choose Destination `WAR`.
-3. Build the project. (Make sure you do not have any errors and that `./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war` is created.)
-4. Run obfuscated war `java -jar ./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war`.
+3. Build the project. (Make sure you do not have any errors and that `./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT-obfuscated.war` is created.)
+4. Run obfuscated war `java -jar ./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT-obfuscated.war`.
     * Then open http://locahost:8080
 ## Application
 1. http://localhost:8080/persons
