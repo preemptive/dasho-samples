@@ -51,4 +51,4 @@ These istructions will guide you through the process of creating the project usi
 	* method: delete -> delete person details of given id
 	
 ## Automated Tests
-	mvn test -Dtest=com.dasho.springbootstarterdatajpa.SpringBootStarterDataJpaApplicationTests
+* Run `./mvnw test -Dtest=com.dasho.springbootstarterdatajpa.SpringBootStarterDataJpaApplicationTests`
