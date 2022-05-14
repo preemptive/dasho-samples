@@ -7,9 +7,6 @@ on:
   # Allow to run on "push"
   push:
     branches: [ master ]
-  # Allow to run on a pull request
-  pull_request:
-    branches: [ master ]
 #  schedule:
 #    - cron: '20 10 * * 2'
 
