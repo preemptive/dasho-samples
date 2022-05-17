@@ -28,14 +28,14 @@ obfuscated with DashO, and then both the original and obfuscated versions of the
 * Run `java -jar ./target/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war`
 
 ## Obfuscating
-These istructions will guide you through the process of creating the project using DashO's New Project Wizard.
+These instructions will guide you through the process of creating the project using DashO's New Project Wizard.
 
 1. Start DashO and run the New Project Wizard.
     * Click `Next`.
     * Choose `Web`.
     * Click `Next` and choose `./target/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT.war`.
     * Click `Next` and skip choosing the annotation entry points.
-    * Clickclick `Finish`.
+    * Click `Finish`.
 2. Go to the Output section.
     *   Choose Destination `WAR`.
 3. Build the project. (Make sure you do not have any errors and that `./target/dasho/spring-boot-starter-data-jpa-0.0.1-SNAPSHOT-obfuscated.war` is created.)
