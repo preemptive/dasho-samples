@@ -4,37 +4,48 @@
         <property name="projectname" value="modJavaDemo"/>
         <property name="PROVISIONAL_MODULE_SUPPORT" value="true"/>
     </propertylist>
+
     <global>
         <option>FORNAMEDETECTION</option>
         <option>FORCE</option>
     </global>
+
     <inputpath>
         <pathelement location="classes"/>
     </inputpath>
+
     <classpath JDKHome="C:\Program Files\Eclipse Adoptium\jdk-11.0.18.10-hotspot" useJDKHome="true"/>
+
     <entrypoints>
         <classes name="com.control.Welcome" rename="false" selects-class="true">
             <method name="main" signature="java.lang.String[]"/>
         </classes>
     </entrypoints>
+
     <report path="${projectname}-report.txt"/>
+
     <output>
         <dir path="obfuscated"/>
     </output>
+
     <removal classes="unused" members="unused">
         <debug/>
         <attributes/>
     </removal>
+
     <renaming option="on" renameAnnotations="off">
         <mapping>
             <mapreport path="${projectname}-mapreport.txt"/>
             <mapoutput overwrite="true" path="${projectname}.map"/>
         </mapping>
     </renaming>
+
     <optimization option="on"/>
     <controlflow option="on"/>
+
     <stringencrypt option="on">
         <seOutput path="${projectname}-se.map"/>
     </stringencrypt>
+
     <injection/>
 </dasho>
