@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dasho version="11.3.0">
     <propertylist>
-        <property name="projectname" value="modJavaDemo"/>
+        <property name="projectname" value="multimod"/>
         <property name="PROVISIONAL_MODULE_SUPPORT" value="true"/>
     </propertylist>
 
