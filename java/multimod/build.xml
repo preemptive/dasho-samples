@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="modJavaDemo" default="all" basedir=".">
+<project name="multimod" default="all" basedir=".">
     <property environment="env"/>
     <property name="dasho.home" value="${env.DASHO_HOME}"/>
 
@@ -11,7 +11,7 @@
         <fail message="DASHO_HOME is not configured. See README for instructions.">
             <condition>
                 <not>
-                    <available file="${dasho.home}/DashOPro.jar"/>
+                    <available file="${dasho.home}/app/DashOPro.jar"/>
                 </not>
             </condition>
         </fail>
@@ -30,7 +30,7 @@
     </target>
 
     <target name="dasho" depends="-pre-check">
-        <java jvm="${env.JAVA_HOME}/bin/java" fork="true" classname="DashOPro" classpath="${dasho.home}/DashOPro.jar"
+        <java jvm="${env.JAVA_HOME}/bin/java" fork="true" classname="DashOPro" classpath="${dasho.home}/app/DashOPro.jar"
               failonerror="true">
             <jvmarg value="-Djava.awt.headless=true"/>
             <arg value="-v"/>
@@ -39,7 +39,7 @@
     </target>
 
     <target name="run">
-        <java jvm="${env.JAVA_HOME}/bin/java" fork="true" classname="dasho.samples.HelloWorld" classpath="obfuscated"
+        <java jvm="${env.JAVA_HOME}/bin/java" fork="true" classname="controller/src/com/control/Welcome.java" classpath="obfuscated"
               failonerror="true">
             <arg value="World"/>
         </java>
