@@ -8,7 +8,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:7.4.1'
         //classpath 'com.preemptive.dasho:dasho-android:1.5.+'
-        classpath files("/Users/branflake2267/git/DashO-Android-Gradle/build/libs/dasho-android-1.5.0.9999+a61391a.jar")
     }
 }
 
