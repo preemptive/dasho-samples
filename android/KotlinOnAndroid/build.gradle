@@ -1,0 +1,26 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+        maven {
+            url "https://maven.preemptive.com/"
+        }
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:7.4.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
+        //classpath("com.preemptive.dasho:dasho-android:1.5.+")
+        classpath(files("/Users/branflake2267/git/DashO-Android-Gradle/build/libs/dasho-android-1.5.0.9999+a61391a.jar"))
+    }
+}
+
+plugins {
+    id 'com.android.application' version '7.4.1' apply false
+    id 'com.android.library' version '7.4.1' apply false
+    id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+}
+
+
+
