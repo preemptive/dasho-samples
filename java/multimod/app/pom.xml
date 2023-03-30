@@ -1,0 +1,15 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.example.sample</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+
+  <groupId>com.example.sample</groupId>
+  <artifactId>app</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
+
+</project>
