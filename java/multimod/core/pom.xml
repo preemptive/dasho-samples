@@ -11,5 +11,10 @@
   <artifactId>core</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
+
+  <properties>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+  </properties>
   
 </project>
