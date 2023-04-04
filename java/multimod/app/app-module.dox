@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <dasho version="11.3.0">
+    <propertylist>
+        <property name="MODULE_EXPORTS_DETECTION" value="true"/>
+        <property name="name" value="value"/>
+    </propertylist>
     <global>
         <option>IGNORENOTFOUNDCLASSES</option>
         <option>FORNAMEDETECTION</option>
