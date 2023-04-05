@@ -13,10 +13,10 @@ First build the project.
 * Run `mvn install`
 
 
-## Open DashOGUI
-Open up the PreEmptive DashOGUI application.
+## Open DashO GUI
+Open up the PreEmptive DashO GUI application.
 
-* Open up the DashOGUI
+* Open up the DashO GUI
 
 * Compile the App Module
 * Open up `./app/app-module.dox`
