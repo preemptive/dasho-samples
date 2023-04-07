@@ -1,13 +1,13 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         maven { url 'https://maven.preemptive.com/' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.1'
-        classpath 'com.preemptive.dasho:dasho-android:1.4.+'
+        classpath 'com.android.tools.build:gradle:7.4.1'
+        //classpath 'com.preemptive.dasho:dasho-android:1.5.+'
     }
 }
 
@@ -22,16 +22,16 @@ android{buildTypes{debug{minifyEnabled true}}}
 android{buildTypes{release{minifyEnabled true}}}
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility 11
+        targetCompatibility 11
     }
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
@@ -63,5 +63,5 @@ android {
 
 repositories {
     google()
-    jcenter()
+    mavenCentral()
 }
