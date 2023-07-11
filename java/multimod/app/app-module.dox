@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dasho version="11.3.0">
+    <propertylist>
+        <property name="MODULE_EXPORTS_DETECTION" value="true"/>
+        <property name="name" value="value"/>
+    </propertylist>
+    <global>
+        <option>IGNORENOTFOUNDCLASSES</option>
+        <option>FORNAMEDETECTION</option>
+        <option>FORCE</option>
+    </global>
+    <inputpath>
+        <pathelement location="target/app-1.0.0.jar"/>
+    </inputpath>
+    <classpath JDKHome="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home" useJDKHome="true">
+        <pathelement location="../core/target/core-1.0.0.jar"/>
+    </classpath>
+    <report path="${dasho.project}-report.txt"/>
+    <output merge="false">
+        <dir path="target/obfuscated"/>
+    </output>
+    <removal classes="unused" members="unused-non-public">
+        <debug/>
+        <attributes/>
+    </removal>
+    <renaming option="on" renameAnnotations="off">
+        <class-options keeppackages="true"/>
+        <member-options keeppublics="true"/>
+        <mapping>
+            <mapreport path="${dasho.project}-mapreport.txt"/>
+            <mapoutput overwrite="true" path="${dasho.project}.map"/>
+        </mapping>
+    </renaming>
+    <optimization option="on"/>
+    <controlflow option="on" tryCatch="on"/>
+    <stringencrypt implementations="2" level="2" option="on">
+        <seOutput path="${dasho.project}-se.map"/>
+    </stringencrypt>
+    <make-synthetic value="private"/>
+</dasho>
