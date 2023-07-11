@@ -14,12 +14,14 @@ import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
+import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -28,6 +30,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.dasho.springbootstarterdatajpa.entity.Person;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 class SpringBootStarterDataJpaApplicationTests {
@@ -74,14 +77,15 @@ class SpringBootStarterDataJpaApplicationTests {
     @Test
     @Order(2) 
     void getAllPersons() throws Exception {
-        mvc.perform(get("/rest").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/persons").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[2].lastName", is(persons.get(2).getLastName())));
     }
 
     @Order(3) 
     void createPerson() throws Exception {
-        mvc.perform(post("/rest")
+
+        mvc.perform(post("/persons")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{ \"firstName\": \"Someone\", \"lastName\": \"Else\" }") 
                 .accept(MediaType.APPLICATION_JSON))
@@ -92,7 +96,7 @@ class SpringBootStarterDataJpaApplicationTests {
     @Test
     @Order(4) 
     void getPerson() throws Exception {
-        mvc.perform(get("/rest/1").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(get("/persons/1").contentType(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.lastName", is(persons.get(0).getLastName())));
     }
@@ -101,7 +105,8 @@ class SpringBootStarterDataJpaApplicationTests {
     @Test
     @Order(5) 
     void updatePerson() throws Exception {
-        mvc.perform(put("/rest/1").contentType(MediaType.APPLICATION_JSON)
+
+        mvc.perform(put("/persons/1").contentType(MediaType.APPLICATION_JSON)
                 .content("{ \"firstName\": \"Someone\", \"lastName\": \"Else\" }").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andExpect(jsonPath("$.firstName").value("Someone"));
     }
@@ -109,7 +114,7 @@ class SpringBootStarterDataJpaApplicationTests {
     @Test
     @Order(6) 
     void deletePerson() throws Exception {
-        mvc.perform(delete("/rest/1").contentType(MediaType.APPLICATION_JSON))
+        mvc.perform(delete("/persons/1").contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
