@@ -2,8 +2,8 @@
 
 ## Basic Requirements
 
-* Java™ 1.8
-* Android™ 11.0 (api 30) SDK platform
+* Java™ 11 or later
+* Android™ 13.0 (api level 33) SDK platform
 
 >**Note:** The Android-specific requirements can be changed by editing the `build.gradle` file of the particular sample.
 

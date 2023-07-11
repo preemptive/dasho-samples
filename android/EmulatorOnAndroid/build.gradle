@@ -6,7 +6,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.1'
+        classpath 'com.android.tools.build:gradle:7.4.+'
         classpath 'com.preemptive.dasho:dasho-android:1.5.+'
     }
 }
@@ -22,8 +22,8 @@ android {
     compileSdkVersion 33
 
     compileOptions {
-        sourceCompatibility 11
-        targetCompatibility 11
+        sourceCompatibility 8
+        targetCompatibility 8
     }
 
     defaultConfig {
