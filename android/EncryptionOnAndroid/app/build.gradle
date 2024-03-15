@@ -2,17 +2,19 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.preemptive.dasho.android'
 
 android {
-    compileSdkVersion 33
+    compileSdkVersion 34
 
     compileOptions {
-        sourceCompatibility 8
-        targetCompatibility 8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
+
+    namespace 'com.dasho.android.encryption'
 
     defaultConfig {
         applicationId "com.dasho.android.encryption"
         minSdkVersion 17
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
     }
@@ -25,14 +27,27 @@ android {
         }
     }
 
+    buildFeatures {
+        aidl true
+    }
+
     buildTypes {
         release {
             minifyEnabled true
             signingConfig signingConfigs.release
+        }
+
+        debug {
+            minifyEnabled true
         }
     }
 }
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.+'
+}
+
+dasho {
+    debug true
+    verbose true
 }
