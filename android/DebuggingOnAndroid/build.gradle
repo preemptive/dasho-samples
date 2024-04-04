@@ -6,32 +6,31 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.4.+'
-        classpath 'com.preemptive.dasho:dasho-android:1.5.+'
+        classpath "com.android.tools.build:gradle:8.2.2"
+        classpath 'com.preemptive.dasho:dasho-android:1.5.7'
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.preemptive.dasho.android'
 
-dasho {
-    enabledBuildVariants "" // blank matches any variant (debug or release)
-}
 
 android{buildTypes{debug{minifyEnabled true}}}
 android{buildTypes{release{minifyEnabled true}}}
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
 
     compileOptions {
-        sourceCompatibility 8
-        targetCompatibility 8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
+    namespace 'com.dasho.android.debug'
+
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 33
+        minSdk 16
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
@@ -45,9 +44,18 @@ android {
         }
     }
 
+    buildFeatures {
+        aidl true
+    }
+
     buildTypes {
         release {
             signingConfig signingConfigs.release
+            minifyEnabled true
+        }
+
+        debug {
+            minifyEnabled true
         }
     }
 }
@@ -55,4 +63,9 @@ android {
 repositories {
     google()
     mavenCentral()
+}
+
+dasho {
+    debug true
+    verbose true
 }
