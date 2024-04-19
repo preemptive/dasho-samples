@@ -12,7 +12,7 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:8.2.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.23")
-        classpath("com.preemptive.dasho:dasho-android:1.5.5")
+        classpath("com.preemptive.dasho:dasho-android:1.5.7")
     }
 }
 
