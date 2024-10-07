@@ -74,8 +74,8 @@ android {
 dasho {
     debug true
     verbose true
+    home = "/Users/branflake2267/git/preemptive-repos/DashO/dasho/dist/DashO"
 }
-
 repositories {
     google()
     mavenCentral()

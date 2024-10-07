@@ -10,6 +10,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -62,12 +63,15 @@ public class MainActivity extends Activity {
      * @param clazz The activity to launch
      */
     public void toastAndLaunch(Class<?> clazz) {
+        Log.v("DASHO", "~~~ toastAndLaunch(class) ~~~~");
         if (!ApplicationLogic.wasDashOUsed()) {
             toast("DashO was not used.");
         } else if (!ApplicationLogic.wasRenamingApplied()) {
             toast("DashO was used, but R8 was not used.");
         } else if (initializedLogic) {
             toast("Hooking was detected.");
+        } else {
+            toast("Hooking was not detected. DashO used=" + ApplicationLogic.wasDashOUsed() + " initializedLogic=" + initializedLogic);
         }
         startActivity(new Intent(getApplicationContext(), clazz));
     }

@@ -6,6 +6,7 @@
 package com.dasho.android.hook.other;
 
 import android.content.Context;
+import android.util.Log;
 
 /**
  * This class could contain some business logic.
@@ -30,6 +31,7 @@ public class ApplicationLogic {
      * @return A variable which will ultimately be set by the hook detection.
      */
     public boolean someApplicationLogic() {
+        Log.v("DASHO", "~~~ someApplicationLogic() myBoolean=" + myBoolean + " ~~~~");
         return myBoolean;
     }
 
@@ -39,6 +41,7 @@ public class ApplicationLogic {
      */
     @SuppressWarnings({"unused", "RedundantSuppression"}) //Used by the check
     private void setupVars(boolean triggered) {
+        Log.v("DASHO", "~~~ setupVars(triggered) triggered=" + triggered + " ~~~~");
         dashOWasUsed = true;
         myBoolean = triggered;
     }

@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:8.2.2"
+        classpath 'com.android.tools.build:gradle:8.5.2'
         classpath 'com.preemptive.dasho:dasho-android:1.5.7'
     }
 }
@@ -32,22 +32,6 @@ android {
 }
 
 android {
-    compileSdkVersion 34
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
-    }
-
-    namespace 'com.dasho.android.root'
-
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 34
-        versionCode 1
-        versionName "1.0"
-    }
-
     signingConfigs {
         release {
             storeFile file("keystore.ks")
@@ -56,11 +40,6 @@ android {
             keyPassword "password"
         }
     }
-
-    buildFeatures {
-        aidl true
-    }
-
     buildTypes {
         release {
             signingConfig signingConfigs.release
@@ -71,14 +50,40 @@ android {
             minifyEnabled true
         }
     }
+
+
+    buildFeatures {
+        aidl true
+    }
+
+    compileSdk 34
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    namespace 'com.dasho.android.root'
+    defaultConfig {
+        minSdkVersion 29
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+    }
+
+    dependencies {
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+    }
 }
 
 dasho {
     debug true
     verbose true
+    //home = "/Users/branflake2267/git/preemptive-repos/DashO/dasho/dist/DashO" // source
+    home = "/Applications/PreEmptive Protection DashO 12.4.app/Contents/app" // 12.4
+    //home = "/Applications/PreEmptive Protection DashO 12.3.app/Contents/Java"
 }
 
 repositories {
     google()
     mavenCentral()
+
 }
