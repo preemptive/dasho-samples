@@ -1,0 +1,38 @@
+<project name="HelloNewStringEncryption" default="run" basedir=".">
+    <!-- Define directories for source, build, and output -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="jar.dir" value="dist"/>
+    <property name="jar.name" value="HNewStringE.jar"/>
+
+    <!-- Initialize the build directory -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${jar.dir}"/>
+    </target>
+
+    <!-- Compile the Java source files -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+    </target>
+
+    <!-- JAR task -->
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${jar.name}" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="org.example.Main"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Run the compiled Java program -->
+    <target name="run" depends="compile">
+        <java classname="org.example.Main" fork="true">
+            <classpath>
+                <pathelement path="${build.dir}"/>
+            </classpath>
+        </java>
+    </target>
+</project>
