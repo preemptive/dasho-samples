@@ -2,10 +2,8 @@ package com.DashO.app.Main;
 
 import com.DashO.app.JEP_430.JEP_430_String_Templates;
 import com.DashO.app.JEP_431.JEP_431_Sequenced_Collections;
-import com.DashO.app.JEP_440.JEP_440_Record_Patterns;
 import com.DashO.app.JEP_441.JEP_441_Pattern_Matching;
 import com.DashO.app.JEP_442.JEP_442_Foreign_Function_Memory_API;
-import com.DashO.app.JEP_443.JEP_443_Unnamed_Patterns_And_Variables;
 import com.DashO.app.JEP_444.JEP_444_Virtual_Threads;
 import com.DashO.app.JEP_446.JEP_446_Scoped_Value;
 import com.DashO.app.JEP_448.JEP_448_Vector_API;
@@ -33,12 +31,6 @@ public class Main {
             System.out.println("\n################################################################\n");
             ////////////////////////////////////////////////////////////////
 
-            //JEP_440
-            System.out.println("\nJEP440: Record_Patterns :\n");
-            JEP_440_Record_Patterns.JEP440_Method_Call();
-            System.out.println("\n################################################################\n");
-            ////////////////////////////////////////////////////////////////
-
             //JEP_441
             System.out.println("\nJEP441: Switch Pattern Matching :\n");
             JEP_441_Pattern_Matching.JEP_441_Method_Call();
@@ -48,12 +40,6 @@ public class Main {
             //JEP_442
             System.out.println("\nJEP442: Foreign Function & Memory API : \n");
             System.out.println(JEP_442_Foreign_Function_Memory_API.JEP442());
-            System.out.println("\n################################################################\n");
-            ////////////////////////////////////////////////////////////////
-
-            //JEP_443
-            System.out.println("\nJEP_443_Unnamed_Patterns_Variables : \n");
-            JEP_443_Unnamed_Patterns_And_Variables.JEP_443_Unnamed_Patterns_And_Variable();
             System.out.println("\n################################################################\n");
             ////////////////////////////////////////////////////////////////
 
@@ -122,14 +108,6 @@ public class Main {
                 break;
             ////////////////////////////////////////////////////////////////
 
-            case "JEP440":
-                //JEP_440
-                System.out.println("\nJEP440: Record_Patterns :\n");
-                JEP_440_Record_Patterns.JEP440_Method_Call();
-                System.out.println("\n################################################################\n");
-                break;
-            ////////////////////////////////////////////////////////////////
-
             case "JEP441":
                 //JEP_441
                 System.out.println("\nJEP441: Switch Pattern Matching :\n");
@@ -143,14 +121,6 @@ public class Main {
                 //JEP_442
                 System.out.println("\nJEP442: Foreign Function & Memory API : \n");
                 System.out.println(JEP_442_Foreign_Function_Memory_API.JEP442());
-                System.out.println("\n################################################################\n");
-                break;
-            ////////////////////////////////////////////////////////////////
-
-            case "JEP443":
-                //JEP_443
-                System.out.println("\nJEP_443_Unnamed_Patterns_Variables : \n");
-                JEP_443_Unnamed_Patterns_And_Variables.JEP_443_Unnamed_Patterns_And_Variable();
                 System.out.println("\n################################################################\n");
                 break;
             ////////////////////////////////////////////////////////////////
