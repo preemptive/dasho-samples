@@ -21,6 +21,8 @@ Feel free to reconfigure the probability and/or responses of the `HookResponse` 
 
 This sample includes a keystore, `keystore.ks`, that is used to sign the release build.
 
+#### Note: To ensure that the `HookCheck` and `HookResponse` features work correctly, please disable obfuscation in the build.gradle file
+
 ## Setup
 
 See the main [README](../README.md) for the requirements.
