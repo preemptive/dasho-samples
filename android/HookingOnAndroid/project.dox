@@ -8,17 +8,17 @@
     <injection>
         <runtime merge="false" target="android"/>
         <checks>
-            <hookCheck action="setupVars()">
+            <hookCheck action="initializedLogic" response="exit">
                 <locations>
-                    <classes name="com.dasho.android.hook.other.ApplicationLogic">
-                        <method name="someApplicationLogic" signature=""/>
+                    <classes name="com.dasho.android.hook.MainActivity">
+                        <method name="toastAndLaunch" signature="java.lang.Class"/>
                     </classes>
                 </locations>
             </hookCheck>
             <hookResponse probability="0.5" response="exit" source="com.dasho.android.hook.MainActivity.isInitialized()">
                 <locations>
-                    <classes name="com\.dasho\.android\.hook\.RandomGen.*" regex="true">
-                        <method name="findRnd" signature=".*"/>
+                    <classes name="com.dasho.android.hook.RandomGenActivity">
+                        <method name="findRnd" signature="int,int"/>
                     </classes>
                 </locations>
             </hookResponse>

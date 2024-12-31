@@ -7,7 +7,7 @@ Renaming Obfuscation and Removal are handled by [R8](https://r8-docs.preemptive.
 
 This sample is preconfigured with a single Hook Check and two Hook Responses.
 
-The `HookCheck` was placed on an internal method, `someApplicationLogic()`, called by the `MainActivity` class during startup.
+The `HookCheck` was placed on an internal method, `toastAndLaunch()`, called by the `MainActivity` class during startup.
 This method returns a boolean value that will be `true` if hooking is detected.
 The value from that method is returned by the static `MainActivity.isInitialized()` method that is used as the source for the `HookResponse` instances.
 
@@ -20,6 +20,8 @@ There is also a programmatic use of the boolean variable set by the `HookCheck` 
 Feel free to reconfigure the probability and/or responses of the `HookResponse` by editing them inside the `project.dox` file or via the DashO UI.
 
 This sample includes a keystore, `keystore.ks`, that is used to sign the release build.
+
+#### Note: To ensure that the `HookCheck` and `HookResponse` features work correctly, please disable obfuscation in the build.gradle file
 
 ## Setup
 
@@ -51,10 +53,9 @@ You will notice it does not behave as expected; random errors occur during use.
 
 For testing you can use [Frida](https://frida.re).
 Follow the [Android instructions](https://frida.re/docs/android/) to setup Frida on your device and computer.
-Run `frida --no-pause -U -f com.dasho.android.hook`
+Run `frida --no-pause -U -f com.dasho.android.hook` or 
+frida -U -f com.dasho.android.hook -l path-to-the-script/name-of-the-script.js to inject.
 
->**Note:** This is a contrived example where certain protection features of DashO have purposefully turned off for ease of demonstration.
->In a real scenario, those other protections would make it much more difficult to even begin to use hooking.
 
 ## How to Add Hook Checking to Your Android Application
 
